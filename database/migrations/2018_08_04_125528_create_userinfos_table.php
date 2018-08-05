@@ -17,7 +17,7 @@ class CreateUserinfosTable extends Migration
             $table->increments('id');
             $table->integer('user_id');
             $table->string('username');
-            $table->bigInteger('balance');
+            $table->bigInteger('balance')->default(0);
             $table->timestamps();
         });
     }

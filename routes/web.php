@@ -20,14 +20,18 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     if(Auth::check()) {
-        return redirect(route('home'));
+        return redirect()->route('home');
     } else {
         return view('welcome');
     }
 
-});
+})->name('/');
 
 Auth::routes();
+
+Route::get('/test', function (){
+    return view('auth.newLogin');
+})->name('test');
 
 Route::get('/home', 'HomeController@index')->name('home');
 
@@ -44,7 +48,7 @@ Route::get('/enterdata/{username}', function ($username) {
 
 });
 
-Route::get('/sendMail', ['middleware'=>'auth' ,function (){
+Route::get('/sendMail', ['as'=>'mail', 'middleware'=>'auth' ,function (){
 
     $user = Auth::user();
     if(isset($user))
@@ -53,9 +57,9 @@ Route::get('/sendMail', ['middleware'=>'auth' ,function (){
     $data = [
         'title'=>'Can you see me?',
         'user' => $user,
-        'sender' => 'TKD'
+        'sender' => 'TKD from connectapp'
     ];
     Mail::send('mails.test', $data, function ($message) {
-        $message->to('tanmoykrishnadas@gmail.com', 'Tanmoy')->subject('dekhi jay kina')->from('postmaster@sandbox234dd4e99ea04b3a8ccf41e56026b8b2.mailgun.org', "Tanmoytkd");
+        $message->to('tanmoykrishnadas@gmail.com', 'Tanmoy')->subject('dekhi jay kina')->from('postmaster@mail.connectapp.ml', "Tanmoytkd");
     });
 }]);

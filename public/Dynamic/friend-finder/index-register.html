@@ -1,26 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
-	
-<!-- Mirrored from thunder-team.com/friend-finder/index-register.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 22 Jul 2018 07:08:41 GMT -->
+
 <head>
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta name="description" content="This is social network html5 template available in themeforest......" />
 		<meta name="keywords" content="Social Network, Social Media, Make Friends, Newsfeed, Profile Page" />
 		<meta name="robots" content="index, follow" />
-		<title>Friend Finder | A Complete Social Network Template</title>
+		<title>{{ config('app.name', 'Connect') }}</title>
 
     <!-- Stylesheets
     ================================================= -->
 		<link rel="stylesheet" href="css/bootstrap.min.css" />
-		<link rel="stylesheet" href="css/style.css" />
+		<link rel="stylesheet" href="css/loginstyle.css" />
 		<link rel="stylesheet" href="css/ionicons.min.css" />
     <link rel="stylesheet" href="css/font-awesome.min.css" />
     
     <!--Google Font-->
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,400i,700,700i" rel="stylesheet">
 	 <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Montserrat:300,400,500,700" rel="stylesheet">
-    
+
     <!--Favicon-->
     <link rel="shortcut icon" type="image/png" href="images/fav.png"/>
 	</head>
@@ -33,8 +32,12 @@
         	<div class="col-sm-5">
             <div class="intro-texts">
             	<h1 class="text-white">Create, Collaborate,Innovate !!!</h1>
-            	<p style="color: white"> wqjrjfnljwfnjefwne ewhfbwhfbw oqjefowjfnwjlefnwej hefejqhfjefnejfn jenfejfnwekjfnwkejf. <br /> <br />Join us now!</p>
-              <button class="btn btn-primary">Learn More</button>
+            	<p style="color: white">
+                    We present you the idea of Ownership Shared Development (OSD) where developers get
+                    a partial ownership of that particular project and earn a portion of subsequent profit
+                    that project makes.
+                </p>
+              <a href="{{route('/')}}" class="btn btn-primary">Learn More</a>
             </div>
           </div>
         	<div class="col-sm-6 col-sm-offset-1">
@@ -47,6 +50,12 @@
                   <li><a href="#login" data-toggle="tab">Login</a></li>
                 </ul><!--Tabs End-->
               </div>
+
+                <div>
+                    @php
+                        echo Route::getFacadeRoot()->current()->uri();
+                    @endphp
+                </div>
               
               <!--Registration Form Contents-->
               <div class="tab-content">
@@ -438,7 +447,7 @@
                 </div><!--Registration Form Contents Ends-->
                 
                 <!--Login-->
-                <div class="tab-pane" id="login" style="text-align: center">
+                <div class="tab-pane " id="login" style="text-align: center">
                   <h3>Login</h3>
                   <p class="text-muted">Log in to your account</p>
                   
