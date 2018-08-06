@@ -43,7 +43,11 @@
                 <li class="menu-active"><a href="#intro">Home</a></li>
                 <li><a href="#about">About Us</a></li>
                 <li><a href="#services">Services</a></li>
-                <li><a href="{{route('login')}}">Sign In</a></li>
+                @guest
+                    <li><a href="{{route('login')}}">Sign In</a></li>
+                @else
+                    <li><a href="{{route('home')}}">Home</a></li>
+                @endGuest
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav><!-- #nav-menu-container -->
@@ -64,7 +68,11 @@
                         <div class="carousel-content">
                             <h2>Start building your new ideas</h2>
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                            <a href="{{route('register')}}" class="btn-get-started scrollto">Get Started</a>
+                            @guest
+                                <a href="{{route('register')}}" class="btn-get-started scrollto">Get Started</a>
+                            @else
+                                <a href="{{route('home')}}" class="btn-get-started scrollto">Get Started</a>
+                            @endguest
                         </div>
                     </div>
                 </div>

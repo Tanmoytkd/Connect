@@ -19,6 +19,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <script src="https://cloud.tinymce.com/stable/tinymce.min.js?apiKey=p1p9mmswl4ky9g4tc92i72m8ql0udlurva2jymfgfbfwztzv"></script>
 </head>
 <body>
     <div id="app">

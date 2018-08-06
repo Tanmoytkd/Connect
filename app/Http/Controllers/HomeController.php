@@ -25,4 +25,12 @@ class HomeController extends Controller
     {
         return view('home');
     }
+
+    public function checker() {
+        if(isset($_POST['postButton'])) {
+
+            return $_POST['inputData'];
+        }
+
+    }
 }

@@ -33,6 +33,11 @@ Route::get('/test', function (){
     return view('auth.newLogin');
 })->name('test');
 
+Route::post('contact_show', [
+    'uses' => 'HomeController@checker'
+])->middleware('auth');
+
+
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/enterdata/{username}', function ($username) {
