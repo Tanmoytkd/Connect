@@ -27,6 +27,8 @@ Route::get('/', function () {
 
 })->name('/');
 
+Route::post('/upload', 'UploadController@upload')->name('upload');
+
 Auth::routes();
 
 Route::get('/test', function (){

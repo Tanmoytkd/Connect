@@ -31,6 +31,5 @@ class HomeController extends Controller
 
             return $_POST['inputData'];
         }
-
     }
 }
