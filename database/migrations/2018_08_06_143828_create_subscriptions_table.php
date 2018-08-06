@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateUserinfosTable extends Migration
+class CreateSubscriptionsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,10 @@ class CreateUserinfosTable extends Migration
      */
     public function up()
     {
-        Schema::create('user_infos', function (Blueprint $table) {
+        Schema::create('subscriptions', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id');
-            $table->string('username')->unique();
-            $table->bigInteger('balance')->default(0);
-            $table->string('profile_pic_path')->default('images/propic.png');
+            $table->integer('subscriber_id');
+            $table->integer('section_id');
             $table->timestamps();
         });
     }
@@ -30,6 +28,6 @@ class CreateUserinfosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('user_infos');
+        Schema::dropIfExists('subscriptions');
     }
 }
