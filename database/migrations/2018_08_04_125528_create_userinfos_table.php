@@ -18,7 +18,7 @@ class CreateUserinfosTable extends Migration
             $table->integer('user_id');
             $table->string('username')->unique();
             $table->bigInteger('balance')->default(0);
-            $table->string('profile_pic_path')->default('images/propic.png');
+            $table->string('profile_pic_path')->default('images/propic-default.jpg');
             $table->timestamps();
         });
     }

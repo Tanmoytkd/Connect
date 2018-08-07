@@ -16,6 +16,9 @@ class CreateSectionsTable extends Migration
         Schema::create('sections', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('parent_id')->default(0);
+            $table->string('section_type');
+            $table->string('completion_status')->default('running');
+            $table->string('section_image_path');
             $table->string('name');
             $table->timestamps();
         });
