@@ -15,6 +15,11 @@ class CreateRequestsTable extends Migration
     {
         Schema::create('requests', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('request_type'); //join request or invitation
+            $table->integer('requester_id');
+            $table->integer('recepient_id');
+            $table->integer('section_id');
+            $table->text('contract');
             $table->timestamps();
         });
     }
