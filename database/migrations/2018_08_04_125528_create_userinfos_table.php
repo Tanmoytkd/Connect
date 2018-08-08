@@ -18,10 +18,11 @@ class CreateUserinfosTable extends Migration
             $table->integer('user_id');
             $table->string('username')->unique();
             $table->bigInteger('balance')->default(0);
-            $table->text('info');
-            $table->string('account_status');
+            $table->text('info')->nullable();
+            $table->string('account_status')->default('active');
             $table->string('profile_pic_path')->default('images/propic-default.jpg');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
