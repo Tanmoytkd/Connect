@@ -6,6 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Membership extends Model
 {
+
+    protected $fillable = [
+        'section_id',
+        'user_id',
+        'role_id'
+    ];
+
     public function user() {
         return $this->belongsTo('App\User', 'user_id', 'id');
     }

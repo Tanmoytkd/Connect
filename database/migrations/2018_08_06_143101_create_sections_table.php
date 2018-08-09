@@ -18,7 +18,7 @@ class CreateSectionsTable extends Migration
             $table->integer('parent_id')->default(0);
             $table->string('section_type');
             $table->string('completion_status')->default('running');
-            $table->string('section_image_path');
+            $table->string('section_image_path'); //TO-DO : add default
             $table->string('name');
             $table->timestamps();
         });
