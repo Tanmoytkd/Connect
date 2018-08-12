@@ -77,6 +77,7 @@ class RegisterController extends Controller
             $info->username = strtolower(preg_replace('/(?<!^)[A-Z]/', '_$0', str_replace(' ', '', $user->name)));
             $info->username = $info->username.'_'.$random1.'_'.$random2;
             $user->info()->save($info);
+            $user->createUserSection();
         }
 
         return $user;

@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Exception;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Notifications\Notifiable;
@@ -67,7 +68,7 @@ class User extends Authenticatable
         return $this->hasMany('App\Contract', 'contractor_id', 'id');
     }
 
-    public function likes() {
+    public function givenlikes() {
         return $this->hasMany('App\Like', 'user_id', 'id');
     }
 
@@ -127,5 +128,107 @@ class User extends Authenticatable
         return $this->allMessages()->where(function ($query) use ($userId) {
             $query->where('sender_id', $userId)->orWhere('receiver_id', $userId);
         })->latest()->skip($n-1)->first();
+    }
+
+    public function posts() {
+        return $this->hasMany('App\Post', 'user_id', 'id');
+    }
+
+    public function sentRequests() {
+        return $this->hasMany('App\Request', 'requester_id', 'id');
+    }
+
+    public function receivedRequests() {
+        return $this->hasMany('App\Request', 'recepient_id', 'id');
+    }
+
+    public function joinRequests() {
+        return $this->sentRequests()->where('request_type', 'join_request');
+    }
+
+    public function inviteRequests() {
+        return $this->receivedRequests()->where('request_type', 'invitations');
+    }
+
+    public function getProjects() {
+        return $this->memberships()->where('parent_id', 0)->get();
+    }
+
+    public function skills() {
+        return $this->belongsToMany('App\Skill');
+    }
+
+    public function subscriptions() {
+        return $this->belongsToMany('App\Section', 'subscriptions', 'subscriber_id', 'section_id');
+    }
+
+    public function getUserName() {
+        return $this->info->username;
+    }
+
+    public function createUserSection() {
+        $UserSection = new Section();
+        $UserSection->parent_id = 0;
+        $UserSection->section_type = 'user';
+        $UserSection->name = strval($this->id);
+        $UserSection->save();
+
+        $userInfo = $this->info;
+        $userInfo->section_id = $UserSection->id;
+        $userInfo->save();
+    }
+
+    public function getUserSection() {
+        $UserSection = Section::where('section_type', 'user')->where('name', strval($this->id))->get();
+        if($UserSection->isEmpty()) {
+            $this->createUserSection();
+            $UserSection = Section::where('section_type', 'user')->where('name', strval($this->id))->get();
+        }
+        return $UserSection->first();
+    }
+
+    public function depositMoney($amount) {
+        try {
+            $myInfo = $this->info;
+            $myInfo->balance = $myInfo->balance + $amount;
+            $myInfo->save();
+            return true;
+        } catch (\Exception $e) {
+            return false;
+        }
+    }
+
+    public function withdrawMoney($amount) {
+        try {
+            $myInfo = $this->info;
+            if($myInfo->balance >= $amount) {
+                $myInfo->balance = $myInfo->balance - $amount;
+            } else {
+                return false;
+            }
+            $myInfo->save();
+            return true;
+        } catch (Exception $e) {
+            return false;
+        }
+    }
+
+    public function sendMoney($userId, $amount) {
+        $receiver = User::findOrFail($userId);
+        try {
+            $myInfo = $this->info;
+            $receiverInfo = $receiver->info;
+            if($myInfo->balance >= $amount) {
+                $myInfo->balance = $myInfo->balance - $amount;
+                $receiverInfo->balance = $receiverInfo->balance + $amount;
+            } else {
+                return false;
+            }
+            $myInfo->save();
+            $receiverInfo->save();
+            return true;
+        } catch (\Exception $e) {
+            return false;
+        }
     }
 }

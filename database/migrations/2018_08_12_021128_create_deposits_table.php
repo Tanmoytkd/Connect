@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateRequestsTable extends Migration
+class CreateDepositsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,13 @@ class CreateRequestsTable extends Migration
      */
     public function up()
     {
-        Schema::create('requests', function (Blueprint $table) {
+        Schema::create('deposits', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('request_type'); //join request or invitation
-            $table->integer('requester_id');
-            $table->integer('recepient_id')->nullable();
-            $table->integer('section_id');
-            $table->text('contract');
+            $table->integer('user_id');
+            $table->double('amount');
+            $table->text('data')->nullable();
+            $table->string('status')->default('pending');
+            $table->integer('signer_id')->nullable();
             $table->timestamps();
         });
     }
@@ -31,6 +31,6 @@ class CreateRequestsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('requests');
+        Schema::dropIfExists('deposits');
     }
 }

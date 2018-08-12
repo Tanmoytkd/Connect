@@ -17,4 +17,12 @@ class userInfo extends Model
     public function user() {
         return $this->belongsTo('App\User');
     }
+
+    public function getBalanceAttribute($value) {
+        return $value / 1000.00;
+    }
+
+    public function setBalanceAttribute($value) {
+        $this->attributes['balance'] = $value*1000;
+    }
 }
