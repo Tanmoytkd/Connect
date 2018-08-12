@@ -25,5 +25,13 @@ class Post extends Model
         return $this->belongsTo('App\Section', 'section_id', 'id');
     }
 
+    public function commentCount() {
+        return $this->comments()->count();
+    }
+
+    public function likesCount() {
+        return $this->likes()->count();
+    }
+
 
 }
