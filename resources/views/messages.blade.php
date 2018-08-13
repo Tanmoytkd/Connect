@@ -30,13 +30,18 @@
 
                                         $activeSender = User::find($userId);
                                         $msg =  $user->getLastMessage($activeSender->id);
-                                        $msgContent = $msg->content;
+                                        if($msg!=null)
+                                            $msgContent = $msg->content;
+                                        else $msgContent = "";
                                         if(strlen($msgContent)>40) {
                                             $msgContent = trim(substr($msgContent, 0, 20)).'...';
                                         }
                                         $name = $activeSender->name;
                                         $profile_pic = asset($activeSender->info->profile_pic_path);
-                                        $timeText = Carbon::parse($msg->created_at);
+                                        if($msg!=null)
+                                            $timeText = Carbon::parse($msg->created_at);
+                                        else
+                                            $timeText = "";
 
                                         echo
                                         '<li class="active">
