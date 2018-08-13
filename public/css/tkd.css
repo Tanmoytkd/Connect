@@ -1,0 +1,166 @@
+/* =============== Connect Logo =============== */
+#logo-connect {
+
+}
+
+#logo-connect h1 {
+    display: inline-block;
+    float: left;
+    margin-top: 12px;
+    margin-right: 10px;
+}
+
+#logo-connect h1 a {
+    background-color: rgba(0, 0, 0, 0);
+    border-left-color: rgb(24, 210, 110);
+    border-left-style: solid;
+    border-left-width: 4px;
+    box-sizing: border-box;
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    display: inline;
+    font-family: Montserrat, sans-serif;
+    font-size: 32px;
+    font-weight: 700;
+    height: auto;
+    letter-spacing: 3px;
+    line-height: 34px;
+    padding-left: 10px;
+    text-align: left;
+    text-decoration-color: rgb(255, 255, 255);
+    text-decoration-line: none;
+    text-decoration-style: solid;
+    text-size-adjust: 100%;
+    touch-action: manipulation;
+    transition-delay: 0s;
+    transition-duration: 0.5s;
+    transition-property: all;
+    transition-timing-function: ease;
+    width: auto;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+#logo-connect h1 a img {
+
+}
+
+nav.main-navigation {
+    width: auto;
+    float: right;
+}
+
+.spacer {
+    height: 54px;
+}
+
+.user-account {
+    width: auto;
+}
+
+@media (max-width: 1200px) {
+    header nav{
+        background-color: rgba(0,0,0,0.9);
+        width: auto;
+    }
+}
+
+.notification-box.active {
+    border-left: 1px solid #e5e5e5;
+    border-right: 1px solid #e5e5e5;
+}
+
+.user-account {
+    border-left: 2px solid #e5e5e55e;
+    border-right: 2px solid #e5e5e55e;
+}
+
+nav ul li a {
+    font-family: Montserrat, sans-serif;
+    font-size: 12px;
+}
+
+nav ul li {
+    padding: 10px 5px;
+}
+
+.user-info a {
+    font-family: Montserrat, sans-Serif;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+section.messages-page {
+    padding: 0 0;
+    height: 85vh;
+    overflow-y: hidden;
+    overflow-x: auto;
+}
+
+.messages-list {
+    height: 70vh;
+    overflow-y: scroll;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+.message-bar-head {
+    z-index: 999;
+    padding: 5px 20px;
+    background-color: rgba(255,255,255,0.90);
+}
+
+.msg-title {
+    height:5vh;
+}
+
+.message-line {
+    overflow: scroll;
+    height:80vh;
+}
+
+.main-conversation-box {
+    height: 80vh;
+    overflow: hidden;
+}
+
+.message-send-area {
+    float: left;
+    width: 100%;
+    background-color: rgba(255,255,255,0.95);
+    padding: 20px;
+    border-bottom: 1px solid #eaeaea;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.mCSB_inside>.mCSB_container {
+    margin-right: 0px;
+    overflow: scroll;
+}
+
+.notfication-details:last-child {
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.message-inner-dt > p {
+    width: auto;
+}

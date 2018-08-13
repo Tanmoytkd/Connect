@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.main')
 
 @section('content')
 
@@ -8,7 +8,7 @@
         {{--}--}}
     {{--@endphp--}}
 
-@include('includes.tinyeditor');
+@include('includes.tinyeditor')
 
 <div class="container">
     <div class="row justify-content-center">

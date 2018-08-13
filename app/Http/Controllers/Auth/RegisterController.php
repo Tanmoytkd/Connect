@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Message;
 use App\User;
 use App\Http\Controllers\Controller;
 use App\userInfo;
@@ -78,6 +79,8 @@ class RegisterController extends Controller
             $info->username = $info->username.'_'.$random1.'_'.$random2;
             $user->info()->save($info);
             $user->createUserSection();
+
+            Message::create(['sender_id'=>1, 'receiver_id'=>$user->id, 'content'=>"Hi,<br>Welcome To Connect. I am Tanmoy. Feel free to contact me anytime you want..."]);
         }
 
         return $user;

@@ -36,6 +36,11 @@ class User extends Authenticatable
         'deleted_at'
     ];
 
+    public function getFirstName() {
+        $name = $this->name;
+        return explode(' ',trim($name))[0];
+    }
+
     public function info() {
         return $this->hasOne('App\UserInfo', 'user_id', 'id');
     }
@@ -93,11 +98,17 @@ class User extends Authenticatable
     }
 
     public function getMessages($userId) {
-        return Message::where(function ($query) use ($userId ){
-            $query->where('sender_id', $this->id)->orwhere('sender_id', $userId);
-        })->where(function ($query) use ($userId) {
-            $query->where('receiver_id', $this->id)->orwhere('receiver_id', $userId);
-        })->get();
+        if($userId==$this->id) {
+            return Message::where(function ($query) use ($userId ) {
+                $query->where('sender_id', $this->id)->where('receiver_id', $this->id);
+            })->get();
+        } else {
+            return Message::where(function ($query) use ($userId ){
+                $query->where('sender_id', $this->id)->orwhere('receiver_id', $this->id);
+            })->where(function ($query) use ($userId) {
+                $query->where('sender_id', $userId)->orwhere('receiver_id', $userId);
+            })->get();
+        }
     }
 
     public function allMessages() {
@@ -106,7 +117,7 @@ class User extends Authenticatable
         });
     }
 
-    public function getSenderList() {
+    public function getSenderList($n = 0) {
         $collection = collect([]);
         $messages = $this->allMessages()->latest()->get();
         foreach ($messages as $msg) {
@@ -121,10 +132,16 @@ class User extends Authenticatable
                 $collection->push($receiver);
             }
         }
+        if($n!=0) return $collection->unique()->take($n);
         return  $collection->unique();
     }
 
+
+
     public function getLastMessage($userId, $n = 1) {
+        if($userId==$this->id) {
+            return Message::where('sender_id', $this->id)->where('receiver_id', $this->id)->latest()->skip($n-1)->first();
+        }
         return $this->allMessages()->where(function ($query) use ($userId) {
             $query->where('sender_id', $userId)->orWhere('receiver_id', $userId);
         })->latest()->skip($n-1)->first();

@@ -29,6 +29,8 @@ Route::get('/', function () {
 
 Route::post('/upload', 'UploadController@upload')->name('upload');
 
+Route::resource('messages', 'MessageController')->middleware('auth');
+
 Auth::routes();
 
 Route::get('/test', function (){

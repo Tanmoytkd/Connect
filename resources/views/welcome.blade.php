@@ -33,7 +33,9 @@
     <div class="container-fluid">
 
         <div id="logo" class="pull-left">
-            <h1><a href="{{Route('/')}}" class="scrollto">C<img src="images/connect-logo-2.png" style="height: 1em" />nnect</a></h1>
+            <h1>
+                <a href="http://connect.com" class="scrollto">C<img src="images/connect-logo-2.png" style="height: 1em; ">nnect</a>
+            </h1>
         </div>
 
         <nav id="nav-menu-container">
