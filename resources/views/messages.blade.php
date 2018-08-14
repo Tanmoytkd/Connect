@@ -171,7 +171,7 @@
                                     }
                                 @endphp
 
-                                <div class="spacer" style="float:left;widows: 100%;">
+                                <div class="spacer" style="float:left;width: 100%;">
                                     &nbsp;
                                 </div>
                                 <div class="spacer" style="float:left;width: 100%;">

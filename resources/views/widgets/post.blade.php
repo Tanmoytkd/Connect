@@ -1,4 +1,5 @@
 @php
+use Illuminate\Support\Facades\Auth;
 $user = Auth::user();
 @endphp
 <div class="post-bar">
@@ -31,7 +32,7 @@ $user = Auth::user();
 
         <ul class="bk-links">
             <li><a href="#" title=""><i class="fa fa-bookmark"></i></a></li>
-            <li><a href="#" title=""><i class="fa fa-envelope"></i></a></li>
+            <li><a href="{{Route('messages.show', [$post->writer->id])}}"  title=""><i class="fa fa-envelope"></i></a></li>
         </ul>
     </div>
     <div class="job_descp">
@@ -67,7 +68,29 @@ $user = Auth::user();
         </ul>
     </div>
     <div id="comments{{$post->id}}" class="collapse">
-        {!!view('widgets.comment', ['postId'=>$post->id])!!}
+        <ul>
+        @foreach($post->comments as $comment)
+                <li class="active">
+                    <a href="{{Route('profile.show', [$comment->commenter->id])}}">
+                        <div class="usr-msg-details" style="margin-top: 10px; margin-bottom: 5px; border-bottom: 1px solid rgb(213, 213, 213);">
+                            <div class="usr-ms-img">
+                                <img src="{{asset($comment->commenter->info->profile_pic_path)}}" style="margin-left: 20px" alt="">
+                                <!--<span class="msg-status"></span>-->
+                            </div>
+                            <div class="usr-mg-info" style="float: left;margin-left: 20px">
+                                <h3>{{$comment->commenter->name}}</h3>
+                                <p>{{$comment->content}}</p>
+                            </div><!--usr-mg-info end-->
+                            <!--<span class="posted_time">'.$timeText.'</span> -->
+                            <!-- <span class="msg-notifc">1</span> -->
+
+                        </div>
+                    </a><!--usr-msg-details end-->
+                </li>
+        @endforeach
+        </ul>
+
+        {!!view('widgets.comment', ['postId'=>$post->id, 'post'=>$post])!!}
     </div>
 
 </div><!--post-bar end-->
