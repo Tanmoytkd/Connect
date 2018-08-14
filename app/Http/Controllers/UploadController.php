@@ -11,7 +11,7 @@ class UploadController extends Controller
         $accepted_origins = array("http://localhost", config('url', '"http://connect.com"'), "http://connect.com");
 
         // Images upload path
-        $imageFolder = "images/";
+        $imageFolder = "images/".Auth::user()->id.'/';
 
         reset($_FILES);
         $temp = current($_FILES);

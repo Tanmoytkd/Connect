@@ -14,7 +14,8 @@
     <div class="container">
 
         <section class="cover-sec">
-            <img src="{{asset($person->getUserSection()->section_image_path)}}" style="object-fit: cover;" height="278px" lt="">
+            <img src="{{asset($person->getUserSection()->section_image_path)}}" style="object-fit: cover;"
+                 height="278px" lt="">
         </section>
 
         @yield('createPost')
@@ -29,7 +30,8 @@
                                 <div class="main-left-sidebar">
                                     <div class="user_profile">
                                         <div class="user-pro-img">
-                                            <img src="{{asset($person->info->profile_pic_path)}}" height="185px" width="185px" alt="">
+                                            <img src="{{asset($person->info->profile_pic_path)}}" height="185px"
+                                                 width="185px" alt="">
 
                                             {{--<a href="#" title=""><i class="fa fa-camera"></i></a>--}}
                                         </div><!--user-pro-img end-->
@@ -38,9 +40,12 @@
 
                                                 <li>
                                                     @if(!Auth::user()->isSubscriber($person->getUserSection()->id))
-                                                    <a href="{{Route('follow', ['sectionId'=>$person->getUserSection()->id])}}" title="" class="flww "><i class="la la-plus "></i>Follow</a>
+                                                        <a href="{{Route('follow', ['sectionId'=>$person->getUserSection()->id])}}"
+                                                           title="" class="flww "><i class="la la-plus "></i>Follow</a>
                                                     @else
-                                                        <a href="{{Route('unfollow', ['sectionId'=>$person->getUserSection()->id])}}" title="" class="flww btn-danger"><i class="la la-plus"></i> Following</a>
+                                                        <a href="{{Route('unfollow', ['sectionId'=>$person->getUserSection()->id])}}"
+                                                           title="" class="flww btn-danger"><i class="la la-plus"></i>
+                                                            Following</a>
                                                     @endif
                                                 </li>
                                                 <li><a href="#" title="" class="hre">Projects</a></li>
@@ -66,15 +71,16 @@
                             <div class="col-lg-6">
                                 <div class="main-ws-sec">
                                     <div class="user-tab-sec">
-                                        <h3><a href="{{Route('profile.show', [$person->id])}}" class="text-secondary" style="color:darkslategray">{{$person->name}}</a></h3>
+                                        <h3><a href="{{Route('profile.show', [$person->id])}}" class="text-secondary"
+                                               style="color:darkslategray">{{$person->name}}</a></h3>
                                         <div class="star-descp">
                                             <span>{{$person->info->info}}</span>
                                             {{--<ul>--}}
-                                                {{--<li><i class="fa fa-star"></i></li>--}}
-                                                {{--<li><i class="fa fa-star"></i></li>--}}
-                                                {{--<li><i class="fa fa-star"></i></li>--}}
-                                                {{--<li><i class="fa fa-star"></i></li>--}}
-                                                {{--<li><i class="fa fa-star-half-o"></i></li>--}}
+                                            {{--<li><i class="fa fa-star"></i></li>--}}
+                                            {{--<li><i class="fa fa-star"></i></li>--}}
+                                            {{--<li><i class="fa fa-star"></i></li>--}}
+                                            {{--<li><i class="fa fa-star"></i></li>--}}
+                                            {{--<li><i class="fa fa-star-half-o"></i></li>--}}
                                             {{--</ul>--}}
                                             {{--<a href="#" title="">Status</a>--}}
                                         </div><!--star-descp end-->
@@ -87,25 +93,25 @@
                                                     </a>
                                                 </li>
                                                 @if($person->id == Auth::user()->id)
-                                                <li data-tab="info-dd">
-                                                    <a href="#" title="">
-                                                        <img src="{{asset('images/old/ic2.png')}}" alt="">
-                                                        <span>Info</span>
-                                                    </a>
-                                                </li>
+                                                    <li data-tab="info-dd">
+                                                        <a href="#" title="">
+                                                            <img src="{{asset('images/old/ic2.png')}}" alt="">
+                                                            <span>Info</span>
+                                                        </a>
+                                                    </li>
 
-                                                {{--<li data-tab="saved-jobs">--}}
+                                                    {{--<li data-tab="saved-jobs">--}}
                                                     {{--<a href="#" title="">--}}
-                                                        {{--<img src="{{asset('images/old/ic4.png')}}" alt="">--}}
-                                                        {{--<span>Saved Jobs</span>--}}
+                                                    {{--<img src="{{asset('images/old/ic4.png')}}" alt="">--}}
+                                                    {{--<span>Saved Jobs</span>--}}
                                                     {{--</a>--}}
-                                                {{--</li>--}}
-                                                <li data-tab="my-bids">
-                                                    <a href="#" title="">
-                                                        <img src="{{asset('images/old/ic5.png')}}" alt="">
-                                                        <span>Requests</span>
-                                                    </a>
-                                                </li>
+                                                    {{--</li>--}}
+                                                    <li data-tab="my-bids">
+                                                        <a href="#" title="">
+                                                            <img src="{{asset('images/old/ic5.png')}}" alt="">
+                                                            <span>Requests</span>
+                                                        </a>
+                                                    </li>
                                                 @endif
                                                 <li data-tab="portfolio-dd">
                                                     <a href="#" title="">
@@ -129,79 +135,14 @@
                                     </div><!--product-feed-tab end-->
                                     <div class="product-feed-tab" id="info-dd">
                                         <div class="user-profile-ov">
-                                            <h3><a href="#" title="" class="overview-open">Overview</a> <a href="#"
-                                                                                                           title=""
-                                                                                                           class="overview-open"><i
-                                                        class="fa fa-pencil"></i></a></h3>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque tempor
-                                                aliquam felis, nec condimentum ipsum commodo id. Vivamus sit amet augue
-                                                nec urna efficitur tincidunt. Vivamus consectetur aliquam lectus commodo
-                                                viverra. Nunc eu augue nec arcu efficitur faucibus. Aliquam accumsan ac
-                                                magna convallis bibendum. Quisque laoreet augue eget augue fermentum
-                                                scelerisque. Vivamus dignissim mollis est dictum blandit. Nam porta
-                                                auctor neque sed congue. Nullam rutrum eget ex at maximus. Lorem ipsum
-                                                dolor sit amet, consectetur adipiscing elit. Donec eget vestibulum
-                                                lorem.</p>
-                                        </div><!--user-profile-ov end-->
-                                        <div class="user-profile-ov st2">
-                                            <h3><a href="#" title="" class="exp-bx-open">Experience </a><a href="#"
-                                                                                                           title=""
-                                                                                                           class="exp-bx-open"><i
-                                                        class="fa fa-pencil"></i></a> <a href="#" title=""
-                                                                                         class="exp-bx-open"><i
-                                                        class="fa fa-plus-square"></i></a></h3>
-                                            <h4>Web designer <a href="#" title=""><i class="fa fa-pencil"></i></a></h4>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque tempor
-                                                aliquam felis, nec condimentum ipsum commodo id. Vivamus sit amet augue
-                                                nec urna efficitur tincidunt. Vivamus consectetur aliquam lectus commodo
-                                                viverra. </p>
-                                            <h4>UI / UX Designer <a href="#" title=""><i class="fa fa-pencil"></i></a>
-                                            </h4>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque tempor
-                                                aliquam felis, nec condimentum ipsum commodo id.</p>
-                                            <h4>PHP developer <a href="#" title=""><i class="fa fa-pencil"></i></a></h4>
-                                            <p class="no-margin">Lorem ipsum dolor sit amet, consectetur adipiscing
-                                                elit. Quisque tempor aliquam felis, nec condimentum ipsum commodo id.
-                                                Vivamus sit amet augue nec urna efficitur tincidunt. Vivamus consectetur
-                                                aliquam lectus commodo viverra. </p>
-                                        </div><!--user-profile-ov end-->
-                                        <div class="user-profile-ov">
-                                            <h3><a href="#" title="" class="ed-box-open">Education</a> <a href="#"
-                                                                                                          title=""
-                                                                                                          class="ed-box-open"><i
-                                                        class="fa fa-pencil"></i></a> <a href="#" title=""><i
-                                                        class="fa fa-plus-square"></i></a></h3>
-                                            <h4>Master of Computer Science</h4>
-                                            <span>2015 - 2018</span>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque tempor
-                                                aliquam felis, nec condimentum ipsum commodo id. Vivamus sit amet augue
-                                                nec urna efficitur tincidunt. Vivamus consectetur aliquam lectus commodo
-                                                viverra. </p>
-                                        </div><!--user-profile-ov end-->
-                                        <div class="user-profile-ov">
-                                            <h3><a href="#" title="" class="lct-box-open">Location</a> <a href="#"
-                                                                                                          title=""
-                                                                                                          class="lct-box-open"><i
-                                                        class="fa fa-pencil"></i></a> <a href="#" title=""><i
-                                                        class="fa fa-plus-square"></i></a></h3>
-                                            <h4>India</h4>
-                                            <p>151/4 BT Chownk, Delhi </p>
-                                        </div><!--user-profile-ov end-->
-                                        <div class="user-profile-ov">
-                                            <h3><a href="#" title="" class="skills-open">Skills</a> <a href="#" title=""
-                                                                                                       class="skills-open"><i
-                                                        class="fa fa-pencil"></i></a> <a href="#"><i
-                                                        class="fa fa-plus-square"></i></a></h3>
-                                            <ul>
-                                                <li><a href="#" title="">HTML</a></li>
-                                                <li><a href="#" title="">PHP</a></li>
-                                                <li><a href="#" title="">CSS</a></li>
-                                                <li><a href="#" title="">Javascript</a></li>
-                                                <li><a href="#" title="">Wordpress</a></li>
-                                                <li><a href="#" title="">Photoshop</a></li>
-                                                <li><a href="#" title="">Illustrator</a></li>
-                                                <li><a href="#" title="">Corel Draw</a></li>
-                                            </ul>
+                                            {{Form::open(array('action' => ['UserInfoController@update', Auth::user()->id], 'method'=>'put', 'files' => true))}}
+                                            @csrf
+
+                                            Profile Picture: <input type="file" name="profile_pic"> <br><br>
+                                            Cover Pic: <input type="file" name="cover_pic"> <br>
+                                            <button type="submit" name="Save Changes">Save changes</button>
+
+                                            {{Form::close()}}
                                         </div><!--user-profile-ov end-->
                                     </div><!--product-feed-tab end-->
                                     <div class="product-feed-tab" id="saved-jobs">
@@ -918,12 +859,14 @@
                             <div class="col-lg-3">
                                 <div class="right-sidebar">
                                     <div class="message-btn">
-                                        <a href="{{Route('messages.show', [$person->id])}}" title=""><i class="fa fa-envelope"></i> Message</a>
+                                        <a href="{{Route('messages.show', [$person->id])}}" title=""><i
+                                                class="fa fa-envelope"></i> Message</a>
                                     </div>
                                     @if($isMyself)
-                                    <div class="message-btn">
-                                        <a href="#" data-toggle="modal" data-target="#myModal" style="margin-right: 10px">Write Post</a>
-                                    </div>
+                                        <div class="message-btn">
+                                            <a href="#" data-toggle="modal" data-target="#myModal"
+                                               style="margin-right: 10px">Write Post</a>
+                                        </div>
                                     @endif
                                     <div class="widget widget-portfolio">
                                         <div class="wd-heady">

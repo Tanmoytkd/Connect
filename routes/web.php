@@ -81,3 +81,5 @@ Route::get('/sendMail', ['as'=>'mail', 'middleware'=>'auth' ,function (){
         $message->to('tanmoykrishnadas@gmail.com', 'Tanmoy')->subject('dekhi jay kina')->from('postmaster@mail.connectapp.ml', "Tanmoytkd");
     });
 }]);
+
+Route::resource('userinfo', 'UserInfoController');
