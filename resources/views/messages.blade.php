@@ -1,6 +1,6 @@
 @extends('layouts.main')
 
-@section('title')Messages @endsection
+@section('title')@parent | Messages @endsection
 
 @section('content')
 
@@ -9,6 +9,10 @@
         use App\User;
         use Carbon\Carbon;
     @endphp
+
+    <div class="spacer">
+        &nbsp;
+    </div>
 
     <section class="messages-page">
         <div class="container">
@@ -115,7 +119,7 @@
                                     </div>
                                     <div class="usr-mg-info">
                                         <h3>&nbsp</h3>
-                                        <h3>{{$name}}</h3>
+                                        <h3><a href="{{Route('profile.show', [$activeSender->id])}}" class="text-secondary">{{$name}}</a></h3>
                                         {{--<p>Online</p>--}}
                                     </div><!--usr-mg-info end-->
                                 </div>

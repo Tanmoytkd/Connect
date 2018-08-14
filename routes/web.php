@@ -20,7 +20,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     if(Auth::check()) {
-        return redirect()->route('home');
+        return redirect()->route('profile.index');
     } else {
         return view('welcome');
     }
@@ -29,33 +29,42 @@ Route::get('/', function () {
 
 Route::post('/upload', 'UploadController@upload')->name('upload');
 
-Route::resource('messages', 'MessageController')->middleware('auth');
+Route::resource('messages', 'MessageController')->middleware('auth')->only([
+    'store', 'index', 'show'
+]);;
+
+Route::resource('profile', 'ProfileController')->middleware('auth')->only([
+    'index', 'show', 'edit', 'store'
+]);
+
+Route::resource('comments', 'CommentController');
 
 Auth::routes();
 
-Route::get('/test', function (){
-    return view('auth.newLogin');
-})->name('test');
+Route::get('/deposit', function (){
+    return "Make Deposit Page";
+})->name('deposit');
+
+Route::get('/withdraw', function () {
+    return "Make Withdraw Page";
+})->name('withdraw');
+
+Route::get('/send-money', function (){
+    return "Make transfer page";
+})->name('sendMoney');
+
+Route::any('/follow/{sectionId}', 'GeneralController@follow')->name('follow');
+Route::any('/unfollow/{sectionId}', 'GeneralController@unfollow')->name('unfollow');
 
 Route::post('contact_show', [
     'uses' => 'HomeController@checker'
 ])->middleware('auth');
 
+Route::resource('post', 'PostController');
+Route::get('post/{id}/toggleLike', 'PostController@toggleLike')->name('post.toggleLike');
+
 
 Route::get('/home', 'HomeController@index')->name('home');
-
-Route::get('/enterdata/{username}', function ($username) {
-    $user = Auth::user();
-
-    $info = new UserInfo(['username'=>$username]);
-
-    if(count($user->info()->get())) {
-        return $user->info()->get();
-    } else {
-        return $user->info()->save($info);
-    }
-
-});
 
 Route::get('/sendMail', ['as'=>'mail', 'middleware'=>'auth' ,function (){
 

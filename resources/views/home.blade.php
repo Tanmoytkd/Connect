@@ -8,6 +8,10 @@
         {{--}--}}
     {{--@endphp--}}
 
+<div class="spacer">
+    &nbsp;
+</div>
+
 @include('includes.tinyeditor')
 
 <div class="container">

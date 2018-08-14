@@ -29,7 +29,7 @@ class HomeController extends Controller
     public function checker() {
         if(isset($_POST['postButton'])) {
 
-            return $_POST['inputData'];
+            return $_POST['content'];
         }
     }
 }

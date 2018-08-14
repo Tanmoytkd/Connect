@@ -13,6 +13,10 @@ class Post extends Model
         'privacy_level'
     ];
 
+    public function writer() {
+        return $this->belongsTo('App\User', 'user_id', 'id');
+    }
+
     public function likes() {
         return $this->hasMany('App\Like', 'post_id', 'id');
     }
@@ -32,6 +36,7 @@ class Post extends Model
     public function likesCount() {
         return $this->likes()->count();
     }
+
 
 
 }

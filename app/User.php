@@ -87,6 +87,21 @@ class User extends Authenticatable
         return $data->count() > 0;
     }
 
+    public function like($postId) {
+
+        return Like::create(['user_id'=>$this->id, 'post_id'=>$postId]);
+    }
+
+    public function unLike($postId) {
+        $record = Like::where('user_id', $this->id)->where('post_id', $postId);
+        return $record->delete();
+    }
+
+    public function toggleLike($postId) {
+        if($this->hasLiked($postId)) return $this->unLike($postId);
+        else return $this->like($postId);
+    }
+
     public function isMember($sectionId) {
         $data = $this->memberships()->where('section_id', $sectionId);
         return $data->exists();
@@ -248,4 +263,19 @@ class User extends Authenticatable
             return false;
         }
     }
+
+    public function isSubscriber($sectionId) {
+        $tbl = $this->subscriptions()->get()->where('id', $sectionId);
+        return $tbl->count() > 0;
+    }
+
+    public function subscribe($sectionId) {
+        if(!$this->isSubscriber($sectionId))
+            $this->subscriptions()->attach($sectionId);
+    }
+
+    public function unsubscribe($sectionId) {
+        $this->subscriptions()->detach($sectionId);
+    }
+
 }

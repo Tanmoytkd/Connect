@@ -91,13 +91,13 @@ nav ul li {
 
 section.messages-page {
     padding: 0 0;
-    height: 85vh;
+    height: 90vh;
     overflow-y: hidden;
     overflow-x: auto;
 }
 
 .messages-list {
-    height: 70vh;
+    height: 75vh;
     overflow-y: scroll;
     border-bottom: 1px solid #e5e5e5;
 }
@@ -133,11 +133,11 @@ section.messages-page {
 
 .message-line {
     overflow: scroll;
-    height:80vh;
+    height:85vh;
 }
 
 .main-conversation-box {
-    height: 80vh;
+    height: 85vh;
     overflow: hidden;
 }
 
@@ -163,4 +163,35 @@ section.messages-page {
 
 .message-inner-dt > p {
     width: auto;
+}
+
+.messages-page {
+    margin-top: 20px;
+}
+
+html body {
+    font-family: Montserrat, sans-serif;
+}
+
+.flw-status li {
+    margin-right: 0px;
+    display: block;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.flw-status li:last-child {
+    border-bottom: none;
+    margin-bottom: 0px;
+}
+
+#money-info h1 {
+    font-size: 57px;
+    font-weight: bolder;
+    margin-top: 10px;
+}
+
+#money-btn-group {
+    margin-top: 20px;
 }

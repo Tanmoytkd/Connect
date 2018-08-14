@@ -7,3 +7,4 @@
 <script type="text/javascript" src="{{asset('js/old/scrollbar.js')}}"></script>
 <script type="text/javascript" src="{{asset('js/old/script.js')}}"></script>
 <script type="text/javascript" src="{{asset('js/tkd.js')}}"></script>
+<script type="text/javascript" src="{{asset('/vendor/laravel-filemanager/js/lfm.js')}}"></script>
