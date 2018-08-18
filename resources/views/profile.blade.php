@@ -96,7 +96,7 @@
                                                     <li data-tab="info-dd">
                                                         <a href="#" title="">
                                                             <img src="{{asset('images/old/ic2.png')}}" alt="">
-                                                            <span>Info</span>
+                                                            <span>Update Info</span>
                                                         </a>
                                                     </li>
 
@@ -138,9 +138,9 @@
                                             {{Form::open(array('action' => ['UserInfoController@update', Auth::user()->id], 'method'=>'put', 'files' => true))}}
                                             @csrf
 
-                                            Profile Picture: <input type="file" name="profile_pic"> <br><br>
-                                            Cover Pic: <input type="file" name="cover_pic"> <br>
-                                            <button type="submit" name="Save Changes">Save changes</button>
+                                            <h2 style="margin-bottom: 10px">Profile Picture: </h2><input type="file" name="profile_pic"> <br><br>
+                                                <h2 style="margin-bottom: 10px">Cover Pic: </h2><input type="file" name="cover_pic"> <br><br>
+                                            <button type="submit" class="btn btn-success" name="Save Changes">Save changes</button>
 
                                             {{Form::close()}}
                                         </div><!--user-profile-ov end-->
@@ -405,275 +405,275 @@
                                         </div><!--posts-section end-->
                                     </div><!--product-feed-tab end-->
                                     <div class="product-feed-tab" id="my-bids">
-                                        <div class="posts-section">
-                                            <div class="post-bar">
-                                                <div class="post_topbar">
-                                                    <div class="usy-dt">
-                                                        <img src="images/resources/us-pic.png" alt="">
-                                                        <div class="usy-name">
-                                                            <h3>John Doe</h3>
-                                                            <span><img src="images/clock.png" alt="">3 min ago</span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="ed-opts">
-                                                        <a href="#" title="" class="ed-opts-open"><i
-                                                                class="la la-ellipsis-v"></i></a>
-                                                        <ul class="ed-options">
-                                                            <li><a href="#" title="">Edit Post</a></li>
-                                                            <li><a href="#" title="">Unsaved</a></li>
-                                                            <li><a href="#" title="">Unbid</a></li>
-                                                            <li><a href="#" title="">Close</a></li>
-                                                            <li><a href="#" title="">Hide</a></li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                                <div class="epi-sec">
-                                                    <ul class="descp">
-                                                        <li><img src="images/icon8.png"
-                                                                 alt=""><span>Frontend Developer</span></li>
-                                                        <li><img src="images/icon9.png" alt=""><span>India</span></li>
-                                                    </ul>
-                                                    <ul class="bk-links">
-                                                        <li><a href="#" title=""><i class="la la-bookmark"></i></a></li>
-                                                        <li><a href="#" title=""><i class="la la-envelope"></i></a></li>
-                                                        <li><a href="#" title="" class="bid_now">Bid Now</a></li>
-                                                    </ul>
-                                                </div>
-                                                <div class="job_descp">
-                                                    <h3>Simple Classified Site</h3>
-                                                    <ul class="job-dt">
-                                                        <li><span>$300 - $350</span></li>
-                                                    </ul>
-                                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
-                                                        luctus hendrerit metus, ut ullamcorper quam finibus at. Etiam id
-                                                        magna sit amet... <a href="#" title="">view more</a></p>
-                                                    <ul class="skill-tags">
-                                                        <li><a href="#" title="">HTML</a></li>
-                                                        <li><a href="#" title="">PHP</a></li>
-                                                        <li><a href="#" title="">CSS</a></li>
-                                                        <li><a href="#" title="">Javascript</a></li>
-                                                        <li><a href="#" title="">Wordpress</a></li>
-                                                        <li><a href="#" title="">Photoshop</a></li>
-                                                        <li><a href="#" title="">Illustrator</a></li>
-                                                        <li><a href="#" title="">Corel Draw</a></li>
-                                                    </ul>
-                                                </div>
-                                                <div class="job-status-bar">
-                                                    <ul class="like-com">
-                                                        <li>
-                                                            <a href="#"><i class="la la-heart"></i> Like</a>
-                                                            <img src="images/liked-img.png" alt="">
-                                                            <span>25</span>
-                                                        </li>
-                                                        <li><a href="#" title="" class="com"><img src="images/com.png"
-                                                                                                  alt=""> Comment 15</a>
-                                                        </li>
-                                                    </ul>
-                                                    <a><i class="la la-eye"></i>Views 50</a>
-                                                </div>
-                                            </div><!--post-bar end-->
-                                            <div class="post-bar">
-                                                <div class="post_topbar">
-                                                    <div class="usy-dt">
-                                                        <img src="images/resources/us-pic.png" alt="">
-                                                        <div class="usy-name">
-                                                            <h3>John Doe</h3>
-                                                            <span><img src="images/clock.png" alt="">3 min ago</span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="ed-opts">
-                                                        <a href="#" title="" class="ed-opts-open"><i
-                                                                class="la la-ellipsis-v"></i></a>
-                                                        <ul class="ed-options">
-                                                            <li><a href="#" title="">Edit Post</a></li>
-                                                            <li><a href="#" title="">Unsaved</a></li>
-                                                            <li><a href="#" title="">Unbid</a></li>
-                                                            <li><a href="#" title="">Close</a></li>
-                                                            <li><a href="#" title="">Hide</a></li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                                <div class="epi-sec">
-                                                    <ul class="descp">
-                                                        <li><img src="images/icon8.png"
-                                                                 alt=""><span>Frontend Developer</span></li>
-                                                        <li><img src="images/icon9.png" alt=""><span>India</span></li>
-                                                    </ul>
-                                                    <ul class="bk-links">
-                                                        <li><a href="#" title=""><i class="la la-bookmark"></i></a></li>
-                                                        <li><a href="#" title=""><i class="la la-envelope"></i></a></li>
-                                                        <li><a href="#" title="" class="bid_now">Bid Now</a></li>
-                                                    </ul>
-                                                </div>
-                                                <div class="job_descp">
-                                                    <h3>Ios Shopping mobile app</h3>
-                                                    <ul class="job-dt">
-                                                        <li><span>$300 - $350</span></li>
-                                                    </ul>
-                                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
-                                                        luctus hendrerit metus, ut ullamcorper quam finibus at. Etiam id
-                                                        magna sit amet... <a href="#" title="">view more</a></p>
-                                                    <ul class="skill-tags">
-                                                        <li><a href="#" title="">HTML</a></li>
-                                                        <li><a href="#" title="">PHP</a></li>
-                                                        <li><a href="#" title="">CSS</a></li>
-                                                        <li><a href="#" title="">Javascript</a></li>
-                                                        <li><a href="#" title="">Wordpress</a></li>
-                                                        <li><a href="#" title="">Photoshop</a></li>
-                                                        <li><a href="#" title="">Illustrator</a></li>
-                                                        <li><a href="#" title="">Corel Draw</a></li>
-                                                    </ul>
-                                                </div>
-                                                <div class="job-status-bar">
-                                                    <ul class="like-com">
-                                                        <li>
-                                                            <a href="#"><i class="la la-heart"></i> Like</a>
-                                                            <img src="images/liked-img.png" alt="">
-                                                            <span>25</span>
-                                                        </li>
-                                                        <li><a href="#" title="" class="com"><img src="images/com.png"
-                                                                                                  alt=""> Comment 15</a>
-                                                        </li>
-                                                    </ul>
-                                                    <a><i class="la la-eye"></i>Views 50</a>
-                                                </div>
-                                            </div><!--post-bar end-->
-                                            <div class="post-bar">
-                                                <div class="post_topbar">
-                                                    <div class="usy-dt">
-                                                        <img src="images/resources/us-pic.png" alt="">
-                                                        <div class="usy-name">
-                                                            <h3>John Doe</h3>
-                                                            <span><img src="images/clock.png" alt="">3 min ago</span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="ed-opts">
-                                                        <a href="#" title="" class="ed-opts-open"><i
-                                                                class="la la-ellipsis-v"></i></a>
-                                                        <ul class="ed-options">
-                                                            <li><a href="#" title="">Edit Post</a></li>
-                                                            <li><a href="#" title="">Unsaved</a></li>
-                                                            <li><a href="#" title="">Unbid</a></li>
-                                                            <li><a href="#" title="">Close</a></li>
-                                                            <li><a href="#" title="">Hide</a></li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                                <div class="epi-sec">
-                                                    <ul class="descp">
-                                                        <li><img src="images/icon8.png"
-                                                                 alt=""><span>Frontend Developer</span></li>
-                                                        <li><img src="images/icon9.png" alt=""><span>India</span></li>
-                                                    </ul>
-                                                    <ul class="bk-links">
-                                                        <li><a href="#" title=""><i class="la la-bookmark"></i></a></li>
-                                                        <li><a href="#" title=""><i class="la la-envelope"></i></a></li>
-                                                        <li><a href="#" title="" class="bid_now">Bid Now</a></li>
-                                                    </ul>
-                                                </div>
-                                                <div class="job_descp">
-                                                    <h3>Simple Classified Site</h3>
-                                                    <ul class="job-dt">
-                                                        <li><span>$300 - $350</span></li>
-                                                    </ul>
-                                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
-                                                        luctus hendrerit metus, ut ullamcorper quam finibus at. Etiam id
-                                                        magna sit amet... <a href="#" title="">view more</a></p>
-                                                    <ul class="skill-tags">
-                                                        <li><a href="#" title="">HTML</a></li>
-                                                        <li><a href="#" title="">PHP</a></li>
-                                                        <li><a href="#" title="">CSS</a></li>
-                                                        <li><a href="#" title="">Javascript</a></li>
-                                                        <li><a href="#" title="">Wordpress</a></li>
-                                                        <li><a href="#" title="">Photoshop</a></li>
-                                                        <li><a href="#" title="">Illustrator</a></li>
-                                                        <li><a href="#" title="">Corel Draw</a></li>
-                                                    </ul>
-                                                </div>
-                                                <div class="job-status-bar">
-                                                    <ul class="like-com">
-                                                        <li>
-                                                            <a href="#"><i class="la la-heart"></i> Like</a>
-                                                            <img src="images/liked-img.png" alt="">
-                                                            <span>25</span>
-                                                        </li>
-                                                        <li><a href="#" title="" class="com"><img src="images/com.png"
-                                                                                                  alt=""> Comment 15</a>
-                                                        </li>
-                                                    </ul>
-                                                    <a><i class="la la-eye"></i>Views 50</a>
-                                                </div>
-                                            </div><!--post-bar end-->
-                                            <div class="post-bar">
-                                                <div class="post_topbar">
-                                                    <div class="usy-dt">
-                                                        <img src="images/resources/us-pic.png" alt="">
-                                                        <div class="usy-name">
-                                                            <h3>John Doe</h3>
-                                                            <span><img src="images/clock.png" alt="">3 min ago</span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="ed-opts">
-                                                        <a href="#" title="" class="ed-opts-open"><i
-                                                                class="la la-ellipsis-v"></i></a>
-                                                        <ul class="ed-options">
-                                                            <li><a href="#" title="">Edit Post</a></li>
-                                                            <li><a href="#" title="">Unsaved</a></li>
-                                                            <li><a href="#" title="">Unbid</a></li>
-                                                            <li><a href="#" title="">Close</a></li>
-                                                            <li><a href="#" title="">Hide</a></li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                                <div class="epi-sec">
-                                                    <ul class="descp">
-                                                        <li><img src="images/icon8.png"
-                                                                 alt=""><span>Frontend Developer</span></li>
-                                                        <li><img src="images/icon9.png" alt=""><span>India</span></li>
-                                                    </ul>
-                                                    <ul class="bk-links">
-                                                        <li><a href="#" title=""><i class="la la-bookmark"></i></a></li>
-                                                        <li><a href="#" title=""><i class="la la-envelope"></i></a></li>
-                                                        <li><a href="#" title="" class="bid_now">Bid Now</a></li>
-                                                    </ul>
-                                                </div>
-                                                <div class="job_descp">
-                                                    <h3>Ios Shopping mobile app</h3>
-                                                    <ul class="job-dt">
-                                                        <li><span>$300 - $350</span></li>
-                                                    </ul>
-                                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
-                                                        luctus hendrerit metus, ut ullamcorper quam finibus at. Etiam id
-                                                        magna sit amet... <a href="#" title="">view more</a></p>
-                                                    <ul class="skill-tags">
-                                                        <li><a href="#" title="">HTML</a></li>
-                                                        <li><a href="#" title="">PHP</a></li>
-                                                        <li><a href="#" title="">CSS</a></li>
-                                                        <li><a href="#" title="">Javascript</a></li>
-                                                        <li><a href="#" title="">Wordpress</a></li>
-                                                        <li><a href="#" title="">Photoshop</a></li>
-                                                        <li><a href="#" title="">Illustrator</a></li>
-                                                        <li><a href="#" title="">Corel Draw</a></li>
-                                                    </ul>
-                                                </div>
-                                                <div class="job-status-bar">
-                                                    <ul class="like-com">
-                                                        <li>
-                                                            <a href="#"><i class="la la-heart"></i> Like</a>
-                                                            <img src="images/liked-img.png" alt="">
-                                                            <span>25</span>
-                                                        </li>
-                                                        <li><a href="#" title="" class="com"><img src="images/com.png"
-                                                                                                  alt=""> Comment 15</a>
-                                                        </li>
-                                                    </ul>
-                                                    <a><i class="la la-eye"></i>Views 50</a>
-                                                </div>
-                                            </div><!--post-bar end-->
-                                            <div class="process-comm">
-                                                <a href="#" title=""><img src="images/process-icon.png" alt=""></a>
-                                            </div><!--process-comm end-->
-                                        </div><!--posts-section end-->
+                                        {{--<div class="posts-section">--}}
+                                            {{--<div class="post-bar">--}}
+                                                {{--<div class="post_topbar">--}}
+                                                    {{--<div class="usy-dt">--}}
+                                                        {{--<img src="images/resources/us-pic.png" alt="">--}}
+                                                        {{--<div class="usy-name">--}}
+                                                            {{--<h3>John Doe</h3>--}}
+                                                            {{--<span><img src="images/clock.png" alt="">3 min ago</span>--}}
+                                                        {{--</div>--}}
+                                                    {{--</div>--}}
+                                                    {{--<div class="ed-opts">--}}
+                                                        {{--<a href="#" title="" class="ed-opts-open"><i--}}
+                                                                {{--class="la la-ellipsis-v"></i></a>--}}
+                                                        {{--<ul class="ed-options">--}}
+                                                            {{--<li><a href="#" title="">Edit Post</a></li>--}}
+                                                            {{--<li><a href="#" title="">Unsaved</a></li>--}}
+                                                            {{--<li><a href="#" title="">Unbid</a></li>--}}
+                                                            {{--<li><a href="#" title="">Close</a></li>--}}
+                                                            {{--<li><a href="#" title="">Hide</a></li>--}}
+                                                        {{--</ul>--}}
+                                                    {{--</div>--}}
+                                                {{--</div>--}}
+                                                {{--<div class="epi-sec">--}}
+                                                    {{--<ul class="descp">--}}
+                                                        {{--<li><img src="images/icon8.png"--}}
+                                                                 {{--alt=""><span>Frontend Developer</span></li>--}}
+                                                        {{--<li><img src="images/icon9.png" alt=""><span>India</span></li>--}}
+                                                    {{--</ul>--}}
+                                                    {{--<ul class="bk-links">--}}
+                                                        {{--<li><a href="#" title=""><i class="la la-bookmark"></i></a></li>--}}
+                                                        {{--<li><a href="#" title=""><i class="la la-envelope"></i></a></li>--}}
+                                                        {{--<li><a href="#" title="" class="bid_now">Bid Now</a></li>--}}
+                                                    {{--</ul>--}}
+                                                {{--</div>--}}
+                                                {{--<div class="job_descp">--}}
+                                                    {{--<h3>Simple Classified Site</h3>--}}
+                                                    {{--<ul class="job-dt">--}}
+                                                        {{--<li><span>$300 - $350</span></li>--}}
+                                                    {{--</ul>--}}
+                                                    {{--<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam--}}
+                                                        {{--luctus hendrerit metus, ut ullamcorper quam finibus at. Etiam id--}}
+                                                        {{--magna sit amet... <a href="#" title="">view more</a></p>--}}
+                                                    {{--<ul class="skill-tags">--}}
+                                                        {{--<li><a href="#" title="">HTML</a></li>--}}
+                                                        {{--<li><a href="#" title="">PHP</a></li>--}}
+                                                        {{--<li><a href="#" title="">CSS</a></li>--}}
+                                                        {{--<li><a href="#" title="">Javascript</a></li>--}}
+                                                        {{--<li><a href="#" title="">Wordpress</a></li>--}}
+                                                        {{--<li><a href="#" title="">Photoshop</a></li>--}}
+                                                        {{--<li><a href="#" title="">Illustrator</a></li>--}}
+                                                        {{--<li><a href="#" title="">Corel Draw</a></li>--}}
+                                                    {{--</ul>--}}
+                                                {{--</div>--}}
+                                                {{--<div class="job-status-bar">--}}
+                                                    {{--<ul class="like-com">--}}
+                                                        {{--<li>--}}
+                                                            {{--<a href="#"><i class="la la-heart"></i> Like</a>--}}
+                                                            {{--<img src="images/liked-img.png" alt="">--}}
+                                                            {{--<span>25</span>--}}
+                                                        {{--</li>--}}
+                                                        {{--<li><a href="#" title="" class="com"><img src="images/com.png"--}}
+                                                                                                  {{--alt=""> Comment 15</a>--}}
+                                                        {{--</li>--}}
+                                                    {{--</ul>--}}
+                                                    {{--<a><i class="la la-eye"></i>Views 50</a>--}}
+                                                {{--</div>--}}
+                                            {{--</div><!--post-bar end-->--}}
+                                            {{--<div class="post-bar">--}}
+                                                {{--<div class="post_topbar">--}}
+                                                    {{--<div class="usy-dt">--}}
+                                                        {{--<img src="images/resources/us-pic.png" alt="">--}}
+                                                        {{--<div class="usy-name">--}}
+                                                            {{--<h3>John Doe</h3>--}}
+                                                            {{--<span><img src="images/clock.png" alt="">3 min ago</span>--}}
+                                                        {{--</div>--}}
+                                                    {{--</div>--}}
+                                                    {{--<div class="ed-opts">--}}
+                                                        {{--<a href="#" title="" class="ed-opts-open"><i--}}
+                                                                {{--class="la la-ellipsis-v"></i></a>--}}
+                                                        {{--<ul class="ed-options">--}}
+                                                            {{--<li><a href="#" title="">Edit Post</a></li>--}}
+                                                            {{--<li><a href="#" title="">Unsaved</a></li>--}}
+                                                            {{--<li><a href="#" title="">Unbid</a></li>--}}
+                                                            {{--<li><a href="#" title="">Close</a></li>--}}
+                                                            {{--<li><a href="#" title="">Hide</a></li>--}}
+                                                        {{--</ul>--}}
+                                                    {{--</div>--}}
+                                                {{--</div>--}}
+                                                {{--<div class="epi-sec">--}}
+                                                    {{--<ul class="descp">--}}
+                                                        {{--<li><img src="images/icon8.png"--}}
+                                                                 {{--alt=""><span>Frontend Developer</span></li>--}}
+                                                        {{--<li><img src="images/icon9.png" alt=""><span>India</span></li>--}}
+                                                    {{--</ul>--}}
+                                                    {{--<ul class="bk-links">--}}
+                                                        {{--<li><a href="#" title=""><i class="la la-bookmark"></i></a></li>--}}
+                                                        {{--<li><a href="#" title=""><i class="la la-envelope"></i></a></li>--}}
+                                                        {{--<li><a href="#" title="" class="bid_now">Bid Now</a></li>--}}
+                                                    {{--</ul>--}}
+                                                {{--</div>--}}
+                                                {{--<div class="job_descp">--}}
+                                                    {{--<h3>Ios Shopping mobile app</h3>--}}
+                                                    {{--<ul class="job-dt">--}}
+                                                        {{--<li><span>$300 - $350</span></li>--}}
+                                                    {{--</ul>--}}
+                                                    {{--<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam--}}
+                                                        {{--luctus hendrerit metus, ut ullamcorper quam finibus at. Etiam id--}}
+                                                        {{--magna sit amet... <a href="#" title="">view more</a></p>--}}
+                                                    {{--<ul class="skill-tags">--}}
+                                                        {{--<li><a href="#" title="">HTML</a></li>--}}
+                                                        {{--<li><a href="#" title="">PHP</a></li>--}}
+                                                        {{--<li><a href="#" title="">CSS</a></li>--}}
+                                                        {{--<li><a href="#" title="">Javascript</a></li>--}}
+                                                        {{--<li><a href="#" title="">Wordpress</a></li>--}}
+                                                        {{--<li><a href="#" title="">Photoshop</a></li>--}}
+                                                        {{--<li><a href="#" title="">Illustrator</a></li>--}}
+                                                        {{--<li><a href="#" title="">Corel Draw</a></li>--}}
+                                                    {{--</ul>--}}
+                                                {{--</div>--}}
+                                                {{--<div class="job-status-bar">--}}
+                                                    {{--<ul class="like-com">--}}
+                                                        {{--<li>--}}
+                                                            {{--<a href="#"><i class="la la-heart"></i> Like</a>--}}
+                                                            {{--<img src="images/liked-img.png" alt="">--}}
+                                                            {{--<span>25</span>--}}
+                                                        {{--</li>--}}
+                                                        {{--<li><a href="#" title="" class="com"><img src="images/com.png"--}}
+                                                                                                  {{--alt=""> Comment 15</a>--}}
+                                                        {{--</li>--}}
+                                                    {{--</ul>--}}
+                                                    {{--<a><i class="la la-eye"></i>Views 50</a>--}}
+                                                {{--</div>--}}
+                                            {{--</div><!--post-bar end-->--}}
+                                            {{--<div class="post-bar">--}}
+                                                {{--<div class="post_topbar">--}}
+                                                    {{--<div class="usy-dt">--}}
+                                                        {{--<img src="images/resources/us-pic.png" alt="">--}}
+                                                        {{--<div class="usy-name">--}}
+                                                            {{--<h3>John Doe</h3>--}}
+                                                            {{--<span><img src="images/clock.png" alt="">3 min ago</span>--}}
+                                                        {{--</div>--}}
+                                                    {{--</div>--}}
+                                                    {{--<div class="ed-opts">--}}
+                                                        {{--<a href="#" title="" class="ed-opts-open"><i--}}
+                                                                {{--class="la la-ellipsis-v"></i></a>--}}
+                                                        {{--<ul class="ed-options">--}}
+                                                            {{--<li><a href="#" title="">Edit Post</a></li>--}}
+                                                            {{--<li><a href="#" title="">Unsaved</a></li>--}}
+                                                            {{--<li><a href="#" title="">Unbid</a></li>--}}
+                                                            {{--<li><a href="#" title="">Close</a></li>--}}
+                                                            {{--<li><a href="#" title="">Hide</a></li>--}}
+                                                        {{--</ul>--}}
+                                                    {{--</div>--}}
+                                                {{--</div>--}}
+                                                {{--<div class="epi-sec">--}}
+                                                    {{--<ul class="descp">--}}
+                                                        {{--<li><img src="images/icon8.png"--}}
+                                                                 {{--alt=""><span>Frontend Developer</span></li>--}}
+                                                        {{--<li><img src="images/icon9.png" alt=""><span>India</span></li>--}}
+                                                    {{--</ul>--}}
+                                                    {{--<ul class="bk-links">--}}
+                                                        {{--<li><a href="#" title=""><i class="la la-bookmark"></i></a></li>--}}
+                                                        {{--<li><a href="#" title=""><i class="la la-envelope"></i></a></li>--}}
+                                                        {{--<li><a href="#" title="" class="bid_now">Bid Now</a></li>--}}
+                                                    {{--</ul>--}}
+                                                {{--</div>--}}
+                                                {{--<div class="job_descp">--}}
+                                                    {{--<h3>Simple Classified Site</h3>--}}
+                                                    {{--<ul class="job-dt">--}}
+                                                        {{--<li><span>$300 - $350</span></li>--}}
+                                                    {{--</ul>--}}
+                                                    {{--<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam--}}
+                                                        {{--luctus hendrerit metus, ut ullamcorper quam finibus at. Etiam id--}}
+                                                        {{--magna sit amet... <a href="#" title="">view more</a></p>--}}
+                                                    {{--<ul class="skill-tags">--}}
+                                                        {{--<li><a href="#" title="">HTML</a></li>--}}
+                                                        {{--<li><a href="#" title="">PHP</a></li>--}}
+                                                        {{--<li><a href="#" title="">CSS</a></li>--}}
+                                                        {{--<li><a href="#" title="">Javascript</a></li>--}}
+                                                        {{--<li><a href="#" title="">Wordpress</a></li>--}}
+                                                        {{--<li><a href="#" title="">Photoshop</a></li>--}}
+                                                        {{--<li><a href="#" title="">Illustrator</a></li>--}}
+                                                        {{--<li><a href="#" title="">Corel Draw</a></li>--}}
+                                                    {{--</ul>--}}
+                                                {{--</div>--}}
+                                                {{--<div class="job-status-bar">--}}
+                                                    {{--<ul class="like-com">--}}
+                                                        {{--<li>--}}
+                                                            {{--<a href="#"><i class="la la-heart"></i> Like</a>--}}
+                                                            {{--<img src="images/liked-img.png" alt="">--}}
+                                                            {{--<span>25</span>--}}
+                                                        {{--</li>--}}
+                                                        {{--<li><a href="#" title="" class="com"><img src="images/com.png"--}}
+                                                                                                  {{--alt=""> Comment 15</a>--}}
+                                                        {{--</li>--}}
+                                                    {{--</ul>--}}
+                                                    {{--<a><i class="la la-eye"></i>Views 50</a>--}}
+                                                {{--</div>--}}
+                                            {{--</div><!--post-bar end-->--}}
+                                            {{--<div class="post-bar">--}}
+                                                {{--<div class="post_topbar">--}}
+                                                    {{--<div class="usy-dt">--}}
+                                                        {{--<img src="images/resources/us-pic.png" alt="">--}}
+                                                        {{--<div class="usy-name">--}}
+                                                            {{--<h3>John Doe</h3>--}}
+                                                            {{--<span><img src="images/clock.png" alt="">3 min ago</span>--}}
+                                                        {{--</div>--}}
+                                                    {{--</div>--}}
+                                                    {{--<div class="ed-opts">--}}
+                                                        {{--<a href="#" title="" class="ed-opts-open"><i--}}
+                                                                {{--class="la la-ellipsis-v"></i></a>--}}
+                                                        {{--<ul class="ed-options">--}}
+                                                            {{--<li><a href="#" title="">Edit Post</a></li>--}}
+                                                            {{--<li><a href="#" title="">Unsaved</a></li>--}}
+                                                            {{--<li><a href="#" title="">Unbid</a></li>--}}
+                                                            {{--<li><a href="#" title="">Close</a></li>--}}
+                                                            {{--<li><a href="#" title="">Hide</a></li>--}}
+                                                        {{--</ul>--}}
+                                                    {{--</div>--}}
+                                                {{--</div>--}}
+                                                {{--<div class="epi-sec">--}}
+                                                    {{--<ul class="descp">--}}
+                                                        {{--<li><img src="images/icon8.png"--}}
+                                                                 {{--alt=""><span>Frontend Developer</span></li>--}}
+                                                        {{--<li><img src="images/icon9.png" alt=""><span>India</span></li>--}}
+                                                    {{--</ul>--}}
+                                                    {{--<ul class="bk-links">--}}
+                                                        {{--<li><a href="#" title=""><i class="la la-bookmark"></i></a></li>--}}
+                                                        {{--<li><a href="#" title=""><i class="la la-envelope"></i></a></li>--}}
+                                                        {{--<li><a href="#" title="" class="bid_now">Bid Now</a></li>--}}
+                                                    {{--</ul>--}}
+                                                {{--</div>--}}
+                                                {{--<div class="job_descp">--}}
+                                                    {{--<h3>Ios Shopping mobile app</h3>--}}
+                                                    {{--<ul class="job-dt">--}}
+                                                        {{--<li><span>$300 - $350</span></li>--}}
+                                                    {{--</ul>--}}
+                                                    {{--<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam--}}
+                                                        {{--luctus hendrerit metus, ut ullamcorper quam finibus at. Etiam id--}}
+                                                        {{--magna sit amet... <a href="#" title="">view more</a></p>--}}
+                                                    {{--<ul class="skill-tags">--}}
+                                                        {{--<li><a href="#" title="">HTML</a></li>--}}
+                                                        {{--<li><a href="#" title="">PHP</a></li>--}}
+                                                        {{--<li><a href="#" title="">CSS</a></li>--}}
+                                                        {{--<li><a href="#" title="">Javascript</a></li>--}}
+                                                        {{--<li><a href="#" title="">Wordpress</a></li>--}}
+                                                        {{--<li><a href="#" title="">Photoshop</a></li>--}}
+                                                        {{--<li><a href="#" title="">Illustrator</a></li>--}}
+                                                        {{--<li><a href="#" title="">Corel Draw</a></li>--}}
+                                                    {{--</ul>--}}
+                                                {{--</div>--}}
+                                                {{--<div class="job-status-bar">--}}
+                                                    {{--<ul class="like-com">--}}
+                                                        {{--<li>--}}
+                                                            {{--<a href="#"><i class="la la-heart"></i> Like</a>--}}
+                                                            {{--<img src="images/liked-img.png" alt="">--}}
+                                                            {{--<span>25</span>--}}
+                                                        {{--</li>--}}
+                                                        {{--<li><a href="#" title="" class="com"><img src="images/com.png"--}}
+                                                                                                  {{--alt=""> Comment 15</a>--}}
+                                                        {{--</li>--}}
+                                                    {{--</ul>--}}
+                                                    {{--<a><i class="la la-eye"></i>Views 50</a>--}}
+                                                {{--</div>--}}
+                                            {{--</div><!--post-bar end-->--}}
+                                            {{--<div class="process-comm">--}}
+                                                {{--<a href="#" title=""><img src="images/process-icon.png" alt=""></a>--}}
+                                            {{--</div><!--process-comm end-->--}}
+                                        {{--</div><!--posts-section end-->--}}
                                     </div><!--product-feed-tab end-->
                                     <div class="product-feed-tab" id="portfolio-dd">
                                         <div class="portfolio-gallery-sec">
@@ -756,26 +756,28 @@
                                     </div><!--product-feed-tab end-->
                                     <div class="product-feed-tab" id="payment-dd">
                                         <div class="billing-method">
+                                            @if(!$isMyself)
+                                            {{Form::open(array('action' => ['PaymentController@sendMoney', Auth::user()->id], 'method'=>'post', 'files' => true))}}
                                             <ul>
                                                 <li>
-                                                    <h3>Add Billing Method</h3>
-                                                    <a href="#" title=""><i class="fa fa-plus-circle"></i></a>
+                                                    <h2>Send Money:</h2><br>
                                                 </li>
                                                 <li>
-                                                    <h3>See Activity</h3>
-                                                    <a href="#" title="">View All</a>
+                                                    <h2>Receiver Id:<span>&nbsp;&nbsp;</span></h2><br>
+                                                    <input type="text" name="receiver_id" value="{{$person->id}}">
                                                 </li>
                                                 <li>
-                                                    <h3>Total Money</h3>
-                                                    <span>$0.00</span>
+                                                    <h2>Total Money<span>&nbsp;&nbsp;</span></h2><br>
+                                                    <input type="text" name="amount" value="0">
+                                                </li>
+                                                <li>
+                                                    <input type="submit" class="btn btn-success" name="sendMoneyBtn" value="Send Money">
                                                 </li>
                                             </ul>
-                                            <div class="lt-sec">
-                                                <img src="images/lt-icon.png" alt="">
-                                                <h4>All your transactions are saved here</h4>
-                                                <a href="#" title="">Click Here</a>
-                                            </div>
+                                            {{Form::close()}}
+                                            @endif
                                         </div><!--billing-method end-->
+                                        @if($isMyself)
                                         <div class="add-billing-method">
                                             <h3>Add Billing Method</h3>
                                             <h4><img src="images/dlr-icon.png" alt=""><span>With workwise payment protection , only pay for work delivered.</span>
@@ -853,6 +855,7 @@
                                                 <h4>Add Paypal Account</h4>
                                             </div>
                                         </div><!--add-billing-method end-->
+                                        @endif
                                     </div><!--product-feed-tab end-->
                                 </div><!--main-ws-sec end-->
                             </div>

@@ -25,4 +25,8 @@ class Section extends Model
     public function getPublicPosts() {
         return $this->posts()->latest()->where('privacy_level', 'public')->get();
     }
+
+    public function memberships() {
+        return $this->hasMany('App\Membership', 'section_id', 'id');
+    }
 }

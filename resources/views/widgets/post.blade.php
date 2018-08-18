@@ -20,7 +20,7 @@ $user = Auth::user();
                 <li>
                     {{ Form::open(['action' => ['PostController@destroy', $post->id], 'method' => 'delete']) }}
                         @csrf
-                        <input style="border: none; background: none;color: #686868;font-size: 14px;font-weight: 600;" type="submit" value="Delete">
+                        <input style="border: none; background: none;color: #686868;font-size: 14px;font-weight: 600;cursor: pointer;" type="submit" value="Delete">
                     {{ Form::close() }}
                 </li>
                 <li><a href="{{Route('post.show', [$post->id])}}" title="" >View Post</a> </li>
@@ -72,7 +72,7 @@ $user = Auth::user();
         @foreach($post->comments as $comment)
                 <li class="active">
                     <a href="{{Route('profile.show', [$comment->commenter->id])}}">
-                        <div class="usr-msg-details" style="margin-top: 10px; margin-bottom: 5px; border-bottom: 1px solid #e5e5e5;">
+                        <div class="usr-msg-details" style="margin-top: 10px; padding-bottom: 5px; border-bottom: 1px solid #e5e5e5;">
                             <div class="usr-ms-img">
                                 <img src="{{asset($comment->commenter->info->profile_pic_path)}}" style="margin-left: 20px" alt="">
                                 <!--<span class="msg-status"></span>-->

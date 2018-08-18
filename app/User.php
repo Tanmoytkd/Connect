@@ -199,15 +199,20 @@ class User extends Authenticatable
     }
 
     public function createUserSection() {
-        $UserSection = new Section();
-        $UserSection->parent_id = 0;
-        $UserSection->section_type = 'user';
-        $UserSection->name = strval($this->id);
-        $UserSection->save();
+        $userSection = new Section();
+        $userSection->parent_id = 0;
+        $userSection->section_type = 'user';
+        $userSection->name = strval($this->id);
+        $userSection->save();
 
         $userInfo = $this->info;
-        $userInfo->section_id = $UserSection->id;
+        $userInfo->section_id = $userSection->id;
         $userInfo->save();
+
+        $adminMembership = new Membership();
+        $adminMembership->user_id=$this->id;
+        $adminMembership->role_id = Role::getSection('admin')->id;
+        $userSection->memberships()->save($adminMembership);
     }
 
     public function getUserSection() {

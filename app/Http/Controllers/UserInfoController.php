@@ -116,6 +116,7 @@ class UserInfoController extends Controller
 
         if(in_array($cover_ext, $allowed)) {
             if($cover_error==0) {
+                $fileNameNew = uniqid('', true).'.'.$cover_ext;
                 $fileDest = SITE_ROOT.'\images\propics\\'.$fileNameNew;
                 $saveDest = '/images/propics/'.$fileNameNew;
 
@@ -123,7 +124,7 @@ class UserInfoController extends Controller
                 $sec->section_image_path = $saveDest;
                 $sec->save();
 
-                move_uploaded_file($propic_tmp_name, $fileDest);
+                move_uploaded_file($cover_tmp_name, $fileDest);
             } else {
                 echo "There was and error uploading your file!";
             }

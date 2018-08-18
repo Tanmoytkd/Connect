@@ -41,17 +41,15 @@ Route::resource('comments', 'CommentController');
 
 Auth::routes();
 
-Route::get('/deposit', function (){
+Route::post('/deposit', function (){
     return "Make Deposit Page";
 })->name('deposit');
 
-Route::get('/withdraw', function () {
+Route::post('/withdraw', function () {
     return "Make Withdraw Page";
 })->name('withdraw');
 
-Route::get('/send-money', function (){
-    return "Make transfer page";
-})->name('sendMoney');
+Route::post('/send-money', 'PaymentController@sendMoney')->name('sendMoney');
 
 Route::any('/follow/{sectionId}', 'GeneralController@follow')->name('follow');
 Route::any('/unfollow/{sectionId}', 'GeneralController@unfollow')->name('unfollow');
@@ -82,4 +80,7 @@ Route::get('/sendMail', ['as'=>'mail', 'middleware'=>'auth' ,function (){
     });
 }]);
 
+Route::resource('payment', 'PaymentController');
+
 Route::resource('userinfo', 'UserInfoController');
+//Route::get('deposit', 'PaymentCon')

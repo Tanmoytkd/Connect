@@ -195,3 +195,33 @@ html body {
 #money-btn-group {
     margin-top: 20px;
 }
+
+.tab-feed.st2 ul li {
+    margin-right: 15px;
+}
+
+.billing-method input {
+    border-radius: 5px;
+    border: 1px solid #e5e5e5;
+    padding: 5px;
+}
+
+.job_descp img {
+    float: none;
+}
+
+strong {
+    font-weight: bold;
+}
+
+.job_descp > p {
+    color: #1b1e21;
+}
+
+.messages-list h3 {
+    font-size: 15px;
+}
+
+.usr-mg-info p {
+    margin-top: 2px;
+}

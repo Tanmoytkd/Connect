@@ -13,6 +13,17 @@ class Post extends Model
         'privacy_level'
     ];
 
+    // this is a recommended way to declare event handlers
+    protected static function boot() {
+        parent::boot();
+
+        static::deleting(function($post) { // before delete() method call this
+            $post->likes()->delete();
+            $post->comments()->delete();
+            // do the rest of the cleanup...
+        });
+    }
+
     public function writer() {
         return $this->belongsTo('App\User', 'user_id', 'id');
     }

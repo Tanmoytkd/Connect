@@ -67,7 +67,7 @@
                     <div class="carousel-container">
                         <div class="carousel-content">
                             <h2>Start building your new ideas</h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                            <p> We provide you with the perfect collaboration platform to lessen your workload and get creative.</p>
                             @guest
                                 <a href="{{route('register')}}" class="btn-get-started scrollto">Get Started</a>
                             @else
@@ -81,7 +81,7 @@
                     <div class="carousel-container">
                         <div class="carousel-content">
                             <h2>No worries about initial investment</h2>
-                            <p>Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut.</p>
+                            <p>We provide you with the perfect collaboration platform to lessen your workload and get creative.</p>
                             <a href="{{route('register')}}" class="btn-get-started scrollto">Get Started</a>
                         </div>
                     </div>
@@ -91,7 +91,7 @@
                     <div class="carousel-container">
                         <div class="carousel-content">
                             <h2>Show your skills</h2>
-                            <p>Beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt omnis iste natus error sit voluptatem accusantium.</p>
+                            <p>We provide you with the perfect collaboration platform to lessen your workload and get creative.</p>
                             <a href="{{route('register')}}" class="btn-get-started scrollto">Get Started</a>
                         </div>
                     </div>
@@ -101,7 +101,7 @@
                     <div class="carousel-container">
                         <div class="carousel-content">
                             <h2>Share risk and profit</h2>
-                            <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum.</p>
+                            <p>We provide you with the perfect collaboration platform to lessen your workload and get creative.</p>
                             <a href="{{route('register')}}" class="btn-get-started scrollto">Get Started</a>
                         </div>
                     </div>
@@ -111,7 +111,7 @@
                     <div class="carousel-container">
                         <div class="carousel-content">
                             <h2>Add awesome projects to your personal portfolio</h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                            <p>We provide you with the perfect collaboration platform to lessen your workload and get creative.</p>
                             <a href="{{route('register')}}" class="btn-get-started scrollto">Get Started</a>
                         </div>
                     </div>
@@ -143,19 +143,19 @@
                 <div class="col-lg-4 box">
                     <i class="ion-android-create"></i>
                     <h4 class="title"><a href="">Create</a></h4>
-                    <p class="description">Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident</p>
+                    <p class="description">We provide you with the perfect collaboration platform to lessen your workload and get creative.</p>
                 </div>
 
                 <div class="col-lg-4 box box-bg">
                     <i class="ion-android-bulb"></i>
                     <h4 class="title"><a href="">Innovate</a></h4>
-                    <p class="description">Minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat tarad limino ata</p>
+                    <p class="description">We provide you with the perfect collaboration platform to lessen your workload and get creative.</p>
                 </div>
 
                 <div class="col-lg-4 box">
                     <i class="ion-ios-infinite"></i>
                     <h4 class="title"><a href="">Collaborate</a></h4>
-                    <p class="description">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</p>
+                    <p class="description">We provide you with the perfect collaboration platform to lessen your workload and get creative.</p>
                 </div>
 
             </div>
@@ -184,7 +184,7 @@
                         </div>
                         <h2 class="title"><a href="#">Our Mission</a></h2>
                         <p>
-                            Lorem ipsum dolor sit amet, consectetur elit, sed do eiusmod tempor ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                            We provide you with the perfect collaboration platform to lessen your workload and get creative.
                         </p>
                     </div>
                 </div>
@@ -197,7 +197,7 @@
                         </div>
                         <h2 class="title"><a href="#">Our Plan</a></h2>
                         <p>
-                            Sed ut perspiciatis unde omnis iste natus error sit voluptatem  doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+                            We provide you with the perfect collaboration platform to lessen your workload and get creative.
                         </p>
                     </div>
                 </div>
@@ -210,7 +210,7 @@
                         </div>
                         <h2 class="title"><a href="#">Our Vision</a></h2>
                         <p>
-                            Nemo enim ipsam voluptatem quia voluptas sit aut odit aut fugit, sed quia magni dolores eos qui ratione voluptatem sequi nesciunt Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet.
+                            We provide you with the perfect collaboration platform to lessen your workload and get creative.
                         </p>
                     </div>
                 </div>
@@ -225,7 +225,7 @@
 
             <header class="section-header wow fadeInUp">
                 <h3>Services</h3>
-                <p>Laudem latine persequeris id sed, ex fabulas delectus quo. No vel partiendo abhorreant vituperatoribus, ad pro quaestio laboramus. Ei ubique vivendum pro. At ius nisl accusam lorenta zanos paradigno tridexa panatarel.</p>
+                <p> We provide you with the perfect collaboration platform to lessen your workload and get creative.</p>
             </header>
 
             <div class="row">
@@ -233,32 +233,32 @@
                 <div class="col-lg-4 col-md-6 box wow bounceInUp" data-wow-duration="1.4s">
                     <div class="icon"><i class="ion-ios-analytics-outline"></i></div>
                     <h4 class="title"><a href="">Create projects</a></h4>
-                    <p class="description">Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident</p>
+                    <p class="description">We provide you with the perfect collaboration platform to lessen your workload and get creative.</p>
                 </div>
                 <div class="col-lg-4 col-md-6 box wow bounceInUp" data-wow-duration="1.4s">
                     <div class="icon"><i class="ion-ios-bookmarks-outline"></i></div>
                     <h4 class="title"><a href="">Collaborate with others</a></h4>
-                    <p class="description">Minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat tarad limino ata</p>
+                    <p class="description">We provide you with the perfect collaboration platform to lessen your workload and get creative.</p>
                 </div>
                 <div class="col-lg-4 col-md-6 box wow bounceInUp" data-wow-duration="1.4s">
                     <div class="icon"><i class="ion-ios-paper-outline"></i></div>
                     <h4 class="title"><a href="">Search Projects based on categories</a></h4>
-                    <p class="description">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</p>
+                    <p class="description">We provide you with the perfect collaboration platform to lessen your workload and get creative.</p>
                 </div>
                 <div class="col-lg-4 col-md-6 box wow bounceInUp" data-wow-delay="0.1s" data-wow-duration="1.4s">
                     <div class="icon"><i class="ion-ios-speedometer-outline"></i></div>
                     <h4 class="title"><a href="">Team communication</a></h4>
-                    <p class="description">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+                    <p class="description">We provide you with the perfect collaboration platform to lessen your workload and get creative.</p>
                 </div>
                 <div class="col-lg-4 col-md-6 box wow bounceInUp" data-wow-delay="0.1s" data-wow-duration="1.4s">
                     <div class="icon"><i class="ion-ios-barcode-outline"></i></div>
                     <h4 class="title"><a href="">Ensure easier project management</a></h4>
-                    <p class="description">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque</p>
+                    <p class="description">We provide you with the perfect collaboration platform to lessen your workload and get creative.</p>
                 </div>
                 <div class="col-lg-4 col-md-6 box wow bounceInUp" data-wow-delay="0.1s" data-wow-duration="1.4s">
                     <div class="icon"><i class="ion-ios-people-outline"></i></div>
                     <h4 class="title"><a href="">Default payment method</a></h4>
-                    <p class="description">Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi</p>
+                    <p class="description">We provide you with the perfect collaboration platform to lessen your workload and get creative.</p>
                 </div>
 
             </div>
@@ -285,7 +285,7 @@
 
             <header class="section-header">
                 <h3>Our Skills</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip</p>
+                <p>We provide you with the perfect collaboration platform to lessen your workload and get creative.</p>
             </header>
 
             <div class="skills-content">
@@ -327,7 +327,7 @@
 
             <header class="section-header">
                 <h3>Facts</h3>
-                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque</p>
+                <p>We provide you with the perfect collaboration platform to lessen your workload and get creative.</p>
             </header>
 
             <div class="row counters">
@@ -549,7 +549,7 @@
     <!--==========================
       Clients Section
     ============================-->
-    <section id="testimonials" class="section-bg wow fadeInUp">
+    <!--<section id="testimonials" class="section-bg wow fadeInUp">
         <div class="container">
 
             <header class="section-header">
@@ -625,7 +625,7 @@
         <div class="container">
             <div class="section-header wow fadeInUp">
                 <h3>Team</h3>
-                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque</p>
+                <p>WE STUDY IN SUST</p>
             </div>
 
             <div class="row">
@@ -635,7 +635,7 @@
                         <img src="images/team-1.jpg" class="img-fluid" alt="">
                         <div class="member-info">
                             <div class="member-info-content">
-                                <h4>Walter White</h4>
+                                <h4>Tanmoy Krishna Das</h4>
                                 <span>Chief Executive Officer</span>
                                 <div class="social">
                                     <a href=""><i class="fa fa-twitter"></i></a>
@@ -653,7 +653,7 @@
                         <img src="images/team-2.jpg" class="img-fluid" alt="">
                         <div class="member-info">
                             <div class="member-info-content">
-                                <h4>Sarah Jhonson</h4>
+                                <h4>Jamima Sultana</h4>
                                 <span>Product Manager</span>
                                 <div class="social">
                                     <a href=""><i class="fa fa-twitter"></i></a>
@@ -671,7 +671,7 @@
                         <img src="images/team-3.jpg" class="img-fluid" alt="">
                         <div class="member-info">
                             <div class="member-info-content">
-                                <h4>William Anderson</h4>
+                                <h4>Tanmoy Krishna Das</h4>
                                 <span>CTO</span>
                                 <div class="social">
                                     <a href=""><i class="fa fa-twitter"></i></a>
@@ -689,7 +689,7 @@
                         <img src="images/team-4.jpg" class="img-fluid" alt="">
                         <div class="member-info">
                             <div class="member-info-content">
-                                <h4>Amanda Jepson</h4>
+                                <h4>Jamima Sultana</h4>
                                 <span>Accountant</span>
                                 <div class="social">
                                     <a href=""><i class="fa fa-twitter"></i></a>
@@ -715,7 +715,7 @@
 
             <div class="section-header">
                 <h3>Contact Us</h3>
-                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque</p>
+                <p>Contact us so that we can help!</p>
             </div>
 
             <div class="row contact-info">
@@ -724,7 +724,7 @@
                     <div class="contact-address">
                         <i class="ion-ios-location-outline"></i>
                         <h3>Address</h3>
-                        <address>A108 Adam Street, NY 535022, USA</address>
+                        <address>Shahjalal University of Science and technology,Sylhet.</address>
                     </div>
                 </div>
 
@@ -732,7 +732,7 @@
                     <div class="contact-phone">
                         <i class="ion-ios-telephone-outline"></i>
                         <h3>Phone Number</h3>
-                        <p><a href="tel:+155895548855">+1 5589 55488 55</a></p>
+                        <p><a href="#">+8801111111111</a></p>
                     </div>
                 </div>
 
@@ -740,7 +740,7 @@
                     <div class="contact-email">
                         <i class="ion-ios-email-outline"></i>
                         <h3>Email</h3>
-                        <p><a href="mailto:info@example.com">info@example.com</a></p>
+                        <p><a href="#">tanmoytkd@gmail.com</a></p>
                     </div>
                 </div>
 
@@ -787,7 +787,7 @@
 
                 <div class="col-lg-3 col-md-6 footer-info">
                     <h3>Connect</h3>
-                    <p>Cras fermentum odio eu feugiat lide par naso tierra. Justo eget nada terra videa magna derita valies darta donna mare fermentum iaculis eu non diam phasellus. Scelerisque felis imperdiet proin fermentum leo. Amet volutpat consequat mauris nunc congue.</p>
+                    <p>We provide you with the perfect collaboration platform to lessen your workload and get creative.</p>
                 </div>
 
                 <div class="col-lg-3 col-md-6 footer-links">
@@ -808,7 +808,7 @@
                         Sylhet 535022<br>
                         Bangladesh <br>
                         <strong>Phone:</strong> +018 5589 5548<br>
-                        <strong>Email:</strong> info@gmail.com<br>
+                        <strong>Email:</strong> tanmoytkd@gmail.com<br>
                     </p>
 
                     <div class="social-links">
@@ -823,7 +823,7 @@
 
                 <div class="col-lg-3 col-md-6 footer-newsletter">
                     <h4>Our Newsletter</h4>
-                    <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna veniam enim veniam illum dolore legam minim quorum culpa amet magna export quem marada parida nodela caramase seza.</p>
+                    <p>We provide you with the perfect collaboration platform to lessen your workload and get creative.</p>
                     <form action="" method="post">
                         <input type="email" name="email"><input type="submit"  value="Subscribe">
                     </form>
