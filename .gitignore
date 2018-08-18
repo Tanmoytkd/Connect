@@ -12,4 +12,4 @@ npm-debug.log
 yarn-error.log
 .env
 /public/userData/*
-
+/public/images/propics/*
