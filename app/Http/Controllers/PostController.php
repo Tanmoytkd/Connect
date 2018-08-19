@@ -37,7 +37,12 @@ class PostController extends Controller
     public function store(Request $request)
     {
         if(isset($_POST['postButton'])) {
-            $post = new Post();
+
+            if(isset($_POST['post_id'])) {
+                $post=Post::findOrFail($_POST['post_id']);
+            } else {
+                $post = new Post();
+            }
             $post->section_id = $_POST['section_id'];
             $post->content = $_POST['content'];
             $post->user_id = Auth::user()->id;
@@ -61,7 +66,7 @@ class PostController extends Controller
         $person = $post->writer;
         $user = Auth::user();
         $isMyself = $person->id == Auth::user()->id;
-        return view('post', compact( ['id', 'person', 'user', 'isMyself', 'post']));
+        return view('singlePostPage', compact( ['id', 'person', 'user', 'isMyself', 'post']));
     }
 
     /**
@@ -75,6 +80,7 @@ class PostController extends Controller
         $post = Post::findOrFail($id);
         $user = Auth::user();
         if($post->writer->id != $user->id) return redirect()->back();
+        return view('editPost', ['userMode'=>true, 'sectionId'=>$post->section->id, 'postContent'=>$post->content, 'person'=>Auth::user(), 'isMyself'=>true, 'user'=>$user, 'post'=>$post]);
         return view('widgets.writePost', ['userMode'=>true, 'sectionId'=>$post->section->id, 'postContent'=>$post->content]);
     }
 

@@ -5,6 +5,10 @@
 
 {!! Form::hidden('section_id', $sectionId) !!}
 
+@if(isset($post))
+    {!! Form::hidden('post_id', $post->id) !!}
+@endif
+
 <input type="textarea" class="tinyEditor" name="content" id="inputData" style="width: 100%; display: block"
     @if(isset($postContent))
         value="{{$postContent}}"
