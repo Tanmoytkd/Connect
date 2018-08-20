@@ -225,3 +225,7 @@ strong {
 .usr-mg-info p {
     margin-top: 2px;
 }
+
+.messg-usr-img {
+    bottom: 0px;
+}

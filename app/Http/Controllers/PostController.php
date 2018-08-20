@@ -40,6 +40,7 @@ class PostController extends Controller
 
             if(isset($_POST['post_id'])) {
                 $post=Post::findOrFail($_POST['post_id']);
+
             } else {
                 $post = new Post();
             }

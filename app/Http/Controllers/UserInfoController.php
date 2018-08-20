@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -60,76 +61,57 @@ class UserInfoController extends Controller
         //
     }
 
+
+    public function isAllowed($picture) {
+        $allowed_extentions = array('jpg', 'jpeg', 'png', 'gif');
+        $profile_pic_extention = strtolower($picture->clientExtension());
+
+        return in_array($profile_pic_extention, $allowed_extentions);
+    }
+
+    public function processInputImage($picture, $is_profile_picture) {
+        try {
+            $directory = "images/propics";
+            $fileNameNew = uniqid('', true).'.'.strtolower($picture->clientExtension());
+
+            $picture->move($directory, $fileNameNew);
+
+            if($is_profile_picture) {
+                $inf = Auth::user()->info;
+                $inf->profile_pic_path = $directory.'/'.$fileNameNew;
+                $inf->save();
+            } else {
+                $sec = Auth::user()->getUserSection();
+                $sec->section_image_path = $directory.'/'.$fileNameNew;
+                $sec->save();
+            }
+
+            return true;
+        } catch (Exception $e) {
+            return false;
+        }
+
+    }
+
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        define ('SITE_ROOT', 'C:\xampp\htdocs\connectapp\public');
+        $profile_picture = $request->file('profile_pic');
+        $cover_picture = $request->file('cover_pic');
 
-        $propic = $_FILES['profile_pic'];
-        $cover = $_FILES['cover_pic'];
-
-        $propic_name = $propic['name'];
-        $propic_tmp_name = $propic['tmp_name'];
-        $propic_size = $propic['size'];
-        $propic_error = $propic['error'];
-        $propic_type = $propic['type'];
-
-        $cover_name = $cover['name'];
-        $cover_tmp_name = $cover['tmp_name'];
-        $cover_size = $cover['size'];
-        $cover_error = $cover['error'];
-        $cover_type = $cover['type'];
-
-        $ext2 = explode('.', $propic_name);
-        $propic_ext = end( $ext2);
-        $propic_ext = strtolower($propic_ext);
-
-        $ext1 = explode('.', $cover_name);
-        $cover_ext = end( $ext1);
-        $cover_ext = strtolower($cover_ext);
-
-        $allowed = array('jpg', 'jpeg', 'png', 'pdf');
-
-        if(in_array($propic_ext, $allowed)) {
-            if($propic_error==0) {
-                $fileNameNew = uniqid('', true).'.'.$propic_ext;
-                $fileDest = SITE_ROOT.'\images\propics\\'.$fileNameNew;
-                $saveDest = '/images/propics/'.$fileNameNew;
-
-                $inf = Auth::user()->info;
-                $inf->profile_pic_path = $saveDest;
-                $inf->save();
-
-                move_uploaded_file($propic_tmp_name, $fileDest);
-            } else {
-                echo "There was and error uploading your file!";
-            }
-        } else {
-            echo "You can not upload files of this type";
+        if(isset($profile_picture) && $profile_picture->isValid()) {
+            if(!$this->isAllowed($profile_picture)) return "You can not upload files of this type";
+            if(!$this->processInputImage($profile_picture, true)) return "There was a problem moving the uploaded image to destination";
         }
 
-        if(in_array($cover_ext, $allowed)) {
-            if($cover_error==0) {
-                $fileNameNew = uniqid('', true).'.'.$cover_ext;
-                $fileDest = SITE_ROOT.'\images\propics\\'.$fileNameNew;
-                $saveDest = '/images/propics/'.$fileNameNew;
-
-                $sec = Auth::user()->getUserSection();
-                $sec->section_image_path = $saveDest;
-                $sec->save();
-
-                move_uploaded_file($cover_tmp_name, $fileDest);
-            } else {
-                echo "There was and error uploading your file!";
-            }
-        } else {
-            echo "You can not upload files of this type";
+        if(isset($cover_picture) && $cover_picture->isValid()) {
+            if(!$this->isAllowed($cover_picture)) return "You can not upload files of this type";
+            if(!$this->processInputImage($cover_picture, false)) return "There was a problem moving the uploaded image to destination";
         }
 
         return redirect()->back();
