@@ -173,6 +173,14 @@ html body {
     font-family: Montserrat, sans-serif;
 }
 
+.flw-hr {
+    margin-right: 0px;
+    display: block;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #e5e5e5;
+}
+
 .flw-status li {
     margin-right: 0px;
     display: block;

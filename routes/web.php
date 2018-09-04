@@ -61,7 +61,6 @@ Route::post('contact_show', [
 Route::resource('post', 'PostController');
 Route::get('post/{id}/toggleLike', 'PostController@toggleLike')->name('post.toggleLike');
 
-
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/sendMail', ['as'=>'mail', 'middleware'=>'auth' ,function (){
@@ -84,3 +83,9 @@ Route::resource('payment', 'PaymentController');
 
 Route::resource('userinfo', 'UserInfoController');
 //Route::get('deposit', 'PaymentCon')
+
+Route::resource('project', 'ProjectController')->middleware('auth');
+
+Route::get('test', function() {
+   return view('layouts.standardPageLayout');
+});

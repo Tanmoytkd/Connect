@@ -7,19 +7,16 @@
 
 @section('content')
 
-    @php
-        use App\ViewGenerator;
-    @endphp
-
     <div class="container">
 
         <section class="cover-sec">
             <img src="{{asset($person->getUserSection()->section_image_path)}}" style="object-fit: cover;"
-                 height="278px" lt="">
+                 height="278px" alt="">
         </section>
 
+        @section('init')
         @yield('createPost')
-
+        @show
 
         <main>
             <div class="main-section">
@@ -36,6 +33,7 @@
                                             {{--<a href="#" title=""><i class="fa fa-camera"></i></a>--}}
                                         </div><!--user-pro-img end-->
                                         <div class="user_pro_status">
+                                            @if(!$isMyself)
                                             <ul class="flw-hr">
 
                                                 <li>
@@ -50,6 +48,13 @@
                                                 </li>
                                                 <li><a href="#" title="" class="hre">Projects</a></li>
                                             </ul>
+                                            @else
+                                            <ul class="flw-hr">
+                                                <li>
+                                                    <a href="{{Route('project.create')}}" class="btn-success">Create Project</a>
+                                                </li>
+                                            </ul>
+                                            @endif
                                             <ul class="flw-status">
                                                 @if($isMyself)
                                                     {!! view('widgets.moneySection', compact(['person'])) !!}
@@ -927,33 +932,33 @@
                                     <div class="widget widget-portfolio">
                                         <div class="wd-heady">
                                             <h3 class="text-muted">Ads:</h3>
-                                            <img src="images/photo-icon.png" alt="">
+                                            <img src="{{asset('images/old/photo-icon.png')}}" alt="">
                                         </div>
                                         <div class="pf-gallery">
                                             <ul>
-                                                <li><a href="#" title=""><img src="images/resources/pf-gallery1.png"
+                                                <li><a href="#" title=""><img src="{{asset('images/old/resources/pf-gallery1.png')}}"
                                                                               alt=""></a></li>
-                                                <li><a href="#" title=""><img src="images/resources/pf-gallery2.png"
+                                                <li><a href="#" title=""><img src="{{asset('images/old/resources/pf-gallery2.png')}}"
                                                                               alt=""></a></li>
-                                                <li><a href="#" title=""><img src="images/resources/pf-gallery3.png"
+                                                <li><a href="#" title=""><img src="{{asset('images/old/resources/pf-gallery3.png')}}"
                                                                               alt=""></a></li>
-                                                <li><a href="#" title=""><img src="images/resources/pf-gallery4.png"
+                                                <li><a href="#" title=""><img src="{{asset('images/old/resources/pf-gallery4.png')}}"
                                                                               alt=""></a></li>
-                                                <li><a href="#" title=""><img src="images/resources/pf-gallery5.png"
+                                                <li><a href="#" title=""><img src="{{asset('images/old/resources/pf-gallery5.png')}}"
                                                                               alt=""></a></li>
-                                                <li><a href="#" title=""><img src="images/resources/pf-gallery6.png"
+                                                <li><a href="#" title=""><img src="{{asset('images/old/resources/pf-gallery6.png')}}"
                                                                               alt=""></a></li>
-                                                <li><a href="#" title=""><img src="images/resources/pf-gallery7.png"
+                                                <li><a href="#" title=""><img src="{{asset('images/old/resources/pf-gallery7.png')}}"
                                                                               alt=""></a></li>
-                                                <li><a href="#" title=""><img src="images/resources/pf-gallery8.png"
+                                                <li><a href="#" title=""><img src="{{asset('images/old/resources/pf-gallery8.png')}}"
                                                                               alt=""></a></li>
-                                                <li><a href="#" title=""><img src="images/resources/pf-gallery9.png"
+                                                <li><a href="#" title=""><img src="{{asset('images/old/resources/pf-gallery9.png')}}"
                                                                               alt=""></a></li>
-                                                <li><a href="#" title=""><img src="images/resources/pf-gallery10.png"
+                                                <li><a href="#" title=""><img src="{{asset('images/old/resources/pf-gallery10.png')}}"
                                                                               alt=""></a></li>
-                                                <li><a href="#" title=""><img src="images/resources/pf-gallery11.png"
+                                                <li><a href="#" title=""><img src="{{asset('images/old/resources/pf-gallery11.png')}}"
                                                                               alt=""></a></li>
-                                                <li><a href="#" title=""><img src="images/resources/pf-gallery12.png"
+                                                <li><a href="#" title=""><img src="{{asset('images/old/resources/pf-gallery12.png')}}"
                                                                               alt=""></a></li>
                                             </ul>
                                         </div><!--pf-gallery end-->
