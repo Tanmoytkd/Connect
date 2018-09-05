@@ -18,14 +18,19 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
+Route::any('/', function () {
     if(Auth::check()) {
-        return redirect()->route('profile.index');
+
+        return redirect()->route('newsFeed');
     } else {
         return view('welcome');
     }
 
 })->name('/');
+
+Route::get('/newsfeed', 'NewsFeedController@index')->name('newsFeed')->middleware('auth');
+Route::get('/newsfeed/{pageno}', 'NewsFeedController@index')->name('newsFeedPage')->middleware('auth');
+Route::get('/newsfeed/{pageno}/{postEachPage}', 'NewsFeedController@index')->name('newsFeedCustom')->middleware('auth');
 
 Route::post('/upload', 'UploadController@upload')->name('upload');
 

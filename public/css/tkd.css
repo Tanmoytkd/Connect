@@ -275,7 +275,12 @@ strong {
 .star-descp span {
     float: left;
     color: #686868;
+    line-height: 1.1em;
     font-size: 18px;
     font-weight: 400;
     margin-right: 20px;
+}
+
+.usy-name h3 {
+    text-transform: initial;
 }

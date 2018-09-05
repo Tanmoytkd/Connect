@@ -96,8 +96,8 @@ class ProjectController extends Controller
 
         Auth::user()->subscribe($section->id);
 
-        return redirect()->back();
-//        return redirect()->route('projects.show', ['id'=>$section->id]);
+//        return redirect()->back();
+        return redirect()->route('project.show', ['id'=>$section->id]);
     }
 
     /**

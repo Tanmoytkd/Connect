@@ -300,8 +300,22 @@ class User extends Authenticatable
         return $this->info->profile_pic_path;
     }
 
-    public function getMembershipStatus() {
-
+    public function getCoverPicPath() {
+        return $this->getUserSection()->getCoverPath();
     }
 
+    public function getNewsFeedPosts($pageNo = 1, $postEachPage = 10) {
+        $subscribedSections = $this->subscriptions->all();
+        $ids = collect([]);
+
+        foreach ($subscribedSections as $sec) {
+            $ids->push($sec->id);
+        }
+
+        $skips = ($pageNo-1)*$postEachPage;
+
+        $posts = Post::whereIn('section_id', $ids)->latest()->skip($skips)->take($postEachPage)->get()->all();
+
+        return $posts;
+    }
 }

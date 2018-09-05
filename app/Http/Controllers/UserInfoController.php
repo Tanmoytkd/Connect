@@ -101,6 +101,12 @@ class UserInfoController extends Controller
      */
     public function update(Request $request)
     {
+        if(isset($_POST['basicInfo'])) {
+            $inf = Auth::user()->info;
+            $inf->info = $_POST['basicInfo'];
+            $inf->save();
+        }
+
         $profile_picture = $request->file('profile_pic');
         $cover_picture = $request->file('cover_pic');
 

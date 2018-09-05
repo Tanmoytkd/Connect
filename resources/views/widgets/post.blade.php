@@ -7,7 +7,12 @@ $user = Auth::user();
         <div class="usy-dt">
             <img src="{{asset($post->writer->info->profile_pic_path)}}" width="50" alt="">
             <div class="usy-name">
-                <h3><a href="{{Route('profile.show', [$post->writer->id])}}" class="" style="color:darkslategray">{{$post->writer->name}}</a></h3>
+                <h3>
+                    <a href="{{Route('profile.show', [$post->writer->id])}}" class="" style="color:darkslategray">{{$post->writer->name}}</a>
+                    @if(!$post->section->isUserSection())
+                    | <a href="{{Route('project.show', [$post->section->id])}}" class="" style="color:darkslategray">{{$post->section->name}}</a>
+                    @endif
+                </h3>
                 <span><img src="{{asset('images/old/clock.png')}}" alt=""  >{{$post->updated_at->diffForHumans()}}</span>
             </div>
         </div>

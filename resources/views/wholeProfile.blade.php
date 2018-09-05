@@ -31,6 +31,8 @@
         {!! view('widgets.post', compact(['post'])) !!}
     @endforeach
 
+    @yield('pagination')
+
     {{--<div class="process-comm">--}}
     {{--<div class="spinner">--}}
     {{--<div class="bounce1"></div>--}}
