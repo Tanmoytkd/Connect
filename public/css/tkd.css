@@ -266,3 +266,7 @@ strong {
     box-sizing: border-box;
     width: 100%;
 }
+
+.user-pro-img {
+    margin-bottom: 10px;
+}

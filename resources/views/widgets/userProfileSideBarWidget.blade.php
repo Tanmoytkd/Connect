@@ -6,6 +6,15 @@
         {{--<a href="#" title=""><i class="fa fa-camera"></i></a>--}}
     </div><!--user-pro-img end-->
     <div class="user_pro_status">
+        <ul>
+            <li>
+                <div class="lead" style="margin-bottom: 20px">
+                    <a href="{{Route('profile.show', [$person->id])}}" class="text-secondary" style="color:darkslategray; font-weight: 400;">
+                        {{$person->name}}
+                    </a>
+                </div>
+            </li>
+        </ul>
 
         @if(!$isMyself)
             <ul class="flw-hr">

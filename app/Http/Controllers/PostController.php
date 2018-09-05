@@ -80,9 +80,9 @@ class PostController extends Controller
     {
         $post = Post::findOrFail($id);
         $user = Auth::user();
+        $userMode = ($post->section->section_type == 'user');
         if($post->writer->id != $user->id) return redirect()->back();
-        return view('editPost', ['userMode'=>true, 'sectionId'=>$post->section->id, 'postContent'=>$post->content, 'person'=>Auth::user(), 'isMyself'=>true, 'user'=>$user, 'post'=>$post]);
-        return view('widgets.writePost', ['userMode'=>true, 'sectionId'=>$post->section->id, 'postContent'=>$post->content]);
+        return view('editPost', ['userMode'=>$userMode, 'sectionId'=>$post->section->id, 'postContent'=>$post->content, 'person'=>Auth::user(), 'isMyself'=>true, 'user'=>$user, 'post'=>$post]);
     }
 
     /**
