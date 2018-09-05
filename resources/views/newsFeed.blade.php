@@ -72,6 +72,10 @@
             {{Form::open(array('action' => ['UserInfoController@update', Auth::user()->id], 'method'=>'put', 'files' => true))}}
             @csrf
 
+            <h2 style="margin-bottom: 10px">Basic Info: (Optional)</h2>
+            <textarea name="basicInfo" rows="4" class="parentWidth">{{$user->info->info}}</textarea>
+            <br><br>
+
             <h2 style="margin-bottom: 10px">Profile Picture: </h2>
             <input type="file" name="profile_pic">
             <br><br>

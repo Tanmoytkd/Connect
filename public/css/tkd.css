@@ -284,3 +284,11 @@ strong {
 .usy-name h3 {
     text-transform: initial;
 }
+
+.star-descp {
+    margin-bottom: 25px;
+}
+
+.mf-field input {
+    color: #6f6f92;
+}
