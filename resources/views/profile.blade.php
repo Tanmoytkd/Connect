@@ -106,7 +106,7 @@
                                 </a>
                             </div><!--gallery_pt end-->
                             <a href="{{route('project.show', ['id'=>$project->id])}}" style="text-align: center; display: block" title="">
-                                <h1 class="btn btn-light" style="margin: auto;text-align: center; font-weight: 400;">{{$project->name}}</h1>
+                                <h1 class="btn btn-light" style="margin: auto;text-align: center; font-weight: 400;font-size: 17px; width: 100%;">{{$project->name}}</h1>
                             </a>
                         </div>
                         @endforeach

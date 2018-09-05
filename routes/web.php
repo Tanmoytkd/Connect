@@ -91,6 +91,9 @@ Route::resource('userinfo', 'UserInfoController');
 
 Route::resource('project', 'ProjectController')->middleware('auth');
 
+Route::get('search', 'SearchController@index')->name('search');
+
 Route::get('test', function() {
    return view('layouts.standardPageLayout');
 });
+

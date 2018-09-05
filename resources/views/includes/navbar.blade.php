@@ -9,8 +9,12 @@
                 </h1>
             </div><!--logo end-->
             <div class="search-bar">
-                <form>
-                    <input type="text" name="search" placeholder="Search...">
+                <form method="get" action="{{Route('search')}}">
+                    @php
+                        $searchQuery = "";
+                        if(isset($_GET['search'])) $searchQuery = $_GET['search'];
+                    @endphp
+                    <input type="text" name="search" placeholder="Search..." value="{{$searchQuery}}">
                     <button type="submit"><i class="fa fa-search"></i></button>
                 </form>
             </div>

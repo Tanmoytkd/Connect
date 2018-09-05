@@ -125,7 +125,7 @@
 
         <div class="top-profiles">
             <div class="pf-hd">
-                <h3>Top Profiles</h3>
+                <h3>Members</h3>
                 <i class="fa fa-ellipsis-v"></i>
             </div>
             <div class="profiles-slider">
@@ -139,22 +139,31 @@
                         $currentRole = $membership->role;
                     @endphp
 
+                    {{--////////////////////--}}
+
                     <div class="user-profy card"
                          style="padding-top:  10px; width: calc(33.3% - 6px); margin-right: 6px">
-                        <img src="{{asset($currentMember->getProfilePicPath())}}" alt=""
-                             class="card-img-top rounded-circle"
-                             style="margin-right: auto; margin-left: auto; width: 80%;">
+                        <div class="user-pro-img" style="margin-top: 5px;">
+                            <img src="{{asset($currentMember->getProfilePicPath())}}" height="143px"
+                                 width="143px" alt="">
+                        </div>
+                        {{--<div class="image-cropper">--}}
+                        {{--<img src="{{asset($currentUser->getProfilePicPath())}}" alt="avatar" class="profile-pic">--}}
+                        {{--</div>--}}
+                        {{--<img src="{{asset($currentUser->getProfilePicPath())}}" alt=""--}}
+                        {{--class="card-img-top rounded-circle"--}}
+                        {{--style="margin-right: auto; margin-left: auto; width: 80%;">--}}
                         <div class="card-body" style="padding: 5px; padding-top: 10px;">
-                            <h3>{{$currentMember->name}}</h3>
-                            <span>{{$currentRole->role_name}}</span>
+                            <h3 style="height: 2em;overflow: hidden;">{{$currentMember->name}}</h3>
+                            <span>{{$currentMember->getUserSection()->subscribers->count()}} Followers</span>
 
-                            <ul>
+                            <ul style="height: 5em; overflow: hidden">
                                 <li>
                                     @if(!Auth::user()->isSubscriber($currentMember->getUserSection()->id))
                                         <a href="{{Route('follow', ['sectionId'=>$currentMember->getUserSection()->id])}}"
                                            title="" class="followw" style="margin: 5px"><i class="la la-plus "></i>Follow</a>
                                     @else
-                                        <a href="{{Route('unfollow', ['sectionId'=>$currentMember->getUserSection()->id])}}"
+                                        <a href="{{Route('unfollow', ['sectionId'=>$$currentMember->getUserSection()->id])}}"
                                            title="" class="followw btn-danger" style="margin: 5px"><i class="la la-plus"></i>
                                             Following</a>
                                     @endif
@@ -164,9 +173,40 @@
                                 <li><a href="#" title="" class="envlp bg-success" style="margin: 5px"><img
                                             src="http://connect.com/images/old/envelop.png" alt=""> Message</a></li>
                             </ul>
-                            <a href="#" title="" class="btn btn-light " style="width: 100%; background-color: #f7f7f7">View
+                            <a href="{{Route('profile.show', ['id'=>$currentMember->id])}}" title="" class="btn btn-light " style="width: 100%; background-color: #f7f7f7">View
                                 Profile</a></div>
                     </div>
+
+                    {{--////////////////////--}}
+
+                    {{--<div class="user-profy card"--}}
+                         {{--style="padding-top:  10px; width: calc(33.3% - 6px); margin-right: 6px">--}}
+                        {{--<img src="{{asset($currentMember->getProfilePicPath())}}" alt=""--}}
+                             {{--class="card-img-top rounded-circle"--}}
+                             {{--style="margin-right: auto; margin-left: auto; width: 80%;">--}}
+                        {{--<div class="card-body" style="padding: 5px; padding-top: 10px;">--}}
+                            {{--<h3>{{$currentMember->name}}</h3>--}}
+                            {{--<span>{{$currentRole->role_name}}</span>--}}
+
+                            {{--<ul>--}}
+                                {{--<li>--}}
+                                    {{--@if(!Auth::user()->isSubscriber($currentMember->getUserSection()->id))--}}
+                                        {{--<a href="{{Route('follow', ['sectionId'=>$currentMember->getUserSection()->id])}}"--}}
+                                           {{--title="" class="followw" style="margin: 5px"><i class="la la-plus "></i>Follow</a>--}}
+                                    {{--@else--}}
+                                        {{--<a href="{{Route('unfollow', ['sectionId'=>$currentMember->getUserSection()->id])}}"--}}
+                                           {{--title="" class="followw btn-danger" style="margin: 5px"><i class="la la-plus"></i>--}}
+                                            {{--Following</a>--}}
+                                    {{--@endif--}}
+                                {{--</li>--}}
+                                {{--<li><a href="{{Route('follow', ['sectionId'=>$person->getUserSection()->id])}}" title="" class="followw" style="margin: 5px">Follow</a></li>--}}
+                                {{--<li><a href="#" title="" class="hire" style="margin: 5px">Invite</a></li>--}}
+                                {{--<li><a href="#" title="" class="envlp bg-success" style="margin: 5px"><img--}}
+                                            {{--src="http://connect.com/images/old/envelop.png" alt=""> Message</a></li>--}}
+                            {{--</ul>--}}
+                            {{--<a href="{{Route('profile.show', ['id'=>$currentUser->id])}}" title="" class="btn btn-light " style="width: 100%; background-color: #f7f7f7">View--}}
+                                {{--Profile</a></div>--}}
+                    {{--</div>--}}
                 @endforeach
             </div><!--profiles-slider end-->
         </div><!--top-profiles end-->
