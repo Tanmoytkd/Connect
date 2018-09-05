@@ -1,78 +1,8 @@
 <script type="text/javascript" src="{{asset('lib/tinymce/jquery.tinymce.min.js')}}"></script>
 <script type="text/javascript" src="{{asset('lib/tinymce/tinymce.min.js')}}"></script>
 
-{!! Form::open(['method'=>'post', 'action' => 'PostController@store']) !!}
-
-{!! Form::hidden('section_id', $sectionId) !!}
-
-@if(isset($post))
-    {!! Form::hidden('post_id', $post->id) !!}
-@endif
-
-<input type="textarea" class="tinyEditor" name="content" id="inputData" style="width: 100%; display: block"
-    @if(isset($postContent))
-        value="{{$postContent}}"
-    @endif
->
-
-<div class="d-flex justify-content-end">
-    @if(!$userMode)
-    <select name = "privacy_level">
-        <option value="public">Public</option>
-        <option value="private">Group Members Only</option>
-    </select>
-    <span style="width: 10px"></span>
-    @endif
-    <input type="submit" class="btn btn-sm btn-success" name="postButton" id="postButton" value="Post">
-</div>
-
-{!! Form::close() !!}
-
 <script>
     var selector = '.tinyEditor';
-    // tinymce.init({
-    //     selector: selector,
-    //     height: 200,
-    //     theme: 'modern',
-    //     image_advtab: true,
-    //     plugins: 'image code print preview fullpage powerpaste searchreplace autolink directionality advcode visualblocks visualchars fullscreen link media template codesample table charmap hr pagebreak nonbreaking anchor toc insertdatetime advlist lists textcolor wordcount tinymcespellchecker a11ychecker imagetools mediaembed  linkchecker contextmenu colorpicker textpattern help',
-    //     toolbar: 'undo redo | image code | formatselect | bold italic strikethrough forecolor backcolor | link | alignleft aligncenter alignright alignjustify  | numlist bullist outdent indent  | removeformat',
-    //
-    //     // without images_upload_url set, Upload tab won't show up
-    //     images_upload_url: 'UploadContoller@upload',
-    //
-    //     // override default upload handler to simulate successful upload
-    //     images_upload_handler: function (blobInfo, success, failure) {
-    //         var xhr, formData;
-    //
-    //         xhr = new XMLHttpRequest();
-    //         xhr.withCredentials = false;
-    //         xhr.open('POST', 'upload.php');
-    //
-    //         xhr.onload = function() {
-    //             var json;
-    //
-    //             if (xhr.status != 200) {
-    //                 failure('HTTP Error: ' + xhr.status);
-    //                 return;
-    //             }
-    //
-    //             json = JSON.parse(xhr.responseText);
-    //
-    //             if (!json || typeof json.location != 'string') {
-    //                 failure('Invalid JSON: ' + xhr.responseText);
-    //                 return;
-    //             }
-    //
-    //             success(json.location);
-    //         };
-    //
-    //         formData = new FormData();
-    //         formData.append('file', blobInfo.blob(), blobInfo.filename());
-    //
-    //         xhr.send(formData);
-    //     },
-    // });
 
     var editor_config = {
         path_absolute : "/",
@@ -112,3 +42,31 @@
 
     tinymce.init(editor_config);
 </script>
+
+
+{!! Form::open(['method'=>'post', 'action' => 'PostController@store']) !!}
+
+{!! Form::hidden('section_id', $sectionId) !!}
+
+@if(isset($post))
+    {!! Form::hidden('post_id', $post->id) !!}
+@endif
+
+<input type="textarea" class="tinyEditor" name="content" id="inputData" style="width: 100%; display: block"
+    @if(isset($postContent))
+        value="{{$postContent}}"
+    @endif
+>
+
+<div class="d-flex justify-content-end">
+    @if(!$userMode)
+    <select name = "privacy_level">
+        <option value="public">Public</option>
+        <option value="private">Group Members Only</option>
+    </select>
+    <span style="width: 10px"></span>
+    @endif
+    <input type="submit" class="btn btn-sm btn-success" name="postButton" id="postButton" value="Post">
+</div>
+
+{!! Form::close() !!}

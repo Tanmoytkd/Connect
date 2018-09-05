@@ -171,6 +171,7 @@ section.messages-page {
 
 html body {
     font-family: Montserrat, sans-serif;
+
 }
 
 .flw-hr {
@@ -269,4 +270,12 @@ strong {
 
 .user-pro-img {
     margin-bottom: 10px;
+}
+
+.star-descp span {
+    float: left;
+    color: #686868;
+    font-size: 18px;
+    font-weight: 400;
+    margin-right: 20px;
 }
