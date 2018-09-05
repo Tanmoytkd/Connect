@@ -112,7 +112,7 @@ class ProjectController extends Controller
         $section = Section::findOrFail($id);
         $user = Auth::user();
         $role = $user->getRole($id);
-        if($role!="guest") $role = $role->role_name;
+        $role = $role->role_name;
         $isMember = $user->isMember($section->id);
         $logoPath = $section->getLogoPath();
         $coverPath = $section->getCoverPath();

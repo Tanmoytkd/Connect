@@ -108,7 +108,7 @@ class User extends Authenticatable
     }
 
     public function getRole($sectionId) {
-        if(!$this->isMember($sectionId)) return "guest";
+        if(!$this->isMember($sectionId)) return Role::getSection("guest");
         else return $this->memberships()->where('section_id', $sectionId)->first()->role()->first();
     }
 
@@ -294,6 +294,14 @@ class User extends Authenticatable
 
     public function unsubscribe($sectionId) {
         $this->subscriptions()->detach($sectionId);
+    }
+
+    public function getProfilePicPath() {
+        return $this->info->profile_pic_path;
+    }
+
+    public function getMembershipStatus() {
+
     }
 
 }
