@@ -1,5 +1,7 @@
 @extends('layouts.main')
 
+{{--@section('title') @parent @endsection--}}
+
 @section('content')
 
     <div class="container">

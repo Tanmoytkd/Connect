@@ -108,7 +108,7 @@ class User extends Authenticatable
     }
 
     public function getRole($sectionId) {
-        if(!$this->isMember($sectionId)) return "Guest";
+        if(!$this->isMember($sectionId)) return "guest";
         else return $this->memberships()->where('section_id', $sectionId)->first()->role()->first();
     }
 
@@ -183,7 +183,18 @@ class User extends Authenticatable
     }
 
     public function getProjects() {
-        return $this->memberships()->where('parent_id', 0)->get();
+        $memberships = $this->memberships->all();
+        $projects = collect([]);
+        foreach ($memberships as $member) {
+            $currentSection = $member->section()->first();
+
+            $section_type = $currentSection['section_type'];
+            $parent_id = $currentSection['parent_id'];
+            if($parent_id == 0 && $section_type == 'project') {
+                $projects->push($currentSection);
+            }
+        }
+        return $projects;
     }
 
     public function skills() {
@@ -213,6 +224,8 @@ class User extends Authenticatable
         $adminMembership->user_id=$this->id;
         $adminMembership->role_id = Role::getSection('admin')->id;
         $userSection->memberships()->save($adminMembership);
+
+        $this->subscribe($userSection->id);
     }
 
     public function getUserSection() {

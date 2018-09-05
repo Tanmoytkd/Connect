@@ -1,4 +1,4 @@
-@if($isMyself)
+@if((isset($isMyself) && $isMyself) || (isset($hasPostPermission) && $hasPostPermission))
     <div id="myModal" class="modal fade" role="dialog">
         <div class="modal-dialog">
 
@@ -10,7 +10,13 @@
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
                 <div class="modal-body">
-                    {!! view('widgets.writePost', ['userMode'=>true, 'sectionId'=>$user->getUserSection()->id]) !!}
+                    @php
+                    if(isset($isMyself) && $isMyself) {
+                        $userMode = true;
+                        $section = $user->getUserSection();
+                    }
+                    @endphp
+                    {!! view('widgets.writePost', ['userMode'=>$userMode, 'sectionId'=>$section->id]) !!}
                 </div>
                 {{--<div class="modal-footer">--}}
                 {{--<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>--}}

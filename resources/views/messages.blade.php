@@ -1,6 +1,6 @@
 @extends('layouts.main')
 
-@section('title')@parent | Messages @endsection
+@section('title')Messages | @parent @endsection
 
 @section('content')
 

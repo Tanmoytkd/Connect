@@ -13,3 +13,5 @@ yarn-error.log
 .env
 /public/userData/*
 /public/images/propics/*
+/public/images/logos/*
+/public/images/covers/*

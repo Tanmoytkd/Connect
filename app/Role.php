@@ -10,12 +10,14 @@ class Role extends Model
         'role_name'
     ];
 
-    public static function getSection($sectionName) {
-        $role = Role::where('role_name', $sectionName);
+    public static function getSection($roleName) {
+        $role = Role::where('role_name', $roleName);
         if($role->count()==0) {
             $role = new Role();
-            $role->role_name = $sectionName;
+            $role->role_name = $roleName;
             $role->save();
+        } else {
+            $role = $role->first();
         }
         return $role;
     }
