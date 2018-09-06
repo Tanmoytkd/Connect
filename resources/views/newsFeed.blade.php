@@ -3,7 +3,7 @@
 @section('title')News Feed | @parent @endsection
 
 @section('init')
-    @yield('createPost')
+    @include('widgets.createPostModal')
 @endsection
 
 @section('header')
