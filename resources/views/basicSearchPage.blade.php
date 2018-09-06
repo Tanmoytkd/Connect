@@ -98,7 +98,13 @@
 
     <div class="product-feed-tab" id="portfolio-dd">
         <div class="portfolio-gallery-sec">
+            @if(empty($projects))
+                <div style="text-align: center">
+                    <h1 class="text-secondary">No Project Found</h1>
+                </div>
+            @else
             <h3>Projects</h3>
+            @endif
             <div class="gallery_pf">
                 <div class="row">
                     @foreach($projects as $project)
@@ -121,7 +127,13 @@
     </div><!--product-feed-tab end-->
     <div class="product-feed-tab" id="payment-dd">
         <div class="portfolio-gallery-sec">
+            @if(empty($sections))
+                <div style="text-align: center">
+                    <h1 class="text-secondary">No Section Found</h1>
+                </div>
+            @else
             <h3>Sections</h3>
+            @endif
             <div class="gallery_pf">
                 <div class="row">
                     @foreach($sections as $currentSection)
@@ -150,5 +162,3 @@
 @section('rightSideBar')
     @include('widgets.ads')
 @endsection
-
-

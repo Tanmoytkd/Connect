@@ -17,7 +17,7 @@ class CreateRequestsTable extends Migration
             $table->increments('id');
             $table->string('request_type'); //join request or invitation
             $table->integer('requester_id');
-            $table->integer('recepient_id')->nullable();
+            $table->integer('recepient_id');
             $table->integer('section_id');
             $table->text('contract');
             $table->timestamps();

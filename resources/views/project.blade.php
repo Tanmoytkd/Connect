@@ -163,7 +163,7 @@
                                         <a href="{{Route('follow', ['sectionId'=>$currentMember->getUserSection()->id])}}"
                                            title="" class="followw" style="margin: 5px"><i class="la la-plus "></i>Follow</a>
                                     @else
-                                        <a href="{{Route('unfollow', ['sectionId'=>$$currentMember->getUserSection()->id])}}"
+                                        <a href="{{Route('unfollow', ['sectionId'=>$currentMember->getUserSection()->id])}}"
                                            title="" class="followw btn-danger" style="margin: 5px"><i class="la la-plus"></i>
                                             Following</a>
                                     @endif
