@@ -90,6 +90,7 @@ Route::resource('userinfo', 'UserInfoController');
 //Route::get('deposit', 'PaymentCon')
 
 Route::resource('project', 'ProjectController')->middleware('auth');
+Route::get('project/create/{parentId}', 'ProjectController@create')->middleware('auth')->name('createSection');
 
 Route::get('search', 'SearchController@index')->name('search');
 

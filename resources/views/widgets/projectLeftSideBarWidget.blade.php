@@ -32,6 +32,15 @@
                 </li>
             </ul>
             @endif
+
+            @if(Auth::user()->hasSectionCreationPermission($section->id))
+                <ul class="flw-hr">
+                    <li>
+                        <a href="{{Route('createSection', ['parentId'=>$section->id])}}" class="btn btn-dark">Create Section</a>
+                    </li>
+                </ul>
+            @endif
+
         @endif
 
         <ul class="flw-status">

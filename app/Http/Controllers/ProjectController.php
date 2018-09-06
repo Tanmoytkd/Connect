@@ -26,9 +26,12 @@ class ProjectController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($parentId = 0)
     {
-        return view('createProject', ['person'=>Auth::user(), 'user'=>Auth::user(), 'isMyself'=>true]);
+        $hasSectionCreationPermission = Auth::user()->hasSectionCreationPermission($parentId);
+        if($parentId!=0) $childSectionMode = true;
+        else $childSectionMode = false;
+        return view('createProject', ['person'=>Auth::user(), 'user'=>Auth::user(), 'isMyself'=>true, 'parentId'=>$parentId, 'childSectionMode'=>$childSectionMode, 'hasSectionCreationPermission'=>$hasSectionCreationPermission]);
     }
 
     public function isAllowed($picture) {
@@ -80,11 +83,19 @@ class ProjectController extends Controller
         if(isset($logo) && $logo->isValid()) {
             if(!$this->isAllowed($logo)) return "You can not upload files of this type";
             if(!$this->processInputImage($section, $logo, true)) return "There was a problem moving the uploaded image to destination";
+        } else {
+            if($section->parent_id!=0) {
+                $section->logo_path = null;
+            }
         }
 
         if(isset($cover_picture) && $cover_picture->isValid()) {
             if(!$this->isAllowed($cover_picture)) return "You can not upload files of this type";
             if(!$this->processInputImage($section, $cover_picture, false)) return "There was a problem moving the uploaded image to destination";
+        } else {
+            if($section->parent_id!=0) {
+                $section->section_image_path = null;
+            }
         }
 
         $section->save();
@@ -119,7 +130,7 @@ class ProjectController extends Controller
         $posts = [];
         if(!$isMember) $posts = $section->getPublicPosts();
         else $posts = $section->posts()->latest()->get();
-        $hasPostPermission = $isMember;
+        $hasPostPermission = $user->hasPostPermission($section->id);
         $userMode = false;
         return view('project', compact(['section', 'user', 'role', 'isMember', 'logoPath', 'coverPath', 'posts', 'hasPostPermission', 'userMode']));
     }

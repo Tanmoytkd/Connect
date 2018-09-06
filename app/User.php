@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Translation\MessageSelector;
 
 class User extends Authenticatable
@@ -84,7 +85,21 @@ class User extends Authenticatable
 
     public function hasLiked($postId) {
         $data = $this->likedPosts->where('id', $postId);
-        return $data->count() > 0;
+        return ($data->count() > 0);
+    }
+
+    public function hasPostPermission($sectionId) {
+        $sec = Section::find($sectionId);
+        if($sec->isProject() && $this->isAdmin($sectionId)) return true;
+        if($sec->isChildSection() && $this->isMember($sectionId)) return true;
+        return false;
+    }
+
+    public function hasSectionCreationPermission($parentId) {
+        if($parentId!=0 && !$this->isAdmin($parentId)) {
+            return false;
+        }
+        return true;
     }
 
     public function like($postId) {
@@ -105,6 +120,12 @@ class User extends Authenticatable
     public function isMember($sectionId) {
         $data = $this->memberships()->where('section_id', $sectionId);
         return $data->exists();
+    }
+
+    public function isAdmin($sectionId) {
+        $adminRole = Role::getSection('admin');
+        $myAdminRoles = $this->memberships()->where('section_id', $sectionId)->where('role_id', $adminRole->id)->get();
+        return ($myAdminRoles->count() > 0);
     }
 
     public function getRole($sectionId) {
