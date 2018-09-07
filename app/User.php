@@ -117,15 +117,22 @@ class User extends Authenticatable
         else return $this->like($postId);
     }
 
+
     public function isMember($sectionId) {
         $data = $this->memberships()->where('section_id', $sectionId);
         return $data->exists();
     }
 
+    public function isGuest($sectionId) {
+        return ($this->getRole($sectionId)->role_name == 'guest');
+    }
+
+    public function isManager($sectionId) {
+        return ($this->getRole($sectionId)->role_name == 'manager');
+    }
+
     public function isAdmin($sectionId) {
-        $adminRole = Role::getSection('admin');
-        $myAdminRoles = $this->memberships()->where('section_id', $sectionId)->where('role_id', $adminRole->id)->get();
-        return ($myAdminRoles->count() > 0);
+        return ($this->getRole($sectionId)->role_name == 'admin');
     }
 
     public function getRole($sectionId) {
@@ -201,6 +208,46 @@ class User extends Authenticatable
 
     public function inviteRequests() {
         return $this->receivedRequests()->where('request_type', 'invitations');
+    }
+
+    public function hasRequestedToJoin($sectionId) {
+        $requests = $this->sentRequests()->where('section_id', $sectionId)->where('request_type', 'join_request')->get();
+        return ($requests->count()>0);
+    }
+
+    public function requestToJoin($sectionId) {
+        if($this->hasRequestedToJoin($sectionId)) return;
+        $request = new Request();
+        $request->request_type = 'join_request';
+        $request->section_id = $sectionId;
+        $this->sentRequests()->save($request);
+    }
+
+    public function cancelJoinRequest($sectionId) {
+        $requests = $this->sentRequests()->where('section_id', $sectionId)->where('request_type', 'join_request')->delete();
+    }
+
+    public function join($sectionId) {
+        $membership = new Membership();
+        $membership->section_id = $sectionId;
+        $membership->role_id = Role::getSection('member')->id;
+
+        $this->memberships()->save($membership);
+    }
+
+    public function leave($sectionId) {
+        $this->memberships()->where('section_id', $sectionId)->delete();
+    }
+
+    public function setRole($sectionId, $roleId) {
+        $membership = $this->memberships()->where('section_id', $sectionId)->first();
+        $membership->role_id = $roleId;
+        $membership->save();
+    }
+
+    public function setRoleByName($sectionId, $roleName) {
+        $role = Role::getSection($roleName);
+        $this->setRole($sectionId, $role->id);
     }
 
     public function getProjects() {

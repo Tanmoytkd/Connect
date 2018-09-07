@@ -64,6 +64,14 @@ class Section extends Model
         return ($this->parent_id != 0) && ($this->section_type == 'section');
     }
 
+    public function parent() {
+        return $this->belongsTo('App\Section', 'parent_id', 'id');
+    }
+
+    public function children() {
+        return $this->hasMany('App\Section', 'parent_id', 'id');
+    }
+
     public function getParent() {
         return Section::findOrFail($this->parent_id);
     }
