@@ -112,7 +112,7 @@
                             <h3 style="height: 2em;overflow: hidden;">{{$currentMember->name}}</h3>
                             {{--<span>{{$currentMember->getUserSection()->subscribers()}} Followers</span>--}}
 
-                            <ul style="height: 5em; overflow: hidden">
+                            <ul style=" height: 7em; overflow: hidden">
                                 <li>
                                     <a href="{{Route('acceptRequest', ['requestId'=>$request->id])}}"
                                        title="" class="followw" style="margin: 5px"><i class="la la-plus "></i>Accept</a>
@@ -205,7 +205,7 @@
                                 <a title="kick out" href="{{Route('kick', ['sectionId'=>$section->id, 'userId'=>$currentMember->id])}}"><i class="fa fa-remove btn-md btn-danger"></i></a>
                             </div>
                             @endif
-                            <ul style="height: 6em; overflow: hidden">
+                            <ul style="height: 7em; overflow: hidden">
                                 <li>
                                     @if(!Auth::user()->isSubscriber($currentMember->getUserSection()->id))
                                         <a href="{{Route('follow', ['sectionId'=>$currentMember->getUserSection()->id])}}"

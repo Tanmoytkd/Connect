@@ -72,7 +72,7 @@
                         <h3 style="height: 2em;overflow: hidden;">{{$currentUser->name}}</h3>
                         <span>{{$currentUser->getUserSection()->subscribers->count()}} Followers</span>
 
-                        <ul style="height: 5em; overflow: hidden">
+                        <ul style="height: 7em; overflow: hidden">
                             <li>
                                 @if(!Auth::user()->isSubscriber($currentUser->getUserSection()->id))
                                     <a href="{{Route('follow', ['sectionId'=>$currentUser->getUserSection()->id])}}"
