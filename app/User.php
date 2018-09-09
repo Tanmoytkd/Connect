@@ -215,16 +215,45 @@ class User extends Authenticatable
         return ($requests->count()>0);
     }
 
-    public function requestToJoin($sectionId) {
-        if($this->hasRequestedToJoin($sectionId)) return;
-        $request = new Request();
+    public function hasBeenInvitedToJoin($sectionId) {
+        $requests = $this->receivedRequests()->where('section_id', $sectionId)->where('request_type', 'invitation')->get();
+        return ($requests->count()>0);
+    }
+
+    public function invite($sectionId, $userId, $id=null, $contract=null) {
+        if(!$this->hasUserAcceptPermission($sectionId)) return;
+        $recepient = User::findOrFail($userId);
+        if($id==null && $recepient->hasBeenInvitedToJoin($sectionId, $userId)) return;
+        if($id==null) $request = new Request();
+        else $request = Request::findOrFail($id);
+        $request->request_type = 'invitation';
+        $request->section_id = $sectionId;
+        $request->recepient_id = $userId;
+        $request->contract = $contract;
+        $this->sentRequests()->save($request);
+    }
+
+    public function requestToJoin($sectionId, $id = null, $contract=null) {
+        if($id==null && $this->hasRequestedToJoin($sectionId)) return;
+        if($id==null) $request = new Request();
+        else $request = Request::findOrFail($id);
         $request->request_type = 'join_request';
         $request->section_id = $sectionId;
+        $request->contract = $contract;
         $this->sentRequests()->save($request);
+    }
+
+    public function deleteRequest($id) {
+        Request::findOrFail($id)->delete();
     }
 
     public function cancelJoinRequest($sectionId) {
         $requests = $this->sentRequests()->where('section_id', $sectionId)->where('request_type', 'join_request')->delete();
+    }
+
+    public function cancelInvitation($sectionId, $userId=null) {
+        if($userId==null) $userId = $this->id;
+        $requests = Request::where('section_id', $sectionId)->where('request_type', 'invitation')->where('recepient_id', $userId)->delete();
     }
 
     public function join($sectionId) {
@@ -385,5 +414,76 @@ class User extends Authenticatable
         $posts = Post::whereIn('section_id', $ids)->latest()->skip($skips)->take($postEachPage)->get()->all();
 
         return $posts;
+    }
+
+    public function hasUserAcceptPermission($sectionId) {
+        return ($this->isAdmin($sectionId) || $this->isManager($sectionId));
+    }
+
+    public function acceptRequest($request_id) {
+        $request = Request::findOrFail($request_id);
+
+
+        if($request->request_type == 'join_request') {
+            $user = User::findOrFail($request->requester_id);
+            $contractor = $this;
+        } else {
+            $contractor = User::findOrFail($request->requester_id);
+            $user = $this;
+            if($this->id != $request->recepient_id) return;
+        }
+
+        if(!$contractor->hasUserAcceptPermission($request->section_id)) return;
+
+        $contract = new Contract();
+        $contract->section_id = $request->section_id;
+        $contract->user_id = $user->id;
+        $contract->contractor_id = $contractor->id;
+        $contract->contract = $request->contract;
+        $contract->save();
+        $user->join($request->section_id);
+        $request->delete();
+    }
+
+    public function rejectRequest($requestId) {
+        $request = Request::findOrFail($requestId);
+
+        if($request->request_type == 'join_request') {
+            $user = User::findOrFail($request->requester_id);
+            $contractor = $this;
+        } else {
+            $contractor = User::findOrFail($request->requester_id);
+            $user = $this;
+            if($this->id != $request->recepient_id) return;
+        }
+
+        if(!$contractor->hasUserAcceptPermission($request->section_id)) return;
+        $request->delete();
+    }
+
+    public function negotiateRequest($requestId, $contract=null) {
+        $request = Request::findOrFail($requestId);
+
+        if($request->request_type == 'join_request') {
+            $user = User::findOrFail($request->requester_id);
+            $contractor = $this;
+            if(!$contractor->hasUserAcceptPermission($request->section_id)) return;
+
+            $request->request_type = 'invitation';
+            $request->requester_id = $contractor->id;
+            $request->recepient_id = $user->id;
+            $request->contract = $contract;
+            $request->save();
+        } else {
+            $contractor = User::findOrFail($request->requester_id);
+            $user = $this;
+            if($this->id != $request->recepient_id) return;
+
+            $request->request_type = 'join_request';
+            $request->requester_id = $user->id;
+            $request->recepient_id = $contractor->id;
+            $request->contract = $contract;
+            $request->save();
+        }
     }
 }
