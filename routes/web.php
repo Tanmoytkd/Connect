@@ -11,6 +11,7 @@
 |
 */
 
+use App\Request;
 use App\User;
 use App\UserInfo;
 
@@ -98,3 +99,44 @@ Route::get('test', function() {
    return view('layouts.standardPageLayout');
 });
 
+Route::post('manageRequest', 'RequestController@manageRequest')->name('manageRequest');
+
+Route::get('acceptRequest/{requestId}', function($requestId) {
+    Auth::user()->acceptRequest($requestId);
+    return redirect()->back();
+})->name('acceptRequest');
+
+Route::get('rejectRequest/{requestId}', function($requestId) {
+    Auth::user()->rejectRequest($requestId);
+    return redirect()->back();
+})->name('rejectRequest');
+
+Route::get('makeAdmin/{sectionId}/{userId}', function ($sectionId, $userId) {
+    $user = User::findOrFail($userId);
+    if($user->isMember($sectionId)) {
+        $user->setRoleByName($sectionId, 'admin');
+    }
+    return redirect()->back();
+})->name('makeAdmin');
+
+Route::get('makeManager/{sectionId}/{userId}', function ($sectionId, $userId) {
+    $user = User::findOrFail($userId);
+    if($user->isMember($sectionId)) {
+        $user->setRoleByName($sectionId, 'manager');
+    }
+    return redirect()->back();
+})->name('makeManager');
+
+Route::get('makeMember/{sectionId}/{userId}', function ($sectionId, $userId) {
+    $user = User::findOrFail($userId);
+    if($user->isMember($sectionId)) {
+        $user->setRoleByName($sectionId, 'member');
+    }
+    return redirect()->back();
+})->name('makeMember');
+
+Route::get('kick/{sectionId}/{userId}', function($sectionId, $userId) {
+    $user = User::findOrFail($userId);
+    $user->leave($sectionId);
+    return redirect()->back();
+})->name('kick');

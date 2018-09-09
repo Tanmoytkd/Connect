@@ -38,13 +38,14 @@
                 {{--<span>Update Info</span>--}}
                 {{--</a>--}}
                 {{--</li>--}}
-
-                <li data-tab="my-bids">
-                    <a href="#" title="">
-                        <img src="{{asset('images/old/ic5.png')}}" alt="">
-                        <span>Requests</span>
-                    </a>
-                </li>
+                @if(Auth::user()->hasUserAcceptPermission($section->id))
+                    <li data-tab="my-bids">
+                        <a href="#" title="">
+                            <img src="{{asset('images/old/ic5.png')}}" alt="">
+                            <span>Requests</span>
+                        </a>
+                    </li>
+                @endif
                 <li data-tab="portfolio-dd">
                     <a href="#" title="">
                         <img src="{{asset('images/old/ic3.png')}}" alt="">
@@ -87,10 +88,50 @@
     {{--{{Form::close()}}--}}
     {{--</div><!--user-profile-ov end-->--}}
     {{--</div><!--product-feed-tab end-->--}}
+    @if(Auth::user()->hasUserAcceptPermission($section->id))
+        <div class="product-feed-tab" id="my-bids">
+            <div class="profiles-slider">
+                @php
+                    $allRequests = $section->requests()->where('request_type', 'join_request')->get()->all();
+                @endphp
 
-    <div class="product-feed-tab" id="my-bids">
+                @foreach ($allRequests as $request)
+                    @php
+                        $currentMember = $request->requester;
+                    @endphp
 
-    </div><!--product-feed-tab end-->
+                    {{--////////////////////--}}
+
+                    <div class="user-profy card"
+                         style="padding-top:  10px; width: calc(33.3% - 6px); margin-right: 6px">
+                        <div class="user-pro-img" style="margin-top: 5px;">
+                            <img src="{{asset($currentMember->getProfilePicPath())}}" height="143px"
+                                 width="143px" alt="">
+                        </div>
+                        <div class="card-body" style="padding: 5px; padding-top: 10px;">
+                            <h3 style="height: 2em;overflow: hidden;">{{$currentMember->name}}</h3>
+                            {{--<span>{{$currentMember->getUserSection()->subscribers()}} Followers</span>--}}
+
+                            <ul style="height: 5em; overflow: hidden">
+                                <li>
+                                    <a href="{{Route('acceptRequest', ['requestId'=>$request->id])}}"
+                                       title="" class="followw" style="margin: 5px"><i class="la la-plus "></i>Accept</a>
+                                </li>
+                                <li>
+                                    <a href="{{Route('rejectRequest', ['requestId'=>$request->id])}}" title="" class="btn btn-danger" style="margin: 5px">Reject</a>
+                                </li>
+                                <li>
+                                    <a href="{{Route('messages.show', [$currentMember->id])}}" title="" class="envlp bg-primary" style="margin: 5px">
+                                        <i class="fa fa-handshake-o"></i> Negotiate</a>
+                                </li>
+                            </ul>
+                            <a href="{{Route('profile.show', ['id'=>$currentMember->id])}}" title=""
+                               class="btn btn-light " style="width: 100%; background-color: #f7f7f7">View Profile</a></div>
+                    </div>
+                @endforeach
+            </div><!--profiles-slider end-->
+        </div><!--product-feed-tab end-->
+    @endif
     <div class="product-feed-tab" id="portfolio-dd">
         <div class="portfolio-gallery-sec">
             <h3>Sections</h3>
@@ -154,58 +195,67 @@
                         {{--class="card-img-top rounded-circle"--}}
                         {{--style="margin-right: auto; margin-left: auto; width: 80%;">--}}
                         <div class="card-body" style="padding: 5px; padding-top: 10px;">
-                            <h3 style="height: 2em;overflow: hidden;">{{$currentMember->name}}</h3>
-                            <span>{{$currentMember->getUserSection()->subscribers->count()}} Followers</span>
-
-                            <ul style="height: 5em; overflow: hidden">
+                            <h3 style="height: 2em;overflow: hidden;"><a style="color: #101010;" href="{{Route('profile.show', ['id'=>$currentMember->id])}}">{{$currentMember->name}}</a></h3>
+                            <span>{{$currentRole->role_name}}</span>
+                            @if(Auth::user()->isAdmin($section->id))
+                            <div style="margin-bottom: 15px">
+                                <a title="make admin" href="{{Route('makeAdmin', ['sectionId'=>$section->id, 'userId'=>$currentMember->id])}}"><i class="fa fa-diamond btn-md btn-success"></i></a>
+                                <a title="make manager" href="{{Route('makeManager', ['sectionId'=>$section->id, 'userId'=>$currentMember->id])}}"><i class="fa  fa-gavel btn-md btn-outline-success"></i></a>
+                                <a title="make member" href="{{Route('makeMember', ['sectionId'=>$section->id, 'userId'=>$currentMember->id])}}"><i class="fa fa-user btn-md btn-secondary"></i></a>
+                                <a title="kick out" href="{{Route('kick', ['sectionId'=>$section->id, 'userId'=>$currentMember->id])}}"><i class="fa fa-remove btn-md btn-danger"></i></a>
+                            </div>
+                            @endif
+                            <ul style="height: 6em; overflow: hidden">
                                 <li>
                                     @if(!Auth::user()->isSubscriber($currentMember->getUserSection()->id))
                                         <a href="{{Route('follow', ['sectionId'=>$currentMember->getUserSection()->id])}}"
                                            title="" class="followw" style="margin: 5px"><i class="la la-plus "></i>Follow</a>
                                     @else
                                         <a href="{{Route('unfollow', ['sectionId'=>$currentMember->getUserSection()->id])}}"
-                                           title="" class="followw btn-danger" style="margin: 5px"><i class="la la-plus"></i>
+                                           title="" class="followw btn-danger" style="margin: 5px"><i
+                                                class="la la-plus"></i>
                                             Following</a>
                                     @endif
                                 </li>
                                 {{--<li><a href="{{Route('follow', ['sectionId'=>$person->getUserSection()->id])}}" title="" class="followw" style="margin: 5px">Follow</a></li>--}}
                                 <li><a href="#" title="" class="hire" style="margin: 5px">Invite</a></li>
-                                <li><a href="#" title="" class="envlp bg-success" style="margin: 5px"><img
+                                <li><a href="{{Route('messages.show', [$currentMember->id])}}" title="" class="envlp bg-success" style="margin: 5px"><img
                                             src="http://connect.com/images/old/envelop.png" alt=""> Message</a></li>
                             </ul>
-                            <a href="{{Route('profile.show', ['id'=>$currentMember->id])}}" title="" class="btn btn-light " style="width: 100%; background-color: #f7f7f7">View
+                            <a href="{{Route('profile.show', ['id'=>$currentMember->id])}}" title=""
+                               class="btn btn-light " style="width: 100%; background-color: #f7f7f7">View
                                 Profile</a></div>
                     </div>
 
                     {{--////////////////////--}}
 
                     {{--<div class="user-profy card"--}}
-                         {{--style="padding-top:  10px; width: calc(33.3% - 6px); margin-right: 6px">--}}
-                        {{--<img src="{{asset($currentMember->getProfilePicPath())}}" alt=""--}}
-                             {{--class="card-img-top rounded-circle"--}}
-                             {{--style="margin-right: auto; margin-left: auto; width: 80%;">--}}
-                        {{--<div class="card-body" style="padding: 5px; padding-top: 10px;">--}}
-                            {{--<h3>{{$currentMember->name}}</h3>--}}
-                            {{--<span>{{$currentRole->role_name}}</span>--}}
+                    {{--style="padding-top:  10px; width: calc(33.3% - 6px); margin-right: 6px">--}}
+                    {{--<img src="{{asset($currentMember->getProfilePicPath())}}" alt=""--}}
+                    {{--class="card-img-top rounded-circle"--}}
+                    {{--style="margin-right: auto; margin-left: auto; width: 80%;">--}}
+                    {{--<div class="card-body" style="padding: 5px; padding-top: 10px;">--}}
+                    {{--<h3>{{$currentMember->name}}</h3>--}}
+                    {{--<span>{{$currentRole->role_name}}</span>--}}
 
-                            {{--<ul>--}}
-                                {{--<li>--}}
-                                    {{--@if(!Auth::user()->isSubscriber($currentMember->getUserSection()->id))--}}
-                                        {{--<a href="{{Route('follow', ['sectionId'=>$currentMember->getUserSection()->id])}}"--}}
-                                           {{--title="" class="followw" style="margin: 5px"><i class="la la-plus "></i>Follow</a>--}}
-                                    {{--@else--}}
-                                        {{--<a href="{{Route('unfollow', ['sectionId'=>$currentMember->getUserSection()->id])}}"--}}
-                                           {{--title="" class="followw btn-danger" style="margin: 5px"><i class="la la-plus"></i>--}}
-                                            {{--Following</a>--}}
-                                    {{--@endif--}}
-                                {{--</li>--}}
-                                {{--<li><a href="{{Route('follow', ['sectionId'=>$person->getUserSection()->id])}}" title="" class="followw" style="margin: 5px">Follow</a></li>--}}
-                                {{--<li><a href="#" title="" class="hire" style="margin: 5px">Invite</a></li>--}}
-                                {{--<li><a href="#" title="" class="envlp bg-success" style="margin: 5px"><img--}}
-                                            {{--src="http://connect.com/images/old/envelop.png" alt=""> Message</a></li>--}}
-                            {{--</ul>--}}
-                            {{--<a href="{{Route('profile.show', ['id'=>$currentUser->id])}}" title="" class="btn btn-light " style="width: 100%; background-color: #f7f7f7">View--}}
-                                {{--Profile</a></div>--}}
+                    {{--<ul>--}}
+                    {{--<li>--}}
+                    {{--@if(!Auth::user()->isSubscriber($currentMember->getUserSection()->id))--}}
+                    {{--<a href="{{Route('follow', ['sectionId'=>$currentMember->getUserSection()->id])}}"--}}
+                    {{--title="" class="followw" style="margin: 5px"><i class="la la-plus "></i>Follow</a>--}}
+                    {{--@else--}}
+                    {{--<a href="{{Route('unfollow', ['sectionId'=>$currentMember->getUserSection()->id])}}"--}}
+                    {{--title="" class="followw btn-danger" style="margin: 5px"><i class="la la-plus"></i>--}}
+                    {{--Following</a>--}}
+                    {{--@endif--}}
+                    {{--</li>--}}
+                    {{--<li><a href="{{Route('follow', ['sectionId'=>$person->getUserSection()->id])}}" title="" class="followw" style="margin: 5px">Follow</a></li>--}}
+                    {{--<li><a href="#" title="" class="hire" style="margin: 5px">Invite</a></li>--}}
+                    {{--<li><a href="#" title="" class="envlp bg-success" style="margin: 5px"><img--}}
+                    {{--src="http://connect.com/images/old/envelop.png" alt=""> Message</a></li>--}}
+                    {{--</ul>--}}
+                    {{--<a href="{{Route('profile.show', ['id'=>$currentUser->id])}}" title="" class="btn btn-light " style="width: 100%; background-color: #f7f7f7">View--}}
+                    {{--Profile</a></div>--}}
                     {{--</div>--}}
                 @endforeach
             </div><!--profiles-slider end-->

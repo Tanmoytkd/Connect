@@ -79,4 +79,8 @@ class Section extends Model
     public function childSections() {
         return $this->hasMany('App\Section', 'parent_id', 'id');
     }
+
+    public function requests() {
+        return $this->hasMany('App\Request', 'section_id', 'id');
+    }
 }

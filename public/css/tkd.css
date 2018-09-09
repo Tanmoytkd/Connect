@@ -312,3 +312,9 @@ height: 100%;
 .user-profy {
     margin-bottom: 10px;
 }
+
+.secondary {
+    background-color: #6c757d;
+    color: white;
+    border: none;
+}
