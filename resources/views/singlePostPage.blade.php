@@ -1,5 +1,7 @@
 @extends('layouts.standardPageLayout')
 
+@section('title')Post | {{$post->writer->name}} @parent  @endsection
+
 @php
     $section = $post->section;
     $user = Auth::user();

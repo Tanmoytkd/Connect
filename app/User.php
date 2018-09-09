@@ -207,7 +207,7 @@ class User extends Authenticatable
     }
 
     public function inviteRequests() {
-        return $this->receivedRequests()->where('request_type', 'invitations');
+        return $this->receivedRequests()->where('request_type', 'invitation');
     }
 
     public function hasRequestedToJoin($sectionId) {
@@ -277,6 +277,10 @@ class User extends Authenticatable
     public function setRoleByName($sectionId, $roleName) {
         $role = Role::getSection($roleName);
         $this->setRole($sectionId, $role->id);
+    }
+
+    public function getSections() {
+
     }
 
     public function getProjects() {

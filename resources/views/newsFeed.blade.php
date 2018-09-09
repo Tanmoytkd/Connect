@@ -37,7 +37,7 @@
                     <li data-tab="my-bids">
                         <a href="#" title="">
                             <img src="{{asset('images/old/ic5.png')}}" alt="">
-                            <span>Requests</span>
+                            <span>Invitations</span>
                         </a>
                     </li>
                 @endif
@@ -91,7 +91,7 @@
     </div><!--product-feed-tab end-->
 
     <div class="product-feed-tab" id="my-bids">
-
+        @include('widgets.invitations')
     </div><!--product-feed-tab end-->
     <div class="product-feed-tab" id="portfolio-dd">
         <div class="portfolio-gallery-sec">

@@ -12,6 +12,7 @@
 */
 
 use App\Request;
+use App\Section;
 use App\User;
 use App\UserInfo;
 
@@ -102,8 +103,9 @@ Route::get('test', function() {
 Route::post('manageRequest', 'RequestController@manageRequest')->name('manageRequest');
 
 Route::get('acceptRequest/{requestId}', function($requestId) {
+    $section = Section::find(Request::find($requestId)->section_id);
     Auth::user()->acceptRequest($requestId);
-    return redirect()->back();
+    return redirect(Route('project.show', ['id'=>$section->id]));
 })->name('acceptRequest');
 
 Route::get('rejectRequest/{requestId}', function($requestId) {
@@ -140,3 +142,7 @@ Route::get('kick/{sectionId}/{userId}', function($sectionId, $userId) {
     $user->leave($sectionId);
     return redirect()->back();
 })->name('kick');
+
+Route::get('invite/{userId?}', 'GeneralController@invite')->name('invite');
+Route::get('inviteToSection/{sectionId?}', 'GeneralController@inviteToSection')->name('inviteToSection');
+Route::any('makeInvitation', 'GeneralController@makeInvitation')->name('makeInvitation');

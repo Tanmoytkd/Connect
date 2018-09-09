@@ -29,7 +29,7 @@
                             Following</a>
                     @endif
                 </li>
-                <li><a href="#" title="" class="hre">Projects</a></li>
+                <li><a href="{{Route('invite', ['userId'=>$person->id])}}" title="" class="hre">Invite</a></li>
             </ul>
         @else
             <ul class="flw-hr">

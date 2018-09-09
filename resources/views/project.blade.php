@@ -32,12 +32,12 @@
                         <span>Feed</span>
                     </a>
                 </li>
-                {{--<li data-tab="info-dd">--}}
-                {{--<a href="#" title="">--}}
-                {{--<img src="{{asset('images/old/ic2.png')}}" alt="">--}}
-                {{--<span>Update Info</span>--}}
-                {{--</a>--}}
-                {{--</li>--}}
+                <li data-tab="info-dd">
+                <a href="#" title="">
+                <img src="{{asset('images/old/ic2.png')}}" alt="">
+                <span>Update Info</span>
+                </a>
+                </li>
                 @if(Auth::user()->hasUserAcceptPermission($section->id))
                     <li data-tab="my-bids">
                         <a href="#" title="">
@@ -70,24 +70,24 @@
             @show
         </div><!--posts-section end-->
     </div><!--product-feed-tab end-->
-    {{--<div class="product-feed-tab" id="info-dd">--}}
-    {{--<div class="user-profile-ov">--}}
-    {{--{{Form::open(array('action' => ['UserInfoController@update', Auth::user()->id], 'method'=>'put', 'files' => true))}}--}}
-    {{--@csrf--}}
+    <div class="product-feed-tab" id="info-dd">
+    <div class="user-profile-ov">
+    {{Form::open(array('action' => ['ProjectController@update', $section->id], 'method'=>'put', 'files' => true))}}
+    @csrf
 
-    {{--<h2 style="margin-bottom: 10px">Profile Picture: </h2>--}}
-    {{--<input type="file" name="profile_pic">--}}
-    {{--<br><br>--}}
-    {{--<h2 style="margin-bottom: 10px">Cover Pic: </h2>--}}
-    {{--<input type="file" name="cover_pic">--}}
-    {{--<br><br>--}}
-    {{--<button type="submit" class="btn btn-success" name="Save Changes">Save--}}
-    {{--changes--}}
-    {{--</button>--}}
+    <h2 style="margin-bottom: 10px">Profile Picture: </h2>
+    <input type="file" name="profile_pic">
+    <br><br>
+    <h2 style="margin-bottom: 10px">Cover Pic: </h2>
+    <input type="file" name="cover_pic">
+    <br><br>
+    <button type="submit" class="btn btn-success" name="Save Changes">Save
+    changes
+    </button>
 
-    {{--{{Form::close()}}--}}
-    {{--</div><!--user-profile-ov end-->--}}
-    {{--</div><!--product-feed-tab end-->--}}
+    {{Form::close()}}
+    </div><!--user-profile-ov end-->
+    </div><!--product-feed-tab end-->
     @if(Auth::user()->hasUserAcceptPermission($section->id))
         <div class="product-feed-tab" id="my-bids">
             <div class="profiles-slider">
@@ -167,7 +167,9 @@
         <div class="top-profiles">
             <div class="pf-hd">
                 <h3>Members</h3>
-                <i class="fa fa-ellipsis-v"></i>
+                @if(Auth::user()->hasUserAcceptPermission($section->id))
+                <i><a href="{{Route('inviteToSection', ['sectionId'=>$section->id])}}" title="" style="padding: 5px;-webkit-border-radius: 3px;-moz-border-radius: 3px;border-radius: 3px;" class="btn-md btn-primary">Invite</a></i>
+                @endif
             </div>
             <div class="profiles-slider">
                 @php
