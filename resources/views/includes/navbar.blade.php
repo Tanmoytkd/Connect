@@ -117,47 +117,30 @@
                         <div class="notification-box">
                             <div class="nt-title">
                                 <h4>Setting</h4>
-                                <a href="#" title="">Clear all</a>
+                                <a href="{{Route('clearNotifications')}}" title="">Clear all</a>
                             </div>
                             <div class="nott-list">
-                                <div class="notfication-details">
-                                    <div class="noty-user-img">
-                                        <img src="{{asset('images/old/resources/ny-img1.png')}}" alt="">
-                                    </div>
-                                    <div class="notification-info">
-                                        <h3><a href="#" title="">Jassica William</a> Comment on your project.</h3>
-                                        <span>2 min ago</span>
-                                    </div><!--notification-info -->
-                                </div>
-                                <div class="notfication-details">
-                                    <div class="noty-user-img">
-                                        <img src="{{asset('images/old/resources/ny-img2.png')}}" alt="">
-                                    </div>
-                                    <div class="notification-info">
-                                        <h3><a href="#" title="">Jassica William</a> Comment on your project.</h3>
-                                        <span>2 min ago</span>
-                                    </div><!--notification-info -->
-                                </div>
-                                <div class="notfication-details">
-                                    <div class="noty-user-img">
-                                        <img src="{{asset('images/old/resources/ny-img3.png')}}" alt="">
-                                    </div>
-                                    <div class="notification-info">
-                                        <h3><a href="#" title="">Jassica William</a> Comment on your project.</h3>
-                                        <span>2 min ago</span>
-                                    </div><!--notification-info -->
-                                </div>
-                                <div class="notfication-details">
-                                    <div class="noty-user-img">
-                                        <img src="{{asset('images/old/resources/ny-img2.png')}}" alt="">
-                                    </div>
-                                    <div class="notification-info">
-                                        <h3><a href="#" title="">Jassica William</a> Comment on your project.</h3>
-                                        <span>2 min ago</span>
-                                    </div><!--notification-info -->
-                                </div>
+                                @php
+                                    $notifications = Auth::user()->notifications()->latest()->take(3)->get();
+                                    if($notifications->count()==0) $unavailable = true;
+                                    $notifications= $notifications->all();
+                                @endphp
+
+                                @if(isset($unavailable) && $unavailable==true)
+                                    <p style="font-weight:normal; text-align: center">No notifications available</p>
+                                @endif
+
+                                @foreach($notifications as $notification)
+                                    @php
+                                        $imageToShow = $notification->image_to_show;
+                                        $notificationText = $notification->notification_text;
+                                        $notificationLink = $notification->link;
+                                        if($notification->link==null) $notificationLink = "#";
+                                    @endphp
+                                    @include('widgets.singleNotification')
+                                @endforeach
                                 <div class="view-all-nots">
-                                    <a href="#" title="">View All Notification</a>
+                                    <a href="{{Route('notifications')}}" title="">View All Notification</a>
                                 </div>
                             </div><!--nott-list end-->
                         </div><!--notification-box end-->

@@ -458,6 +458,16 @@ class User extends Authenticatable
         $contract->save();
         $user->join($request->section_id);
         $request->delete();
+
+        if($request->request_type == 'join_request') {
+            $section = Section::find($request->section_id);
+            $notification = new SimpleNotification();
+            $notification->recepient_id = $user->id;
+            $notification->link = Route('project.show', $request->section_id);
+            $notification->image_to_show = $section->getLogoPath();
+            $notification->notification_text = $contractor->name.' accepted your request to join '.$section->name;
+            $notification->save();
+        }
     }
 
     public function rejectRequest($requestId) {
@@ -474,6 +484,16 @@ class User extends Authenticatable
 
         if(!$contractor->hasUserAcceptPermission($request->section_id)) return;
         $request->delete();
+
+        if($request->request_type == 'join_request') {
+            $section = Section::find($request->section_id);
+            $notification = new SimpleNotification();
+            $notification->recepient_id = $user->id;
+            $notification->link = Route('project.show', $request->section_id);
+            $notification->image_to_show = $section->getLogoPath();
+            $notification->notification_text = 'Your request to join '.$section->name.' was denied';
+            $notification->save();
+        }
     }
 
     public function negotiateRequest($requestId, $contract=null) {
@@ -500,5 +520,9 @@ class User extends Authenticatable
             $request->contract = $contract;
             $request->save();
         }
+    }
+
+    public function notifications() {
+        return $this->hasMany('App\SimpleNotification', 'recepient_id', 'id');
     }
 }

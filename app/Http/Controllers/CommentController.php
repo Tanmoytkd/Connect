@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Comment;
+use App\Post;
+use App\SimpleNotification;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Route;
 use Illuminate\Support\Facades\Auth;
@@ -42,6 +44,16 @@ class CommentController extends Controller
         $comment->content = $_POST['content'];
         $comment->post_id = $_POST['post_id'];
         $comment->save();
+
+        $post = Post::find($comment->post_id);
+        $section = $post->section;
+        $notification = new SimpleNotification();
+        $notification->recepient_id = $post->writer->id;
+        $notification->link = Route('post.show', $comment->post_id);
+        $notification->image_to_show = Auth::user()->getProfilePicPath();
+        $notification->notification_text = Auth::user()->name.' commented on your post';
+        if(!$section->isUserSection()) $notification->notification_text = $notification->notification_text.' on '.$section->name;
+        $notification->save();
 
         return redirect(Route('post.show', [$_POST['post_id']]));
     }

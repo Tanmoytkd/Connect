@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Section;
+use App\SimpleNotification;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -9,6 +11,15 @@ class GeneralController extends Controller
 {
     public function follow($sectionId) {
         Auth::user()->subscribe($sectionId);
+
+        $section = Section::find($sectionId);
+        $notification = new SimpleNotification();
+        $notification->recepient_id = (int) $section->name;
+        $notification->link = Route('profile.show', Auth::user()->id);
+        $notification->image_to_show = Auth::user()->getProfilePicPath();
+        $notification->notification_text = Auth::user()->name.' started following you';
+        $notification->save();
+
         return redirect()->back();
     }
 
