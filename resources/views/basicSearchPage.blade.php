@@ -58,10 +58,12 @@
             @foreach($users as $currentUser)
                 <div class="user-profy card"
                      style="padding-top:  10px; width: calc(33.3% - 6px); margin-right: 6px">
+                    <a style="padding: 0px; margin: 0px;" class="text-body" href="{{Route('profile.show', $currentUser->id)}}">
                     <div class="user-pro-img" style="margin-top: 5px;">
                         <img src="{{asset($currentUser->getProfilePicPath())}}" height="143px"
                              width="143px" alt="">
                     </div>
+                    </a>
                     {{--<div class="image-cropper">--}}
                         {{--<img src="{{asset($currentUser->getProfilePicPath())}}" alt="avatar" class="profile-pic">--}}
                     {{--</div>--}}
@@ -69,7 +71,8 @@
                          {{--class="card-img-top rounded-circle"--}}
                          {{--style="margin-right: auto; margin-left: auto; width: 80%;">--}}
                     <div class="card-body" style="padding: 5px; padding-top: 10px;">
-                        <h3 style="height: 2em;overflow: hidden;">{{$currentUser->name}}</h3>
+
+                        <h3 style="height: 2em;overflow: hidden;"><a class="text-body" href="{{Route('profile.show', $currentUser->id)}}">{{$currentUser->name}}</a></h3>
                         <span>{{$currentUser->getUserSection()->subscribers->count()}} Followers</span>
 
                         <ul style="height: 7em; overflow: hidden">

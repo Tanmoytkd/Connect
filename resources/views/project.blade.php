@@ -33,10 +33,10 @@
                     </a>
                 </li>
                 <li data-tab="info-dd">
-                <a href="#" title="">
-                <img src="{{asset('images/old/ic2.png')}}" alt="">
-                <span>Update Info</span>
-                </a>
+                    <a href="#" title="">
+                        <img src="{{asset('images/old/ic2.png')}}" alt="">
+                        <span>Update Info</span>
+                    </a>
                 </li>
                 @if(Auth::user()->hasUserAcceptPermission($section->id))
                     <li data-tab="my-bids">
@@ -71,22 +71,22 @@
         </div><!--posts-section end-->
     </div><!--product-feed-tab end-->
     <div class="product-feed-tab" id="info-dd">
-    <div class="user-profile-ov">
-    {{Form::open(array('action' => ['ProjectController@update', $section->id], 'method'=>'put', 'files' => true))}}
-    @csrf
+        <div class="user-profile-ov">
+            {{Form::open(array('action' => ['ProjectController@update', $section->id], 'method'=>'put', 'files' => true))}}
+            @csrf
 
-    <h2 style="margin-bottom: 10px">Profile Picture: </h2>
-    <input type="file" name="profile_pic">
-    <br><br>
-    <h2 style="margin-bottom: 10px">Cover Pic: </h2>
-    <input type="file" name="cover_pic">
-    <br><br>
-    <button type="submit" class="btn btn-success" name="Save Changes">Save
-    changes
-    </button>
+            <h2 style="margin-bottom: 10px">Profile Picture: </h2>
+            <input type="file" name="profile_pic">
+            <br><br>
+            <h2 style="margin-bottom: 10px">Cover Pic: </h2>
+            <input type="file" name="cover_pic">
+            <br><br>
+            <button type="submit" class="btn btn-success" name="Save Changes">Save
+                changes
+            </button>
 
-    {{Form::close()}}
-    </div><!--user-profile-ov end-->
+            {{Form::close()}}
+        </div><!--user-profile-ov end-->
     </div><!--product-feed-tab end-->
     @if(Auth::user()->hasUserAcceptPermission($section->id))
         <div class="product-feed-tab" id="my-bids">
@@ -104,29 +104,37 @@
 
                     <div class="user-profy card"
                          style="padding-top:  10px; width: calc(33.3% - 6px); margin-right: 6px">
+                        <a style="margin: 0px; padding: 0px;" class="text-body" href="{{Route('profile.show', $currentMember->id)}}">
                         <div class="user-pro-img" style="margin-top: 5px;">
-                            <img src="{{asset($currentMember->getProfilePicPath())}}" height="143px"
-                                 width="143px" alt="">
+                                <img src="{{asset($currentMember->getProfilePicPath())}}" height="143px"
+                                     width="143px" alt="">
                         </div>
+                        </a>
                         <div class="card-body" style="padding: 5px; padding-top: 10px;">
-                            <h3 style="height: 2em;overflow: hidden;">{{$currentMember->name}}</h3>
+                            <a class="text-body" href="{{Route('profile.show', $currentMember->id)}}"><h3
+                                    style="height: 2em;overflow: hidden;">{{$currentMember->name}}</h3>
+                            </a>
                             {{--<span>{{$currentMember->getUserSection()->subscribers()}} Followers</span>--}}
 
                             <ul style=" height: 7em; overflow: hidden">
                                 <li>
                                     <a href="{{Route('acceptRequest', ['requestId'=>$request->id])}}"
-                                       title="" class="followw" style="margin: 5px"><i class="la la-plus "></i>Accept</a>
+                                       title="" class="followw" style="margin: 5px"><i
+                                            class="la la-plus "></i>Accept</a>
                                 </li>
                                 <li>
-                                    <a href="{{Route('rejectRequest', ['requestId'=>$request->id])}}" title="" class="btn btn-danger" style="margin: 5px">Reject</a>
+                                    <a href="{{Route('rejectRequest', ['requestId'=>$request->id])}}" title=""
+                                       class="btn btn-danger" style="margin: 5px">Reject</a>
                                 </li>
                                 <li>
-                                    <a href="{{Route('messages.show', [$currentMember->id])}}" title="" class="envlp bg-primary" style="margin: 5px">
+                                    <a href="{{Route('messages.show', [$currentMember->id])}}" title=""
+                                       class="envlp bg-primary" style="margin: 5px">
                                         <i class="fa fa-handshake-o"></i> Negotiate</a>
                                 </li>
                             </ul>
                             <a href="{{Route('profile.show', ['id'=>$currentMember->id])}}" title=""
-                               class="btn btn-light " style="width: 100%; background-color: #f7f7f7">View Profile</a></div>
+                               class="btn btn-light " style="width: 100%; background-color: #f7f7f7">View Profile</a>
+                        </div>
                     </div>
                 @endforeach
             </div><!--profiles-slider end-->
@@ -168,7 +176,9 @@
             <div class="pf-hd">
                 <h3>Members</h3>
                 @if(Auth::user()->hasUserAcceptPermission($section->id))
-                <i><a href="{{Route('inviteToSection', ['sectionId'=>$section->id])}}" title="" style="padding: 5px;-webkit-border-radius: 3px;-moz-border-radius: 3px;border-radius: 3px;" class="btn-md btn-primary">Invite</a></i>
+                    <i><a href="{{Route('inviteToSection', ['sectionId'=>$section->id])}}" title=""
+                          style="padding: 5px;-webkit-border-radius: 3px;-moz-border-radius: 3px;border-radius: 3px;"
+                          class="btn-md btn-primary">Invite</a></i>
                 @endif
             </div>
             <div class="profiles-slider">
@@ -186,10 +196,12 @@
 
                     <div class="user-profy card"
                          style="padding-top:  10px; width: calc(33.3% - 6px); margin-right: 6px">
+                        <a style="margin: 0px; padding: 0px;" class="text-body" href="{{Route('profile.show', $currentMember->id)}}">
                         <div class="user-pro-img" style="margin-top: 5px;">
                             <img src="{{asset($currentMember->getProfilePicPath())}}" height="143px"
                                  width="143px" alt="">
                         </div>
+                        </a>
                         {{--<div class="image-cropper">--}}
                         {{--<img src="{{asset($currentUser->getProfilePicPath())}}" alt="avatar" class="profile-pic">--}}
                         {{--</div>--}}
@@ -197,15 +209,25 @@
                         {{--class="card-img-top rounded-circle"--}}
                         {{--style="margin-right: auto; margin-left: auto; width: 80%;">--}}
                         <div class="card-body" style="padding: 5px; padding-top: 10px;">
-                            <h3 style="height: 2em;overflow: hidden;"><a style="color: #101010;" href="{{Route('profile.show', ['id'=>$currentMember->id])}}">{{$currentMember->name}}</a></h3>
+                            <h3 style="height: 2em;overflow: hidden;"><a style="color: #101010;"
+                                                                         href="{{Route('profile.show', ['id'=>$currentMember->id])}}">{{$currentMember->name}}</a>
+                            </h3>
                             <span>{{$currentRole->role_name}}</span>
                             @if(Auth::user()->isAdmin($section->id))
-                            <div style="margin-bottom: 15px">
-                                <a title="make admin" href="{{Route('makeAdmin', ['sectionId'=>$section->id, 'userId'=>$currentMember->id])}}"><i class="fa fa-diamond btn-md btn-success"></i></a>
-                                <a title="make manager" href="{{Route('makeManager', ['sectionId'=>$section->id, 'userId'=>$currentMember->id])}}"><i class="fa  fa-gavel btn-md btn-outline-success"></i></a>
-                                <a title="make member" href="{{Route('makeMember', ['sectionId'=>$section->id, 'userId'=>$currentMember->id])}}"><i class="fa fa-user btn-md btn-secondary"></i></a>
-                                <a title="kick out" href="{{Route('kick', ['sectionId'=>$section->id, 'userId'=>$currentMember->id])}}"><i class="fa fa-remove btn-md btn-danger"></i></a>
-                            </div>
+                                <div style="margin-bottom: 15px">
+                                    <a title="make admin"
+                                       href="{{Route('makeAdmin', ['sectionId'=>$section->id, 'userId'=>$currentMember->id])}}"><i
+                                            class="fa fa-diamond btn-md btn-success"></i></a>
+                                    <a title="make manager"
+                                       href="{{Route('makeManager', ['sectionId'=>$section->id, 'userId'=>$currentMember->id])}}"><i
+                                            class="fa  fa-gavel btn-md btn-outline-success"></i></a>
+                                    <a title="make member"
+                                       href="{{Route('makeMember', ['sectionId'=>$section->id, 'userId'=>$currentMember->id])}}"><i
+                                            class="fa fa-user btn-md btn-secondary"></i></a>
+                                    <a title="kick out"
+                                       href="{{Route('kick', ['sectionId'=>$section->id, 'userId'=>$currentMember->id])}}"><i
+                                            class="fa fa-remove btn-md btn-danger"></i></a>
+                                </div>
                             @endif
                             <ul style="height: 7em; overflow: hidden">
                                 <li>
@@ -221,7 +243,8 @@
                                 </li>
                                 {{--<li><a href="{{Route('follow', ['sectionId'=>$person->getUserSection()->id])}}" title="" class="followw" style="margin: 5px">Follow</a></li>--}}
                                 <li><a href="#" title="" class="hire" style="margin: 5px">Invite</a></li>
-                                <li><a href="{{Route('messages.show', [$currentMember->id])}}" title="" class="envlp bg-success" style="margin: 5px"><img
+                                <li><a href="{{Route('messages.show', [$currentMember->id])}}" title=""
+                                       class="envlp bg-success" style="margin: 5px"><img
                                             src="http://connect.com/images/old/envelop.png" alt=""> Message</a></li>
                             </ul>
                             <a href="{{Route('profile.show', ['id'=>$currentMember->id])}}" title=""
