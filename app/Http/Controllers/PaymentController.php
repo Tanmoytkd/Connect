@@ -31,6 +31,9 @@ class PaymentController extends Controller
 
     public function sendMoney(Request $request) {
         $user = Auth::user();
+        if(!isset($_POST['amount']) || !isset($_POST['receiver_id'])) {
+            return view('paymentPage', ['mode'=>'sendMoney']);
+        }
         $amount = $_POST['amount'];
         $receiver = $_POST['receiver_id'];
         $user->sendMoney($receiver, $amount);

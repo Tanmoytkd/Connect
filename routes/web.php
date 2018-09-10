@@ -56,7 +56,8 @@ Route::post('/withdraw', function () {
     return "Make Withdraw Page";
 })->name('withdraw');
 
-Route::post('/send-money', 'PaymentController@sendMoney')->name('sendMoney');
+Route::any('/send-money', 'PaymentController@sendMoney')->name('sendMoney');
+
 
 Route::any('/follow/{sectionId}', 'GeneralController@follow')->name('follow');
 Route::any('/unfollow/{sectionId}', 'GeneralController@unfollow')->name('unfollow');
@@ -146,3 +147,4 @@ Route::get('kick/{sectionId}/{userId}', function($sectionId, $userId) {
 Route::get('invite/{userId?}', 'GeneralController@invite')->name('invite');
 Route::get('inviteToSection/{sectionId?}', 'GeneralController@inviteToSection')->name('inviteToSection');
 Route::any('makeInvitation', 'GeneralController@makeInvitation')->name('makeInvitation');
+

@@ -18,6 +18,20 @@
     @include('widgets.userProfileSideBarWidget')
 @endsection
 
+@section('rightSideBar')
+    <div class="message-btn">
+        <a href="{{Route('messages.show', [$person->id])}}" title=""><i
+                class="fa fa-envelope"></i> Message</a>
+    </div>
+    @if($isMyself)
+        <div class="message-btn">
+            <a href="#" data-toggle="modal" data-target="#myModal"
+               style="margin-right: 10px">Write Post</a>
+        </div>
+    @endif
+    @include('widgets.ads')
+@endsection
+
 @section('mainContent')
     @include('widgets.userHeader')
     @section('mainContentWithName')
@@ -97,29 +111,7 @@
             </div><!--portfolio-gallery-sec end-->
         </div><!--product-feed-tab end-->
         <div class="product-feed-tab" id="payment-dd">
-            <div class="billing-method">
-                {{--@if(!$isMyself)--}}
-                {{Form::open(array('action' => ['PaymentController@sendMoney', Auth::user()->id], 'method'=>'post', 'files' => true))}}
-                <ul>
-                    <li>
-                        <h2>Send Money:</h2><br>
-                    </li>
-                    <li>
-                        <h2>Receiver Id:<span>&nbsp;&nbsp;</span></h2><br>
-                        <input type="text" name="receiver_id" value="{{$person->id}}">
-                    </li>
-                    <li>
-                        <h2>Total Money<span>&nbsp;&nbsp;</span></h2><br>
-                        <input type="text" name="amount" value="0">
-                    </li>
-                    <li>
-                        <input type="submit" class="btn btn-success" name="sendMoneyBtn"
-                               value="Send Money">
-                    </li>
-                </ul>
-                {{Form::close()}}
-                {{--@endif--}}
-            </div><!--billing-method end-->
+            @include('widgets.sendMoney')
             @if($isMyself)
                 <div class="add-billing-method">
                     <h3>Add Billing Method</h3>
@@ -206,18 +198,4 @@
             @endif
         </div><!--product-feed-tab end-->
     @show
-@endsection
-
-@section('rightSideBar')
-    <div class="message-btn">
-        <a href="{{Route('messages.show', [$person->id])}}" title=""><i
-                class="fa fa-envelope"></i> Message</a>
-    </div>
-    @if($isMyself)
-        <div class="message-btn">
-            <a href="#" data-toggle="modal" data-target="#myModal"
-               style="margin-right: 10px">Write Post</a>
-        </div>
-    @endif
-    @include('widgets.ads')
 @endsection
