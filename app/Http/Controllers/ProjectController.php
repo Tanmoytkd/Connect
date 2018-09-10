@@ -155,7 +155,32 @@ class ProjectController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $section = Section::findOrFail($id);
+        $section->name = $_POST['name'];
+        $section->description = $_POST['description'];
+
+        $logo = $request->file('logo');
+        $cover_picture = $request->file('cover_pic');
+
+        if(isset($logo) && $logo->isValid()) {
+            if(!$this->isAllowed($logo)) return "You can not upload files of this type";
+            if(!$this->processInputImage($section, $logo, true)) return "There was a problem moving the uploaded image to destination";
+        } else {
+            if($section->parent_id!=0) {
+                $section->logo_path = null;
+            }
+        }
+
+        if(isset($cover_picture) && $cover_picture->isValid()) {
+            if(!$this->isAllowed($cover_picture)) return "You can not upload files of this type";
+            if(!$this->processInputImage($section, $cover_picture, false)) return "There was a problem moving the uploaded image to destination";
+        } else {
+            if($section->parent_id!=0) {
+                $section->section_image_path = null;
+            }
+        }
+        $section->save();
+        return redirect()->route('project.show', ['id'=>$section->id]);
     }
 
     /**

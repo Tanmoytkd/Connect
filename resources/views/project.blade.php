@@ -32,12 +32,14 @@
                         <span>Feed</span>
                     </a>
                 </li>
+                @if(Auth::user()->isAdmin($section->id))
                 <li data-tab="info-dd">
                     <a href="#" title="">
                         <img src="{{asset('images/old/ic2.png')}}" alt="">
                         <span>Update Info</span>
                     </a>
                 </li>
+                @endif
                 @if(Auth::user()->hasUserAcceptPermission($section->id))
                     <li data-tab="my-bids">
                         <a href="#" title="">
@@ -70,13 +72,18 @@
             @show
         </div><!--posts-section end-->
     </div><!--product-feed-tab end-->
+    @if(Auth::user()->isAdmin($section->id))
     <div class="product-feed-tab" id="info-dd">
         <div class="user-profile-ov">
             {{Form::open(array('action' => ['ProjectController@update', $section->id], 'method'=>'put', 'files' => true))}}
             @csrf
 
-            <h2 style="margin-bottom: 10px">Profile Picture: </h2>
-            <input type="file" name="profile_pic">
+            <h2 style="margin-bottom: 10px">Name: </h2>
+            <input type="text" style="margin-bottom: 20px" name="name" value="{{$section->name}}">
+            <h2 style="margin-bottom: 10px">Description: </h2>
+            <textarea rows="8" style="width: 100%; margin-bottom: 10px" name="description">{{$section->description}}</textarea>
+            <h2 style="margin-bottom: 10px">Logo: </h2>
+            <input type="file" name="logo">
             <br><br>
             <h2 style="margin-bottom: 10px">Cover Pic: </h2>
             <input type="file" name="cover_pic">
@@ -88,6 +95,7 @@
             {{Form::close()}}
         </div><!--user-profile-ov end-->
     </div><!--product-feed-tab end-->
+    @endif
     @if(Auth::user()->hasUserAcceptPermission($section->id))
         <div class="product-feed-tab" id="my-bids">
             <div class="profiles-slider">
