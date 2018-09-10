@@ -280,7 +280,18 @@ class User extends Authenticatable
     }
 
     public function getSections() {
+        $memberships = $this->memberships->all();
+        $projects = collect([]);
+        foreach ($memberships as $member) {
+            $currentSection = $member->section()->first();
 
+            $section_type = $currentSection['section_type'];
+            $parent_id = $currentSection['parent_id'];
+            if($parent_id != 0 && $section_type == 'section') {
+                $projects->push($currentSection);
+            }
+        }
+        return $projects;
     }
 
     public function getProjects() {
