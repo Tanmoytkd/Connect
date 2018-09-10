@@ -1,5 +1,7 @@
 @extends('profile')
 
+@section('title') Payment | @parent @endsection
+
 @php
     use Illuminate\Support\Facades\Auth;
     $person = Auth::user();

@@ -1,6 +1,6 @@
 {{----------------------------}}
 
-<ul class="nav nav-tabs justify-content-center" role="tablist">
+<ul class="nav nav-tabs justify-content-center" role="tablist" style="margin-bottom: 27px">
     <li class="nav-item">
         <a class="nav-link active" data-toggle="tab" href="#projects">Projects</a>
     </li>
