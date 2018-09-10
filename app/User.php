@@ -257,6 +257,7 @@ class User extends Authenticatable
     }
 
     public function join($sectionId) {
+        if(Membership::where('section_id', $sectionId)->where('user_id', $this->id)->get()->count()) return;
         $membership = new Membership();
         $membership->section_id = $sectionId;
         $membership->role_id = Role::getSection('member')->id;
