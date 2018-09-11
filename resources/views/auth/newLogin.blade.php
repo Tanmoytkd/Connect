@@ -36,7 +36,7 @@
         <div class="row">
             <div class="col-sm-5">
                 <div class="intro-texts">
-                    <h1 class="text-white">Create, Collaborate,Innovate !!!</h1>
+                    <h1 class="text-white">Create, Collaborate, Innovate !!!</h1>
                     <p style="color: white">
                         We present you the idea of Ownership Shared Development (OSD) where developers get
                         a partial ownership of that particular project and earn a portion of subsequent profit

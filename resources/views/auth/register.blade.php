@@ -1,1 +1,1 @@
-@extends('auth.newLogin');
+@extends('auth.newLogin')
