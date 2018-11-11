@@ -52,8 +52,9 @@ class MessageController extends Controller
      */
     public function show($userId)
     {
+        $messagePage = true;
         $userId = intval($userId);
-        return view('messages', compact('userId'));
+        return view('messages', compact('userId', 'messagePage'));
     }
 
     /**

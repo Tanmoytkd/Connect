@@ -90,15 +90,24 @@
                         {{--</ul>--}}
                     {{--</li>--}}
                     <li>
+                        @if(!isset($messagePage))
                         <a href="#" title="" class="not-box-open">
                             <span><img src="{{asset('images/old/icon6.png')}}" alt=""></span>
                             Messages
                         </a>
+                        @else
+                        <a href="{{route('messages.index')}}" title="" class="not-box-open">
+                            <span><img src="{{asset('images/old/icon6.png')}}" alt=""></span>
+                            Messages
+                        </a>
+                        @endif
+                        @if(!isset($messagePage))
                         <div class="notification-box msg">
                             <div class="nt-title">
                                 <h4></h4>
                                 <a href="#" title=""></a>
                             </div>
+
                             <div class="nott-list">
 
                                 @include('includes.navbarMsg')
@@ -108,13 +117,22 @@
                                 </div>
                             </div><!--nott-list end-->
                         </div><!--notification-box end-->
+                        @endif
                     </li>
                     <li>
+                        @if(!isset($messagePage))
                         <a href="#" title="" class="not-box-open">
                             <span><img src="{{asset('images/old/icon7.png')}}" alt=""></span>
                             Notification
                         </a>
+                        @else
+                        <a href="{{Route('notifications')}}" title="" class="not-box-open">
+                            <span><img src="{{asset('images/old/icon7.png')}}" alt=""></span>
+                            Notification
+                        </a>
+                        @endif
                         <div class="notification-box">
+                            @if(!isset($messagePage))
                             <div class="nt-title">
                                 <h4>Setting</h4>
                                 <a href="{{Route('clearNotifications')}}" title="">Clear all</a>
@@ -142,6 +160,7 @@
                                 <div class="view-all-nots">
                                     <a href="{{Route('notifications')}}" title="">View All Notification</a>
                                 </div>
+                                @endif
                             </div><!--nott-list end-->
                         </div><!--notification-box end-->
                     </li>
