@@ -272,6 +272,10 @@ strong {
     margin-bottom: 10px;
 }
 
+.user-pro-img img {
+    object-fit: cover;
+}
+
 .star-descp span {
     float: left;
     color: #686868;
