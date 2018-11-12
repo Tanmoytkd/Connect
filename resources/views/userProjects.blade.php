@@ -9,5 +9,7 @@
 @section('title') Projects | @parent @endsection
 
 @section('mainContent')
-    @include('widgets.userProjectSection')
+    @php
+    echo view('widgets.userProjectSection', compact('person', 'user', 'isMyself'))
+    @endphp
 @endsection
