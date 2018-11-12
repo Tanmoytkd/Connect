@@ -4,7 +4,7 @@
        href="{{route('project.show', ['id'=>$project->id])}}">
         <div class="user-pro-img" style="margin-top: 5px;">
             <img src="{{asset($project->getLogoPath())}}" height="143px"
-                 width="143px" alt="">
+                 width="143px" style="object-fit: cover" alt="">
         </div>
     </a>
 
