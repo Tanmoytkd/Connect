@@ -326,3 +326,13 @@ height: 100%;
 .tab-feed {
     margin-bottom: 20px;
 }
+
+.search-bar form input {
+    width: 100%;
+    background-color: #fff;
+    height: 38px;
+    color: #0a1f03;
+    font-size: 16px;
+    border: 0;
+    padding: 0 10px;
+}
