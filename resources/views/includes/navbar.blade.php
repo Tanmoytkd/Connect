@@ -24,7 +24,7 @@
             </div><!--menu-btn end-->
             <div class="user-account">
                 <div class="user-info">
-                    <img src="{{asset(Auth::user()->info->profile_pic_path)}}" style="height: 1.5em; width: 1.5em;" alt="">
+                    <img src="{{asset(Auth::user()->info->profile_pic_path)}}" style="object-fit:cover; height: 1.5em; width: 1.5em;" alt="">
                     <a href="#" title=""><b>{{Auth::user()->getFirstName()}}</b></a>
                     <i class="la la-sort-down"></i>
                 </div>
