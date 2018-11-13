@@ -5,7 +5,7 @@ $user = Auth::user();
 <div class="post-bar">
     <div class="post_topbar">
         <div class="usy-dt">
-            <img src="{{asset($post->writer->info->profile_pic_path)}}" width="50" alt="">
+            <img src="{{asset($post->writer->info->profile_pic_path)}}" width="50" height="50" style="object-fit: cover" alt="">
             <div class="usy-name">
                 <h3>
                     <a href="{{Route('profile.show', [$post->writer->id])}}" class="" style="color:darkslategray">{{$post->writer->name}}</a>

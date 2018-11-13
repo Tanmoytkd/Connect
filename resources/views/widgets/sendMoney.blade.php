@@ -88,7 +88,7 @@
             var name = $('#receiverName').val();
             if (name === "") return;
 
-            $.get('userByName/' + name, function (data) {
+            $.get('/userByName/' + name, function (data) {
                 data = JSON.parse(data);
                 $('#userResults').html("");
                 var token = '{{ csrf_field() }}';
@@ -116,7 +116,7 @@
                                         $("<tr/>").append(
                                             $("<td/>").append(
                                                 $("<img/>", {
-                                                    src: user.profile_pic_path,
+                                                    src: "/"+user.profile_pic_path,
                                                     style: 'width: 50px;height: 50px;object-fit: cover; border-radius: 100px'
                                                 })
                                             ),

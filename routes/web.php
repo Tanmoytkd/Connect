@@ -195,7 +195,7 @@ Route::get('clearNotifications', function () {
     return redirect()->back();
 })->name('clearNotifications');
 
-Route::get('userByName/{name}', function($name) {
+Route::get('/userByName/{name}', function($name) {
     $users = User::where('name', 'like', '%'.$name.'%')->get();
     foreach ($users as $user) {
         $user->profile_pic_path = $user->getProfilePicPath();
