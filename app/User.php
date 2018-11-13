@@ -295,6 +295,21 @@ class User extends Authenticatable
         return $projects;
     }
 
+    public function canInviteTo($sectionId) {
+        return (($this->isAdmin($sectionId)) || ($this->isManager($sectionId)));
+    }
+
+    public function getInvitableSections() {
+        $sections  = $this->getSections();
+        $filteredSections = collect([]);
+        foreach ($sections as $section) {
+            if($this->canInviteTo($section->id)) {
+                $filteredSections->push($section);
+            }
+        }
+        return $filteredSections;
+    }
+
     public function getProjects() {
         $memberships = $this->memberships->all();
         $projects = collect([]);
@@ -309,6 +324,18 @@ class User extends Authenticatable
         }
         return $projects;
     }
+
+    public function getInvitableProjects() {
+        $projects = $this->getProjects();
+        $filteredProjects = collect([]);
+        foreach ($projects as $project) {
+            if($this->canInviteTo($project->id)) {
+                $filteredProjects->push($project);
+            }
+        }
+        return $filteredProjects;
+    }
+
 
     public function skills() {
         return $this->belongsToMany('App\Skill');

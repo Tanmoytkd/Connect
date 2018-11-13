@@ -10,6 +10,7 @@
 @section('leftSideBar')
     @if($sectionId==null)
         @php
+            $user = Auth::user();
             $person = User::findOrFail($userId);
             $isMyself = ($person->id == Auth::user()->id);
             $coverPath = $person->getCoverPicPath();
@@ -48,26 +49,66 @@
 @endsection
 
 @section('mainContent')
-    {{Form::open(array('action' => 'GeneralController@makeInvitation', 'method'=>'post', 'files' => true))}}
-    <ul>
-        <li>
-            <h2 class="lead text-center">Invite Users</h2><br>
-        </li>
-        <li>
-            <h2>User Id:<span>&nbsp;&nbsp;</span></h2>
+    <table class="table">
+        <tr>
+            <td class="text-center">Invite {{User::find($userId)->name}}</td>
+        </tr>
+        <tr>
+            <td></td>
+        </tr>
+    </table>
 
-            <input type="text" name="userId" value="{{$userId}}">
+
+    <ul class="nav nav-tabs justify-content-center" role="tablist" style="margin-bottom: 27px">
+        <li class="nav-item">
+            <a class="nav-link active" data-toggle="tab" href="#projects">Projects</a>
         </li>
-        <br><br>
-        <li>
-            <h2>Project or Section Id:<span>&nbsp;&nbsp;</span></h2>
-            <input type="text" name="sectionId" value="{{$sectionId}}">
-        </li>
-        <br><br>
-        <li>
-            <input type="submit" class="btn btn-success" name="inviteBtn"
-                   value="Invite">
+        <li class="nav-item">
+            <a class="nav-link" data-toggle="tab" href="#sections">Sections</a>
         </li>
     </ul>
-    {{Form::close()}}
+
+
+    <!-- Tab panes -->
+    <div class="tab-content">
+        <div id="projects" class="container tab-pane active"><br>
+            @php
+                $projects = $user->getInvitableProjects();
+            @endphp
+
+            @include('sectionInvitation')
+        </div>
+        <div id="sections" class="container tab-pane fade"><br>
+            @php
+                $projects = $user->getInvitableSections();
+            @endphp
+
+            @include('sectionInvitation')
+        </div>
+    </div>
+
+
+
+    {{--{{Form::open(array('action' => 'GeneralController@makeInvitation', 'method'=>'post', 'files' => true))}}--}}
+    {{--<ul>--}}
+    {{--<li>--}}
+    {{--<h2 class="lead text-center">Invite Users</h2><br>--}}
+    {{--</li>--}}
+    {{--<li>--}}
+    {{--<h2>User Id:<span>&nbsp;&nbsp;</span></h2>--}}
+
+    {{--<input type="text" name="userId" value="{{$userId}}">--}}
+    {{--</li>--}}
+    {{--<br><br>--}}
+    {{--<li>--}}
+    {{--<h2>Project or Section Id:<span>&nbsp;&nbsp;</span></h2>--}}
+    {{--<input type="text" name="sectionId" value="{{$sectionId}}">--}}
+    {{--</li>--}}
+    {{--<br><br>--}}
+    {{--<li>--}}
+    {{--<input type="submit" class="btn btn-success" name="inviteBtn"--}}
+    {{--value="Invite">--}}
+    {{--</li>--}}
+    {{--</ul>--}}
+    {{--{{Form::close()}}--}}
 @endSection
