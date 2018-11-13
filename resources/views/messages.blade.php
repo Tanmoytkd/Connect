@@ -37,8 +37,8 @@
                                         if($msg!=null)
                                             $msgContent = $msg->content;
                                         else $msgContent = "";
-                                        if(strlen($msgContent)>40) {
-                                            $msgContent = trim(substr($msgContent, 0, 20)).'...';
+                                        if(strlen($msgContent)>27) {
+                                            $msgContent = trim(substr($msgContent, 0, 27)).'...';
                                         }
                                         $name = $activeSender->name;
                                         $profile_pic = asset($activeSender->info->profile_pic_path);
@@ -73,8 +73,8 @@
                                         if($sender->id==$activeSender->id) continue;
                                         $msg =  $user->getLastMessage($sender->id);
                                         $msgContent = $msg->content;
-                                        if(strlen($msgContent)>40) {
-                                            $msgContent = trim(substr($msgContent, 0, 20)).'...';
+                                        if(strlen($msgContent)>27) {
+                                            $msgContent = trim(substr($msgContent, 0, 27)).'...';
                                         }
                                         if($msg->seen_status==0 && $msg->sender_id!=$user->id) {
                                             $msgContent = '<b style="color: darkslategrey; font-weight:bold">'.$msgContent.'</b>';

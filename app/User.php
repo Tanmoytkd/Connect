@@ -90,7 +90,7 @@ class User extends Authenticatable
 
     public function hasPostPermission($sectionId) {
         $sec = Section::find($sectionId);
-        if($sec->isProject() && $this->isAdmin($sectionId)) return true;
+        if($sec->isProject() && ($this->isAdmin($sectionId) || $this->isManager($sectionId))) return true;
         if($sec->isChildSection() && $this->isMember($sectionId)) return true;
         return false;
     }
