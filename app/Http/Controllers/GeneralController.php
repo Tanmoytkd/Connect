@@ -39,7 +39,13 @@ class GeneralController extends Controller
             Auth::user()->invite($sectionId, $userId);
             return redirect(Route('project.show', ['id'=>$sectionId]));
         }
-        return view('invitePage', compact(['userId', 'sectionId']));
+        if(!isset($userId)) {
+            return view('inviteUser', compact(['userId', 'sectionId']));
+        }
+        if(!isset($sectionId)) {
+            return view('inviteToSection', compact(['userId', 'sectionId']));
+        }
+
         return redirect()->back();
     }
 

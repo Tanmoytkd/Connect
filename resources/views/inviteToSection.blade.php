@@ -55,6 +55,7 @@
         </li>
         <li>
             <h2>User Id:<span>&nbsp;&nbsp;</span></h2>
+
             <input type="text" name="userId" value="{{$userId}}">
         </li>
         <br><br>

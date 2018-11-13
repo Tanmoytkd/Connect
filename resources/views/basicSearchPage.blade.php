@@ -92,8 +92,8 @@
                                 @endif
                             </li>
                             {{--<li><a href="{{Route('follow', ['sectionId'=>$person->getUserSection()->id])}}" title="" class="followw" style="margin: 5px">Follow</a></li>--}}
-                            <li><a href="#" title="" class="hire" style="margin: 5px">Invite</a></li>
-                            <li><a href="#" title="" class="envlp bg-success" style="margin: 5px"><img
+                            <li><a href="{{Route('invite', ['userId'=>$currentUser->id])}}" title="" class="hire" style="margin: 5px">Invite</a></li>
+                            <li><a href="{{Route('messages.show', [$currentUser->id])}}" title="" class="envlp bg-success" style="margin: 5px"><img
                                         src="http://connect.com/images/old/envelop.png" alt=""> Message</a></li>
                         </ul>
                         <a href="{{Route('profile.show', ['id'=>$currentUser->id])}}" title="" class="btn btn-light "

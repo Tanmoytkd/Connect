@@ -65,23 +65,23 @@
 </div><!--billing-method end-->
 
 <script>
-    function buildForm(index, user) {
-        var ret =  "<tr><td><table><tr> <form action=\"{{Route('sendMoney')}}\" method=\"post\">" +
-                "<input type=\"hidden\" name=\"receiver_id\" value=\""+ user.id +"\" >" +
-                "<td scope=\"row\">" +
-                    " <img src=\"" + user.profile_pic_path + "\" style='width: 50px;height: 50px;object-fit: cover; border-radius: 100px'>" +
-                "</td> " +
-                "<td>" + user.name + "<br><span class='small' style='color: darkslategray;'>" + user.info.info + "<span></td> " +
-                "<td>" +
-                "<input type=\"number\" style=\"line-height:2em;width:4em\" placeholder=\"Amount\" value=\""+$('#amount').val()+"\" >"+
-                "</td> " +
-                "<td>" +
-                "<button class=\"btn btn-success\" type=\"submit\">Send</button>"+
-                "</td>" +
-            "</form> </tr></table></td></tr>";
-        // alert(ret);
-        return ret;
-    }
+    {{--function buildForm(index, user) {--}}
+        {{--var ret =  "<tr><td><table><tr> <form action=\"{{Route('sendMoney')}}\" method=\"post\">" +--}}
+                {{--"<input type=\"hidden\" name=\"receiver_id\" value=\""+ user.id +"\" >" +--}}
+                {{--"<td scope=\"row\">" +--}}
+                    {{--" <img src=\"" + user.profile_pic_path + "\" style='width: 50px;height: 50px;object-fit: cover; border-radius: 100px'>" +--}}
+                {{--"</td> " +--}}
+                {{--"<td>" + user.name + "<br><span class='small' style='color: darkslategray;'>" + user.info.info + "<span></td> " +--}}
+                {{--"<td>" +--}}
+                {{--"<input type=\"number\" style=\"line-height:2em;width:4em\" placeholder=\"Amount\" value=\""+$('#amount').val()+"\" >"+--}}
+                {{--"</td> " +--}}
+                {{--"<td>" +--}}
+                {{--"<button class=\"btn btn-success\" type=\"submit\">Send</button>"+--}}
+                {{--"</td>" +--}}
+            {{--"</form> </tr></table></td></tr>";--}}
+        {{--// alert(ret);--}}
+        {{--return ret;--}}
+    {{--}--}}
 
     $(document).ready(function () {
         $('#searchButton').click(function () {

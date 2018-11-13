@@ -182,7 +182,7 @@ Route::get('kick/{sectionId}/{userId}', function ($sectionId, $userId) {
     return redirect()->back();
 })->name('kick');
 
-Route::get('invite/{userId?}', 'GeneralController@invite')->name('invite');
+Route::get('/invite/{userId?}', 'GeneralController@invite')->name('invite');
 Route::get('inviteToSection/{sectionId?}', 'GeneralController@inviteToSection')->name('inviteToSection');
 Route::any('makeInvitation', 'GeneralController@makeInvitation')->name('makeInvitation');
 

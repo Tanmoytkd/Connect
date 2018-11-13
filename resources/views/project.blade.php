@@ -241,7 +241,7 @@
                                     @endif
                                 </li>
                                 {{--<li><a href="{{Route('follow', ['sectionId'=>$person->getUserSection()->id])}}" title="" class="followw" style="margin: 5px">Follow</a></li>--}}
-                                <li><a href="#" title="" class="hire" style="margin: 5px">Invite</a></li>
+                                <li><a href="{{Route('invite', ['userId'=>$currentMember->id])}}" title="" class="hire" style="margin: 5px">Invite</a></li>
                                 <li><a href="{{Route('messages.show', [$currentMember->id])}}" title=""
                                        class="envlp bg-success" style="margin: 5px"><img
                                             src="http://connect.com/images/old/envelop.png" alt=""> Message</a></li>
