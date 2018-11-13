@@ -158,7 +158,7 @@
                                             echo
                                             '<div class="main-message-box ta-right">
                                                 <div class="message-dt" style="float:right;">
-                                                    <div class="message-inner-dt">
+                                                    <div class="message-inner-dt" style="margin-left:10px;">
                                                         <p>'.$currentMessage->content.'</p>
                                                     </div><!--message-inner-dt end-->
                                                     <span>'.$currentMessage->created_at->diffForHumans().'</span>

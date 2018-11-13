@@ -194,3 +194,8 @@ Route::get('clearNotifications', function () {
     Auth::user()->notifications()->delete();
     return redirect()->back();
 })->name('clearNotifications');
+
+Route::get('userByName/{name}', function($name) {
+    $users = User::where('name', 'like', '%'.$name.'%')->get();
+    return json_encode($users);
+});
