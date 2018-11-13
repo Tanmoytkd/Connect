@@ -16,12 +16,14 @@ $user = Auth::user();
                 <span><img src="{{asset('images/old/clock.png')}}" alt=""  >{{$post->updated_at->diffForHumans()}}</span>
             </div>
         </div>
-        @if($post->writer->id==$user->id)
+        @if(($post->writer->id==$user->id) || ($user->isManager($post->section_id)) || ($user->isAdmin($post->section_id)))
         <div class="ed-opts">
             <a href="#" title="" class="ed-opts-open"><i
                     class="fa fa-ellipsis-v"></i></a>
             <ul class="ed-options">
+                @if($post->writer->id==$user->id)
                 <li><a href="{{Route('post.edit', [$post->id])}}" title="">Edit Post</a></li>
+                @endif
                 <li>
                     {{ Form::open(['action' => ['PostController@destroy', $post->id], 'method' => 'delete']) }}
                         @csrf
