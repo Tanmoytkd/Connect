@@ -197,5 +197,8 @@ Route::get('clearNotifications', function () {
 
 Route::get('userByName/{name}', function($name) {
     $users = User::where('name', 'like', '%'.$name.'%')->get();
+    foreach ($users as $user) {
+        $user->profile_pic_path = $user->getProfilePicPath();
+    }
     return json_encode($users);
 });

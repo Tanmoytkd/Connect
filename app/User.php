@@ -429,7 +429,12 @@ class User extends Authenticatable
 
         $posts = Post::whereIn('section_id', $ids)->latest()->skip($skips)->take($postEachPage)->get()->all();
 
-        return $posts;
+        $filteredPosts = collect([]);
+        foreach ($posts as $post) {
+            if ($post->privacy_level == "private" && !$this->isMember($post->section_id)) continue;
+            $filteredPosts->push($post);
+        }
+        return $filteredPosts;
     }
 
     public function hasUserAcceptPermission($sectionId) {

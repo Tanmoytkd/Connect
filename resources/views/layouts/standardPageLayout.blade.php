@@ -53,20 +53,10 @@
                         <li><a href="#" title="">Language</a></li>
                         <li><a href="#" title="">Copyright Policy</a></li>
                     </ul>
-                    <p><img src="images/copy-icon2.png" alt="">Copyright 2018</p>
-                    <img class="fl-rgt" src="images/logo2.png" alt="">
+                    <p><img src="{{asset('images/old/copy-icon2.png')}}" alt="">Copyright 2018</p>
                 </div>
             </div>
         </footer><!--footer end-->
 
     </div><!--theme-layout end-->
-
-
-
-    <script type="text/javascript" src="js/jquery.min.js"></script>
-    <script type="text/javascript" src="js/popper.js"></script>
-    <script type="text/javascript" src="js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="js/flatpickr.min.js"></script>
-    <script type="text/javascript" src="lib/slick/slick.min.js"></script>
-    <script type="text/javascript" src="js/script.js"></script>
 @endsection
