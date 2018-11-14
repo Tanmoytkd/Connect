@@ -406,6 +406,7 @@ class User extends Authenticatable
     public function sendMoney($userId, $amount) {
         $receiver = User::findOrFail($userId);
         try {
+            if($userId==$this->id) return false;
             $myInfo = $this->info;
             $receiverInfo = $receiver->info;
             if($myInfo->balance >= $amount) {

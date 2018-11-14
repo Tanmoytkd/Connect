@@ -14,7 +14,7 @@
                         $searchQuery = "";
                         if(isset($_GET['search'])) $searchQuery = $_GET['search'];
                     @endphp
-                    <input type="text" name="search" placeholder="Search..." value="{{$searchQuery}}">
+                    <input type="text" name="search" placeholder="Search now to find all..." value="{{$searchQuery}}">
                     <button type="submit"><i class="fa fa-search"></i></button>
                 </form>
             </div>
