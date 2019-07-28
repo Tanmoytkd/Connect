@@ -26,7 +26,7 @@ class AddSectionIdInUserInfosTable extends Migration
     public function down()
     {
         Schema::table('user_infos', function (Blueprint $table) {
-            //
+            $table->dropColumn('section_id');
         });
     }
 }

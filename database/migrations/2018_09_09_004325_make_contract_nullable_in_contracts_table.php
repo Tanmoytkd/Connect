@@ -26,7 +26,7 @@ class MakeContractNullableInContractsTable extends Migration
     public function down()
     {
         Schema::table('contracts', function (Blueprint $table) {
-            //
+            $table->text('contract')->nullable(false)->change();
         });
     }
 }

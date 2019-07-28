@@ -26,7 +26,7 @@ class AddLogoAndDescriptionInSectionsTable extends Migration
      */
     public function down()
     {
-        Schema::table('section', function (Blueprint $table) {
+        Schema::table('sections', function (Blueprint $table) {
             $table->dropColumn(['logo_path', 'description']);
         });
     }

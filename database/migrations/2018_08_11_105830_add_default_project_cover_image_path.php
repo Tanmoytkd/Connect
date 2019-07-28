@@ -26,7 +26,7 @@ class AddDefaultProjectCoverImagePath extends Migration
     public function down()
     {
         Schema::table('sections', function (Blueprint $table) {
-            //
+            $table->dropColumn('section_image_path');
         });
     }
 }
