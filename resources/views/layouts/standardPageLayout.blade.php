@@ -53,7 +53,7 @@
                         <li><a href="#" title="">Language</a></li>
                         <li><a href="#" title="">Copyright Policy</a></li>
                     </ul>
-                    <p><img src="{{asset('images/old/copy-icon2.png')}}" alt="">Copyright 2018</p>
+                    <p><img src="{{asset('images/old/copy-icon2.png')}}" alt="">Copyright 2019</p>
                 </div>
             </div>
         </footer><!--footer end-->

@@ -34,7 +34,7 @@
 
         <div id="logo" class="pull-left">
             <h1>
-                <a href="http://connect.com" class="scrollto">C<img src="images/connect-logo-2.png" style="height: 1em; ">nnect</a>
+                <a href="/" class="scrollto">C<img src="images/connect-logo-2.png" style="height: 1em; ">nnect</a>
             </h1>
         </div>
 
@@ -67,7 +67,7 @@
                     <div class="carousel-container">
                         <div class="carousel-content">
                             <h2>Start building your new ideas</h2>
-                            <p> We provide you with the perfect collaboration platform to lessen your workload and get creative.</p>
+                            <p> We provide you with the perfect collaboration platform to lessen your workload and get creative. <br> <b>Photo by ROOM on Unsplash </b></p>
                             @guest
                                 <a href="{{route('register')}}" class="btn-get-started scrollto">Get Started</a>
                             @else
@@ -81,7 +81,7 @@
                     <div class="carousel-container">
                         <div class="carousel-content">
                             <h2>No worries about initial investment</h2>
-                            <p>We provide you with the perfect collaboration platform to lessen your workload and get creative.</p>
+                            <p>We provide you with the perfect collaboration platform to lessen your workload and get creative. <br> <b>Photo by Headway on Unsplash</b></p>
                             <a href="{{route('register')}}" class="btn-get-started scrollto">Get Started</a>
                         </div>
                     </div>
@@ -91,7 +91,7 @@
                     <div class="carousel-container">
                         <div class="carousel-content">
                             <h2>Show your skills</h2>
-                            <p>We provide you with the perfect collaboration platform to lessen your workload and get creative.</p>
+                            <p>We provide you with the perfect collaboration platform to lessen your workload and get creative. <br> <b>Photo by STIL on Unsplash</b></p>
                             <a href="{{route('register')}}" class="btn-get-started scrollto">Get Started</a>
                         </div>
                     </div>
@@ -101,7 +101,7 @@
                     <div class="carousel-container">
                         <div class="carousel-content">
                             <h2>Share risk and profit</h2>
-                            <p>We provide you with the perfect collaboration platform to lessen your workload and get creative.</p>
+                            <p>We provide you with the perfect collaboration platform to lessen your workload and get creative. <br> <b>Photo by Annie Spratt on Unsplash</b></p>
                             <a href="{{route('register')}}" class="btn-get-started scrollto">Get Started</a>
                         </div>
                     </div>
@@ -111,7 +111,7 @@
                     <div class="carousel-container">
                         <div class="carousel-content">
                             <h2>Add awesome projects to your personal portfolio</h2>
-                            <p>We provide you with the perfect collaboration platform to lessen your workload and get creative.</p>
+                            <p>We provide you with the perfect collaboration platform to lessen your workload and get creative. <br> <b>Photo by Dylan Gillis on Unsplash</b></p>
                             <a href="{{route('register')}}" class="btn-get-started scrollto">Get Started</a>
                         </div>
                     </div>
@@ -161,620 +161,6 @@
             </div>
         </div>
     </section><!-- #featured-services -->
-
-    <!--
-      About Us Section
-   -->
-    <section id="about">
-        <div class="container">
-
-            <header class="section-header">
-                <h3>About Us</h3>
-                <p>We present you the idea of Ownership Shared Development (OSD) where developers get
-                    a partial ownership of that particular project and earn a portion of subsequent profit that project makes.</p>
-            </header>
-
-            <div class="row about-cols">
-
-                <div class="col-md-4 wow fadeInUp">
-                    <div class="about-col">
-                        <div class="img">
-                            <img src="images/about-mission.jpg" alt="" class="img-fluid">
-                            <div class="icon"><i class="ion-ios-speedometer-outline"></i></div>
-                        </div>
-                        <h2 class="title"><a href="#">Our Mission</a></h2>
-                        <p>
-                            We provide you with the perfect collaboration platform to lessen your workload and get creative.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="col-md-4 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="about-col">
-                        <div class="img">
-                            <img src="images/about-plan.jpg" alt="" class="img-fluid">
-                            <div class="icon"><i class="ion-ios-list-outline"></i></div>
-                        </div>
-                        <h2 class="title"><a href="#">Our Plan</a></h2>
-                        <p>
-                            We provide you with the perfect collaboration platform to lessen your workload and get creative.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="col-md-4 wow fadeInUp" data-wow-delay="0.2s">
-                    <div class="about-col">
-                        <div class="img">
-                            <img src="images/about-vision.jpg" alt="" class="img-fluid">
-                            <div class="icon"><i class="ion-ios-eye-outline"></i></div>
-                        </div>
-                        <h2 class="title"><a href="#">Our Vision</a></h2>
-                        <p>
-                            We provide you with the perfect collaboration platform to lessen your workload and get creative.
-                        </p>
-                    </div>
-                </div>
-
-            </div>
-
-        </div>
-    </section>
-
-    <section id="services">
-        <div class="container">
-
-            <header class="section-header wow fadeInUp">
-                <h3>Services</h3>
-                <p> We provide you with the perfect collaboration platform to lessen your workload and get creative.</p>
-            </header>
-
-            <div class="row">
-
-                <div class="col-lg-4 col-md-6 box wow bounceInUp" data-wow-duration="1.4s">
-                    <div class="icon"><i class="ion-ios-analytics-outline"></i></div>
-                    <h4 class="title"><a href="">Create projects</a></h4>
-                    <p class="description">We provide you with the perfect collaboration platform to lessen your workload and get creative.</p>
-                </div>
-                <div class="col-lg-4 col-md-6 box wow bounceInUp" data-wow-duration="1.4s">
-                    <div class="icon"><i class="ion-ios-bookmarks-outline"></i></div>
-                    <h4 class="title"><a href="">Collaborate with others</a></h4>
-                    <p class="description">We provide you with the perfect collaboration platform to lessen your workload and get creative.</p>
-                </div>
-                <div class="col-lg-4 col-md-6 box wow bounceInUp" data-wow-duration="1.4s">
-                    <div class="icon"><i class="ion-ios-paper-outline"></i></div>
-                    <h4 class="title"><a href="">Search Projects based on categories</a></h4>
-                    <p class="description">We provide you with the perfect collaboration platform to lessen your workload and get creative.</p>
-                </div>
-                <div class="col-lg-4 col-md-6 box wow bounceInUp" data-wow-delay="0.1s" data-wow-duration="1.4s">
-                    <div class="icon"><i class="ion-ios-speedometer-outline"></i></div>
-                    <h4 class="title"><a href="">Team communication</a></h4>
-                    <p class="description">We provide you with the perfect collaboration platform to lessen your workload and get creative.</p>
-                </div>
-                <div class="col-lg-4 col-md-6 box wow bounceInUp" data-wow-delay="0.1s" data-wow-duration="1.4s">
-                    <div class="icon"><i class="ion-ios-barcode-outline"></i></div>
-                    <h4 class="title"><a href="">Ensure easier project management</a></h4>
-                    <p class="description">We provide you with the perfect collaboration platform to lessen your workload and get creative.</p>
-                </div>
-                <div class="col-lg-4 col-md-6 box wow bounceInUp" data-wow-delay="0.1s" data-wow-duration="1.4s">
-                    <div class="icon"><i class="ion-ios-people-outline"></i></div>
-                    <h4 class="title"><a href="">Default payment method</a></h4>
-                    <p class="description">We provide you with the perfect collaboration platform to lessen your workload and get creative.</p>
-                </div>
-
-            </div>
-
-        </div>
-    </section><!-- #services -->
-
-    <!--==========================
-      Call To Action Section
-    ============================-->
-    <!--<section id="call-to-action" class="wow fadeIn">
-      <div class="container text-center">
-        <h3>Call To Action</h3>
-        <p> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        <a class="cta-btn" href="#">Call To Action</a>
-      </div>
-    </section><!-- #call-to-action -->
-
-    <!--==========================
-      Skills Section
-    ============================-->
-    <section id="skills">
-        <div class="container">
-
-            <header class="section-header">
-                <h3>Our Skills</h3>
-                <p>We provide you with the perfect collaboration platform to lessen your workload and get creative.</p>
-            </header>
-
-            <div class="skills-content">
-
-                <div class="progress">
-                    <div class="progress-bar bg-success" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
-                        <span class="skill">HTML <i class="val">100%</i></span>
-                    </div>
-                </div>
-
-                <div class="progress">
-                    <div class="progress-bar bg-info" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">
-                        <span class="skill">CSS <i class="val">90%</i></span>
-                    </div>
-                </div>
-
-                <div class="progress">
-                    <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
-                        <span class="skill">JavaScript <i class="val">75%</i></span>
-                    </div>
-                </div>
-
-                <div class="progress">
-                    <div class="progress-bar bg-danger" role="progressbar" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100">
-                        <span class="skill">Photoshop <i class="val">55%</i></span>
-                    </div>
-                </div>
-
-            </div>
-
-        </div>
-    </section>
-
-    <!--==========================
-      Facts Section
-    ============================-->
-    <section id="facts"  class="wow fadeIn">
-        <div class="container">
-
-            <header class="section-header">
-                <h3>Facts</h3>
-                <p>We provide you with the perfect collaboration platform to lessen your workload and get creative.</p>
-            </header>
-
-            <div class="row counters">
-
-                <div class="col-lg-3 col-6 text-center">
-                    <span data-toggle="counter-up">274</span>
-                    <p>Clients</p>
-                </div>
-
-                <div class="col-lg-3 col-6 text-center">
-                    <span data-toggle="counter-up">421</span>
-                    <p>Projects</p>
-                </div>
-
-                <div class="col-lg-3 col-6 text-center">
-                    <span data-toggle="counter-up">1,364</span>
-                    <p>Hours Of Support</p>
-                </div>
-
-                <div class="col-lg-3 col-6 text-center">
-                    <span data-toggle="counter-up">18</span>
-                    <p>Hard Workers</p>
-                </div>
-
-            </div>
-
-
-
-        </div>
-    </section><!-- #facts -->
-
-    <!--==========================
-      Portfolio Section
-    ============================-->
-    <section id="portfolio"  class="section-bg" >
-        <div class="container">
-
-            <header class="section-header">
-                <h3 class="section-title">Our Portfolio</h3>
-            </header>
-
-            <div class="row">
-                <div class="col-lg-12">
-                    <ul id="portfolio-flters">
-                        <li data-filter="*" class="filter-active">All</li>
-                        <li data-filter=".filter-app">App</li>
-                        <li data-filter=".filter-card">Card</li>
-                        <li data-filter=".filter-web">Web</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="row portfolio-container">
-
-                <div class="col-lg-4 col-md-6 portfolio-item filter-app wow fadeInUp">
-                    <div class="portfolio-wrap">
-                        <figure>
-                            <img src="images/portfolio/app1.jpg" class="img-fluid" alt="">
-                            <a href="images/portfolio/app1.jpg" data-lightbox="portfolio" data-title="App 1" class="link-preview" title="Preview"><i class="ion ion-eye"></i></a>
-                            <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
-                        </figure>
-
-                        <div class="portfolio-info">
-                            <h4><a href="#">App 1</a></h4>
-                            <p>App</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 portfolio-item filter-web wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="portfolio-wrap">
-                        <figure>
-                            <img src="images/portfolio/web3.jpg" class="img-fluid" alt="">
-                            <a href="images/portfolio/web3.jpg" class="link-preview" data-lightbox="portfolio" data-title="Web 3" title="Preview"><i class="ion ion-eye"></i></a>
-                            <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
-                        </figure>
-
-                        <div class="portfolio-info">
-                            <h4><a href="#">Web 3</a></h4>
-                            <p>Web</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 portfolio-item filter-app wow fadeInUp" data-wow-delay="0.2s">
-                    <div class="portfolio-wrap">
-                        <figure>
-                            <img src="images/portfolio/app2.jpg" class="img-fluid" alt="">
-                            <a href="images/portfolio/app2.jpg" class="link-preview" data-lightbox="portfolio" data-title="App 2" title="Preview"><i class="ion ion-eye"></i></a>
-                            <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
-                        </figure>
-
-                        <div class="portfolio-info">
-                            <h4><a href="#">App 2</a></h4>
-                            <p>App</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 portfolio-item filter-card wow fadeInUp">
-                    <div class="portfolio-wrap">
-                        <figure>
-                            <img src="images/portfolio/card2.jpg" class="img-fluid" alt="">
-                            <a href="images/portfolio/card2.jpg" class="link-preview" data-lightbox="portfolio" data-title="Card 2" title="Preview"><i class="ion ion-eye"></i></a>
-                            <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
-                        </figure>
-
-                        <div class="portfolio-info">
-                            <h4><a href="#">Card 2</a></h4>
-                            <p>Card</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 portfolio-item filter-web wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="portfolio-wrap">
-                        <figure>
-                            <img src="images/portfolio/web2.jpg" class="img-fluid" alt="">
-                            <a href="images/portfolio/web2.jpg" class="link-preview" data-lightbox="portfolio" data-title="Web 2" title="Preview"><i class="ion ion-eye"></i></a>
-                            <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
-                        </figure>
-
-                        <div class="portfolio-info">
-                            <h4><a href="#">Web 2</a></h4>
-                            <p>Web</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 portfolio-item filter-app wow fadeInUp" data-wow-delay="0.2s">
-                    <div class="portfolio-wrap">
-                        <figure>
-                            <img src="images/portfolio/app3.jpg" class="img-fluid" alt="">
-                            <a href="images/portfolio/app3.jpg" class="link-preview" data-lightbox="portfolio" data-title="App 3" title="Preview"><i class="ion ion-eye"></i></a>
-                            <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
-                        </figure>
-
-                        <div class="portfolio-info">
-                            <h4><a href="#">App 3</a></h4>
-                            <p>App</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 portfolio-item filter-card wow fadeInUp">
-                    <div class="portfolio-wrap">
-                        <figure>
-                            <img src="images/portfolio/card1.jpg" class="img-fluid" alt="">
-                            <a href="images/portfolio/card1.jpg" class="link-preview" data-lightbox="portfolio" data-title="Card 1" title="Preview"><i class="ion ion-eye"></i></a>
-                            <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
-                        </figure>
-
-                        <div class="portfolio-info">
-                            <h4><a href="#">Card 1</a></h4>
-                            <p>Card</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 portfolio-item filter-card wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="portfolio-wrap">
-                        <figure>
-                            <img src="images/portfolio/card3.jpg" class="img-fluid" alt="">
-                            <a href="images/portfolio/card3.jpg" class="link-preview" data-lightbox="portfolio" data-title="Card 3" title="Preview"><i class="ion ion-eye"></i></a>
-                            <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
-                        </figure>
-
-                        <div class="portfolio-info">
-                            <h4><a href="#">Card 3</a></h4>
-                            <p>Card</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 portfolio-item filter-web wow fadeInUp" data-wow-delay="0.2s">
-                    <div class="portfolio-wrap">
-                        <figure>
-                            <img src="images/portfolio/web1.jpg" class="img-fluid" alt="">
-                            <a href="images/portfolio/web1.jpg" class="link-preview" data-lightbox="portfolio" data-title="Web 1" title="Preview"><i class="ion ion-eye"></i></a>
-                            <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
-                        </figure>
-
-                        <div class="portfolio-info">
-                            <h4><a href="#">Web 1</a></h4>
-                            <p>Web</p>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-
-        </div>
-    </section><!-- #portfolio -->
-
-    <!--==========================
-      Clients Section
-    ============================
-    <section id="clients" class="wow fadeInUp">
-      <div class="container">
-
-        <header class="section-header">
-          <h3>Our Clients</h3>
-        </header>
-
-        <div class="owl-carousel clients-carousel">
-          <img src="images/clients/client-1.png" alt="">
-          <img src="images/clients/client-2.png" alt="">
-          <img src="images/clients/client-3.png" alt="">
-          <img src="images/clients/client-4.png" alt="">
-          <img src="images/clients/client-5.png" alt="">
-          <img src="images/clients/client-6.png" alt="">
-          <img src="images/clients/client-7.png" alt="">
-          <img src="images/clients/client-8.png" alt="">
-        </div>
-
-      </div>
-    </section><!-- #clients -->
-
-    <!--==========================
-      Clients Section
-    ============================-->
-    <!--<section id="testimonials" class="section-bg wow fadeInUp">
-        <div class="container">
-
-            <header class="section-header">
-                <h3>Testimonials</h3>
-            </header>
-
-            <div class="owl-carousel testimonials-carousel">
-
-                <div class="testimonial-item">
-                    <img src="images/testimonial-1.jpg" class="testimonial-img" alt="">
-                    <h3>Saul Goodman</h3>
-                    <h4>Ceo &amp; Founder</h4>
-                    <p>
-                        <img src="images/quote-sign-left.png" class="quote-sign-left" alt="">
-                        Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
-                        <img src="images/quote-sign-right.png" class="quote-sign-right" alt="">
-                    </p>
-                </div>
-
-                <div class="testimonial-item">
-                    <img src="images/testimonial-2.jpg" class="testimonial-img" alt="">
-                    <h3>Sara Wilsson</h3>
-                    <h4>Designer</h4>
-                    <p>
-                        <img src="images/quote-sign-left.png" class="quote-sign-left" alt="">
-                        Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.
-                        <img src="images/quote-sign-right.png" class="quote-sign-right" alt="">
-                    </p>
-                </div>
-
-                <div class="testimonial-item">
-                    <img src="images/testimonial-3.jpg" class="testimonial-img" alt="">
-                    <h3>Jena Karlis</h3>
-                    <h4>Store Owner</h4>
-                    <p>
-                        <img src="images/quote-sign-left.png" class="quote-sign-left" alt="">
-                        Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim tempor labore quem eram duis noster aute amet eram fore quis sint minim.
-                        <img src="images/quote-sign-right.png" class="quote-sign-right" alt="">
-                    </p>
-                </div>
-
-                <div class="testimonial-item">
-                    <img src="images/testimonial-4.jpg" class="testimonial-img" alt="">
-                    <h3>Matt Brandon</h3>
-                    <h4>Freelancer</h4>
-                    <p>
-                        <img src="images/quote-sign-left.png" class="quote-sign-left" alt="">
-                        Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat minim velit minim dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore labore illum veniam.
-                        <img src="images/quote-sign-right.png" class="quote-sign-right" alt="">
-                    </p>
-                </div>
-
-                <div class="testimonial-item">
-                    <img src="images/testimonial-5.jpg" class="testimonial-img" alt="">
-                    <h3>John Larson</h3>
-                    <h4>Entrepreneur</h4>
-                    <p>
-                        <img src="images/quote-sign-left.png" class="quote-sign-left" alt="">
-                        Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore nisi cillum quid.
-                        <img src="images/quote-sign-right.png" class="quote-sign-right" alt="">
-                    </p>
-                </div>
-
-            </div>
-
-        </div>
-    </section><!-- #testimonials -->
-
-    <!--==========================
-      Team Section
-    ============================-->
-    <section id="team">
-        <div class="container">
-            <div class="section-header wow fadeInUp">
-                <h3>Team</h3>
-                <p>WE STUDY IN SUST</p>
-            </div>
-
-            <div class="row">
-
-                <div class="col-lg-3 col-md-6 wow fadeInUp">
-                    <div class="member">
-                        <img src="images/team-1.jpg" class="img-fluid" alt="">
-                        <div class="member-info">
-                            <div class="member-info-content">
-                                <h4>Tanmoy Krishna Das</h4>
-                                <span>Chief Executive Officer</span>
-                                <div class="social">
-                                    <a href=""><i class="fa fa-twitter"></i></a>
-                                    <a href=""><i class="fa fa-facebook"></i></a>
-                                    <a href=""><i class="fa fa-google-plus"></i></a>
-                                    <a href=""><i class="fa fa-linkedin"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="member">
-                        <img src="images/team-2.jpg" class="img-fluid" alt="">
-                        <div class="member-info">
-                            <div class="member-info-content">
-                                <h4>Jamima Sultana</h4>
-                                <span>Product Manager</span>
-                                <div class="social">
-                                    <a href=""><i class="fa fa-twitter"></i></a>
-                                    <a href=""><i class="fa fa-facebook"></i></a>
-                                    <a href=""><i class="fa fa-google-plus"></i></a>
-                                    <a href=""><i class="fa fa-linkedin"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
-                    <div class="member">
-                        <img src="images/team-3.jpg" class="img-fluid" alt="">
-                        <div class="member-info">
-                            <div class="member-info-content">
-                                <h4>Tanmoy Krishna Das</h4>
-                                <span>CTO</span>
-                                <div class="social">
-                                    <a href=""><i class="fa fa-twitter"></i></a>
-                                    <a href=""><i class="fa fa-facebook"></i></a>
-                                    <a href=""><i class="fa fa-google-plus"></i></a>
-                                    <a href=""><i class="fa fa-linkedin"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                    <div class="member">
-                        <img src="images/team-4.jpg" class="img-fluid" alt="">
-                        <div class="member-info">
-                            <div class="member-info-content">
-                                <h4>Jamima Sultana</h4>
-                                <span>Accountant</span>
-                                <div class="social">
-                                    <a href=""><i class="fa fa-twitter"></i></a>
-                                    <a href=""><i class="fa fa-facebook"></i></a>
-                                    <a href=""><i class="fa fa-google-plus"></i></a>
-                                    <a href=""><i class="fa fa-linkedin"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-
-        </div>
-    </section><!-- #team -->
-
-    <!--==========================
-      Contact Section
-    ============================-->
-    <section id="contact" class="section-bg wow fadeInUp">
-        <div class="container">
-
-            <div class="section-header">
-                <h3>Contact Us</h3>
-                <p>Contact us so that we can help!</p>
-            </div>
-
-            <div class="row contact-info">
-
-                <div class="col-md-4">
-                    <div class="contact-address">
-                        <i class="ion-ios-location-outline"></i>
-                        <h3>Address</h3>
-                        <address>Shahjalal University of Science and technology,Sylhet.</address>
-                    </div>
-                </div>
-
-                <div class="col-md-4">
-                    <div class="contact-phone">
-                        <i class="ion-ios-telephone-outline"></i>
-                        <h3>Phone Number</h3>
-                        <p><a href="#">+8801111111111</a></p>
-                    </div>
-                </div>
-
-                <div class="col-md-4">
-                    <div class="contact-email">
-                        <i class="ion-ios-email-outline"></i>
-                        <h3>Email</h3>
-                        <p><a href="#">tanmoytkd@gmail.com</a></p>
-                    </div>
-                </div>
-
-            </div>
-
-            <div class="form">
-                <div id="sendmessage">Your message has been sent. Thank you!</div>
-                <div id="errormessage"></div>
-                <form action="" method="post" role="form" class="contactForm">
-                    <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
-                            <div class="validation"></div>
-                        </div>
-                        <div class="form-group col-md-6">
-                            <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
-                            <div class="validation"></div>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
-                        <div class="validation"></div>
-                    </div>
-                    <div class="form-group">
-                        <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
-                        <div class="validation"></div>
-                    </div>
-                    <div class="text-center"><button type="submit">Send Message</button></div>
-                </form>
-            </div>
-
-        </div>
-    </section><!-- #contact -->
-
 </main>
 
 <!--==========================
@@ -804,11 +190,9 @@
                 <div class="col-lg-3 col-md-6 footer-contact">
                     <h4>Contact Us</h4>
                     <p>
-                        00 Street <br>
-                        Sylhet 535022<br>
-                        Bangladesh <br>
-                        <strong>Phone:</strong> +018 5589 5548<br>
-                        <strong>Email:</strong> tanmoytkd@gmail.com<br>
+                        Shakir Hossain <br>
+                        <strong>Phone:</strong> +1-111-111-1111<br>
+                        <strong>Email:</strong> <a href="mailto:akshossain2060@gmail.com">akshossain2060@gmail.com</a> <br>
                     </p>
 
                     <div class="social-links">
@@ -838,18 +222,19 @@
         &copy; Copyright <strong>BizPage</strong>. All Rights Reserved
       </div>
       <div class="credits">
-        <!--
+
           All the links in the footer should remain intact.
           You can delete the links only if you purchased the pro version.
           Licensing information: https://bootstrapmade.com/license/
           Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=BizPage
-        -->
-    <!-- Best <a href="https://bootstrapmade.com/">Bootstrap Templates</a> by BootstrapMade
+
+     Best <a href="https://bootstrapmade.com/">Bootstrap Templates</a> by BootstrapMade
    </div>
  </div>
-</footer><!-- #footer -->
+</footer> -->
+<!-- #footer -->
 
-    <!--<a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>--!>
+    <!--<a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>-->
 
     <!-- JavaScript Libraries -->
     <script src="lib/jquery/jquery.min.js"></script>
